@@ -1,0 +1,698 @@
+<title>AML Alert Triage 使用手册</title>
+<style>
+  :root {
+    --paper:       #F4F6F9;
+    --card:        #FFFFFF;
+    --ink:         #13202E;
+    --body:        #35485C;
+    --muted:       #6C8299;
+    --rule:        #DBE3EB;
+    --rule-soft:   #EAEFF4;
+    --accent:      #1F3F6E;
+    --accent-soft: #4A6E9E;
+    --accent-wash: #E8EFF7;
+    --red:         #B00020;
+    --amber:       #A66300;
+    --green:       #2E7D4F;
+    --red-wash:    #FBEAEC;
+    --amber-wash:  #FBF1E2;
+    --green-wash:  #E7F3EC;
+    --ui-bg:       #EDF1F6;
+
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+            "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", sans-serif;
+    --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper:#0D141C; --card:#151F2A; --ink:#E7EEF5; --body:#BCCBD9; --muted:#7F97AC;
+      --rule:#26343F; --rule-soft:#1C2833; --accent:#7FA9DC; --accent-soft:#9CC0E8;
+      --accent-wash:#152435; --red:#E8798A; --amber:#D69A45; --green:#63BB8B;
+      --red-wash:#2B171C; --amber-wash:#2A2114; --green-wash:#152A20; --ui-bg:#1D2A36;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper:#0D141C; --card:#151F2A; --ink:#E7EEF5; --body:#BCCBD9; --muted:#7F97AC;
+    --rule:#26343F; --rule-soft:#1C2833; --accent:#7FA9DC; --accent-soft:#9CC0E8;
+    --accent-wash:#152435; --red:#E8798A; --amber:#D69A45; --green:#63BB8B;
+    --red-wash:#2B171C; --amber-wash:#2A2114; --green-wash:#152A20; --ui-bg:#1D2A36;
+  }
+  :root[data-theme="light"] {
+    --paper:#F4F6F9; --card:#FFFFFF; --ink:#13202E; --body:#35485C; --muted:#6C8299;
+    --rule:#DBE3EB; --rule-soft:#EAEFF4; --accent:#1F3F6E; --accent-soft:#4A6E9E;
+    --accent-wash:#E8EFF7; --red:#B00020; --amber:#A66300; --green:#2E7D4F;
+    --red-wash:#FBEAEC; --amber-wash:#FBF1E2; --green-wash:#E7F3EC; --ui-bg:#EDF1F6;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--body);
+    font-family: var(--sans);
+    font-size: 16.5px;
+    line-height: 1.85;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page { max-width: 54rem; margin: 0 auto; padding: 3.5rem 1.5rem 6rem; }
+
+  /* ---------- masthead ---------- */
+  .masthead { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 3.5rem; }
+  .kicker {
+    font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--accent-soft); margin: 0;
+  }
+  h1 {
+    font-size: clamp(1.9rem, 5vw, 2.6rem); font-weight: 700; letter-spacing: -0.02em;
+    line-height: 1.25; color: var(--ink); margin: 0; text-wrap: balance;
+  }
+  .lede { font-size: 1.08rem; color: var(--muted); margin: 0; max-width: 36em; }
+
+  /* ---------- chapters ---------- */
+  .chapter { margin-bottom: 3.25rem; }
+  .chapter-head {
+    display: flex; align-items: baseline; gap: 0.9rem;
+    border-bottom: 2px solid var(--accent); padding-bottom: 0.55rem; margin-bottom: 1.4rem;
+  }
+  .chapter-num {
+    font-family: var(--mono); font-size: 0.95rem; font-weight: 600;
+    color: var(--accent); flex: none; font-variant-numeric: tabular-nums;
+  }
+  h2 { font-size: 1.35rem; font-weight: 680; color: var(--ink); margin: 0; text-wrap: balance; }
+
+  h3 {
+    font-size: 1.02rem; font-weight: 680; color: var(--ink);
+    margin: 1.8rem 0 0.6rem; text-wrap: balance;
+  }
+  h3:first-child { margin-top: 0; }
+
+  p { margin: 0 0 1rem; max-width: 38em; }
+  p:last-child { margin-bottom: 0; }
+  .chapter > ul, .chapter > ol { max-width: 38em; }
+
+  ul, ol { margin: 0 0 1rem; padding-left: 1.4rem; }
+  li { margin-bottom: 0.5rem; max-width: 36em; }
+  li:last-child { margin-bottom: 0; }
+
+  strong { color: var(--ink); font-weight: 650; }
+
+  /* literal UI text the reader will see on screen */
+  .ui {
+    font-family: var(--mono); font-size: 0.85em; background: var(--ui-bg);
+    padding: 0.12em 0.4em; border-radius: 3px; color: var(--ink); white-space: nowrap;
+  }
+
+  /* ---------- traffic lights ---------- */
+  .bands { display: flex; flex-direction: column; gap: 0.6rem; margin: 1.2rem 0 1.4rem; }
+  .band {
+    display: flex; gap: 1rem; align-items: flex-start;
+    border-left: 4px solid; border-radius: 3px; padding: 0.85rem 1.1rem; background: var(--card);
+  }
+  .band.r { border-color: var(--red);   background: var(--red-wash); }
+  .band.a { border-color: var(--amber); background: var(--amber-wash); }
+  .band.g { border-color: var(--green); background: var(--green-wash); }
+  .band-name {
+    font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.08em; font-weight: 700;
+    flex: none; width: 8.5rem; padding-top: 0.18rem;
+  }
+  .band.r .band-name { color: var(--red); }
+  .band.a .band-name { color: var(--amber); }
+  .band.g .band-name { color: var(--green); }
+  .band-text { flex: 1; }
+  .band-text p { margin: 0; max-width: none; }
+
+  /* ---------- callouts ---------- */
+  .key {
+    background: var(--accent-wash); border-left: 4px solid var(--accent);
+    border-radius: 3px; padding: 1.1rem 1.3rem; margin: 1.4rem 0;
+  }
+  .key p { margin: 0 0 0.6rem; max-width: none; }
+  .key p:last-child { margin-bottom: 0; }
+  .key .tag {
+    font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.13em; text-transform: uppercase;
+    color: var(--accent); display: block; margin-bottom: 0.4rem;
+  }
+  .key strong { color: var(--ink); }
+
+  .warn {
+    background: var(--card); border: 1px solid var(--rule); border-left: 4px solid var(--amber);
+    border-radius: 3px; padding: 1.1rem 1.3rem; margin: 1.4rem 0;
+  }
+  .warn .tag {
+    font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.13em; text-transform: uppercase;
+    color: var(--amber); display: block; margin-bottom: 0.4rem;
+  }
+  .warn p { margin: 0 0 0.6rem; max-width: none; }
+  .warn p:last-child { margin-bottom: 0; }
+
+  /* ---------- steps ---------- */
+  .steps { counter-reset: s; list-style: none; padding: 0; margin: 1.2rem 0; }
+  .steps > li {
+    counter-increment: s; position: relative; padding-left: 2.6rem;
+    margin-bottom: 1.1rem; max-width: 38em;
+  }
+  .steps > li::before {
+    content: counter(s);
+    position: absolute; left: 0; top: 0.25rem;
+    width: 1.7rem; height: 1.7rem; border-radius: 50%;
+    background: var(--accent); color: var(--card);
+    font-family: var(--mono); font-size: 0.8rem; font-weight: 600;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  /* ---------- tables ---------- */
+  .table-wrap { overflow-x: auto; border: 1px solid var(--rule); border-radius: 4px; margin: 1.3rem 0; }
+  table { border-collapse: collapse; width: 100%; min-width: 30rem; background: var(--card); }
+  th, td { text-align: left; padding: 0.7rem 0.95rem; border-bottom: 1px solid var(--rule-soft);
+           font-size: 0.94rem; line-height: 1.6; vertical-align: top; }
+  th { background: var(--rule-soft); color: var(--muted); font-weight: 650;
+       font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase; }
+  tbody tr:last-child td { border-bottom: none; }
+  td.n { font-family: var(--mono); font-variant-numeric: tabular-nums; white-space: nowrap; color: var(--ink); }
+
+  /* ---------- screen extract ---------- */
+  .screen {
+    background: var(--card); border: 1px solid var(--rule); border-radius: 4px;
+    padding: 1.1rem 1.3rem; margin: 1.3rem 0; overflow-x: auto;
+  }
+  .screen pre {
+    margin: 0; font-family: var(--mono); font-size: 0.79rem; line-height: 1.7; color: var(--ink);
+  }
+  .screen .cap {
+    font-size: 0.8rem; color: var(--muted); margin: 0.8rem 0 0; padding-top: 0.7rem;
+    border-top: 1px dashed var(--rule); max-width: none;
+  }
+
+  /* ---------- do / don't ---------- */
+  .say { display: grid; gap: 1px; background: var(--rule); border: 1px solid var(--rule);
+         border-radius: 4px; overflow: hidden; margin: 1.3rem 0; }
+  .say > div { background: var(--card); padding: 0.85rem 1.1rem; }
+  .say .h { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.1em;
+            text-transform: uppercase; margin: 0 0 0.35rem; }
+  .say .no .h { color: var(--red); }
+  .say .yes .h { color: var(--green); }
+  .say p { margin: 0; max-width: none; }
+  @media (min-width: 40rem) { .say { grid-template-columns: 1fr 1fr; } }
+
+  .footer {
+    border-top: 1px solid var(--rule); margin-top: 3.5rem; padding-top: 1.3rem;
+    font-size: 0.84rem; color: var(--muted);
+  }
+  .footer p { max-width: none; }
+
+  @media (max-width: 34rem) {
+    body { font-size: 16px; }
+    .page { padding: 2.25rem 1.15rem 4rem; }
+    .band { flex-direction: column; gap: 0.35rem; }
+    .band-name { width: auto; }
+  }
+</style>
+
+<div class="page">
+
+  <header class="masthead">
+    <p class="kicker">AML Alert Triage · 操作手册</p>
+    <h1>Sarah 的第一天</h1>
+    <p class="lede">
+      这份手册教你从零开始使用告警分流系统：怎么读队列、怎么看懂分数、
+      怎么用 AI 草稿、以及最重要的——什么是系统替你做的，什么必须由你负责。
+    </p>
+  </header>
+
+  <section class="chapter">
+    <div class="chapter-head"><span class="chapter-num">01</span><h2>这个系统是干什么的</h2></div>
+
+    <p>
+      每天夜里，系统会把前一天的交易跑一遍，把看起来不寻常的行为挑出来，形成<strong>告警</strong>。
+      同一个客户的多条告警会合并成一个<strong>案件</strong>。早上你上班，面对的就是一队待处理的案件。
+    </p>
+    <p>
+      系统给每个案件打一个 0 到 100 的分数。这个分数只回答一个问题：
+      <strong>这些案件里，你应该先看哪一个。</strong>
+    </p>
+
+    <div class="key">
+      <span class="tag">最重要的一件事</span>
+      <p><strong>分数是顺序，不是判决。</strong></p>
+      <p>
+        83 分不代表这个客户在洗钱，也不代表这笔钱有问题。它只代表：在今天这一队案件里，
+        这一个最值得你先花时间。判断永远是你做的，系统只负责把证据摆好、排好队。
+      </p>
+    </div>
+
+    <p>
+      系统也<strong>不会</strong>拦截、冻结或拒绝任何一笔交易（制裁筛查除外，见第 8 章）。
+      它不会把结论写进客户档案，不会自动上报，不会修改客户的风险等级。
+    </p>
+  </section>
+
+  <section class="chapter">
+    <div class="chapter-head"><span class="chapter-num">02</span><h2>打开系统：读懂队列</h2></div>
+
+    <p>登录后你看到的第一个页面是 <span class="ui">Case Queue</span>，顶上有四个数字：</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>数字</th><th>含义</th><th>你该怎么用它</th></tr></thead>
+        <tbody>
+          <tr><td class="n">37 alerts</td><td>系统昨夜产生的告警总数</td><td>了解工作量的原始规模</td></tr>
+          <tr><td class="n">15 cases</td><td>合并后的案件数</td><td><strong>这才是你要处理的件数</strong></td></tr>
+          <tr><td class="n">15 assigned</td><td>分配给你的</td><td>你今天的工作清单</td></tr>
+          <tr><td class="n">2 overdue</td><td>已超过处理时限</td><td><strong>先处理这两个</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>
+      37 条告警变成 15 个案件，是因为同一个客户的多条告警会归到一起。
+      这样你调查一次就够了，不用把同一家公司的流水翻四遍。
+    </p>
+
+    <h3>三种颜色</h3>
+    <div class="bands">
+      <div class="band r">
+        <span class="band-name">RED · 70+</span>
+        <div class="band-text"><p>信号密集，优先看。不代表有问题，代表值得先花时间。</p></div>
+      </div>
+      <div class="band a">
+        <span class="band-name">AMBER · 40–69</span>
+        <div class="band-text"><p>有值得留意的地方，红色处理完之后看。</p></div>
+      </div>
+      <div class="band g">
+        <span class="band-name">GREEN · &lt;40</span>
+        <div class="band-text">
+          <p>
+            <strong>低优先级，不是"安全"。</strong>绿色案件同样需要你看过、给出结论、留下记录。
+            它只是排在后面。
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="warn">
+      <span class="tag">不要这样做</span>
+      <p>
+        不要因为一批案件是绿色就批量关掉。<strong>每一个案件都需要单独的结论和理由</strong>，
+        这是监管检查时最常被挑出问题的地方——关闭理由不充分、调查记录不完整。
+        绿色只是意味着它可以晚一点处理。
+      </p>
+    </div>
+
+    <p>队列默认按分数从高到低排。点任意一行进入案件详情。</p>
+  </section>
+
+  <section class="chapter">
+    <div class="chapter-head"><span class="chapter-num">03</span><h2>案件详情页有什么</h2></div>
+
+    <p>从上往下六块，顺序就是建议的阅读顺序：</p>
+
+    <ol class="steps">
+      <li><strong>案件信息</strong>——编号、分数、状态、处理时限、归并的时间窗口</li>
+      <li><strong>客户资料</strong>——名称、行业、注册国、客户风险等级（CRR）、监控状态</li>
+      <li><strong>Score breakdown</strong>——分数由哪几条规则加出来的，每条可展开看证据</li>
+      <li><strong>Transaction timeline</strong>——窗口内的全部交易，按时间排序</li>
+      <li><strong>Investigation draft</strong>——AI 生成的调查草稿</li>
+      <li><strong>Disposition</strong>——你的结论</li>
+      <li><strong>Audit trail</strong>——这个案件上发生过的每一个动作</li>
+    </ol>
+
+    <p>
+      <strong>先看第 3 和第 4 块</strong>。分数分解告诉你系统为什么报警，时间线告诉你实际发生了什么。
+      这两块看完，你通常已经有初步判断了。
+    </p>
+  </section>
+
+  <section class="chapter">
+    <div class="chapter-head"><span class="chapter-num">04</span><h2>读懂分数</h2></div>
+
+    <p>分数不是凭空来的。它是四条规则各自得分的总和，每条规则有自己的上限：</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>规则</th><th>它在找什么</th><th>满分</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>R1</strong> Amount deviation</td>
+            <td>这段时间的进账，比这个客户自己平时高出多少</td>
+            <td class="n">35</td>
+          </tr>
+          <tr>
+            <td><strong>R2</strong> Rapid dispersal</td>
+            <td>钱进来之后，多快、多分散地转了出去</td>
+            <td class="n">30</td>
+          </tr>
+          <tr>
+            <td><strong>R3</strong> New counterparties</td>
+            <td>收款方里有多少是这个客户从没打过交道的</td>
+            <td class="n">20</td>
+          </tr>
+          <tr>
+            <td><strong>R4</strong> Higher-risk jurisdiction</td>
+            <td>有多少钱流向了高风险司法辖区</td>
+            <td class="n">15</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>
+      四条加起来正好 100，所以分数不会溢出。<strong>注意 R1 比的是客户自己的历史</strong>，
+      不是一个统一的金额门槛——同样一笔 10 万英镑，对一家贸易公司是日常，对一个咨询公司可能就是异常。
+    </p>
+
+    <h3>展开看证据</h3>
+    <p>点任意一条规则，会看到它是怎么算出来的：</p>
+
+    <div class="screen">
+<pre>R1 Amount deviation — 30 pts (strength 0.854)
+
+    24h inbound            £84,200.00
+    90-day daily median    £9,535.86   (35 inbound txns / 22 active days)
+    Ratio                  8.83×
+    Score                  strength 0.854 × weight 35 = 30 pts</pre>
+      <p class="cap">
+        每一分都能追溯到具体数字。如果你不认同这个判断，你能准确指出是哪一步不合理——
+        这在你写关闭理由的时候很有用。
+      </p>
+    </div>
+
+    <div class="key">
+      <span class="tag">分数里没有什么</span>
+      <p>
+        <strong>制裁名单命中不会进这个分数。</strong>制裁是完全独立的一条线（第 8 章），
+        它不参与加权、不打折扣。你在这个分数里看到的，全部是行为模式，不是名单。
+      </p>
+    </div>
+  </section>
+
+  <section class="chapter">
+    <div class="chapter-head"><span class="chapter-num">05</span><h2>时间线：为什么要看它</h2></div>
+
+    <p>
+      分数分解告诉你有四个信号。但四个信号<strong>单独看</strong>可能都不算什么：
+      金额大了点、转账快了点、收款方新、有一笔去了高风险国家。每一条都能有正当理由。
+    </p>
+    <p>把它们放到一条时间线上，就不一样了：</p>
+
+    <div class="screen">
+<pre>16:10   IN    £30,000    Rhine Distributors GmbH      DE
+16:18   IN    £27,200    Seine Trade SA               FR
+16:25   IN    £27,000    Baltic Merchants OU          EE
+        ─────────────────────────────────────────────────
+16:30   OUT   £16,000    Cedar Ridge LLC              US   ← 新
+16:37   OUT   £14,500    Orion Payments Ltd           CY   ← 新
+16:44   OUT   £12,000    Horizon FX Desk              LU   ← 新
+16:52   OUT   £26,000    Sahel Logistics NG           NG   ← 新 · 高风险
+17:05   OUT    £8,964    Rhine Distributors GmbH      DE</pre>
+      <p class="cap">
+        55 分钟内：三笔进账归集成 £84,200，其中 92% 立刻分散给五个收款方，四个从未交易过，
+        最大的一笔去了高风险辖区。
+      </p>
+    </div>
+
+    <p>
+      这是一个完整的资金过境形态。<strong>红色不是从任何单独一条信号里来的，是从它们的组合里来的。</strong>
+      所以时间线不能跳过。
+    </p>
+    <p>
+      如果你想知道某条证据对应哪笔交易，在 AI 草稿里点交易编号（比如 <span class="ui">TXN-002669</span>），
+      时间线里对应那一行会高亮。
+    </p>
+  </section>
+
+  <section class="chapter">
+    <div class="chapter-head"><span class="chapter-num">06</span><h2>AI 调查草稿</h2></div>
+
+    <p>
+      点 <span class="ui">Generate draft</span>，系统会把客户资料、四条告警和时间线读一遍，
+      生成一份调查记录草稿。它有四个部分：
+    </p>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>部分</th><th>内容</th><th>你要做什么</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Narrative</strong></td><td>三四句话的资金流向叙述</td><td><strong>核对并修改措辞</strong></td></tr>
+          <tr><td><strong>Confirmed observations</strong></td><td>每条结论都附交易编号</td><td>抽查编号对不对得上</td></tr>
+          <tr><td><strong>Unexplained questions</strong></td><td>还说不清的地方</td><td>作为调查方向</td></tr>
+          <tr><td><strong>Suggested next checks</strong></td><td>建议核实的材料</td><td>选你认为需要的做</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>你必须核对什么</h3>
+    <p>
+      AI 会犯两种错：<strong>措辞过头</strong>和<strong>引用错误</strong>。两种都要你把关。
+    </p>
+    <p>
+      引用这块系统帮了你一半：如果 AI 引用了一个不存在的交易编号，
+      界面会把它标成 <span class="ui">unverified</span> 且不可点击。
+      <strong>看到 unverified，就说明那句话没有证据支撑</strong>，不要采信。
+    </p>
+
+    <h3>措辞：这是你签字的话</h3>
+    <p>
+      草稿里可能出现类似 <em>"This may constitute layering."</em>（这可能构成分层洗钱）这样的表述。
+      <strong>这种话不能留。</strong>你不是在认定犯罪，你是在描述需要进一步调查的现象。
+    </p>
+
+    <div class="say">
+      <div class="no">
+        <p class="h">不要写</p>
+        <p><em>This may constitute layering.</em></p>
+      </div>
+      <div class="yes">
+        <p class="h">改成</p>
+        <p><em>This shows rapid dispersal of funds and requires further investigation.</em></p>
+      </div>
+    </div>
+
+    <p>
+      点 <span class="ui">Edit</span> 直接改那段话，改完点 <span class="ui">Accept</span>。
+      系统会记下：AI 生成了什么、你改成了什么、什么时候由谁接受的。这三样都会进审计记录。
+    </p>
+
+    <div class="key">
+      <span class="tag">AI 的边界</span>
+      <p>AI <strong>不能</strong>修改分数、不能关闭或升级案件、不能改客户风险等级、不能提交上报、不能改规则。</p>
+      <p>
+        它只做一件事：把已有的证据整理成人能读的文字，替你省下手写记录的时间。
+        <strong>署名的人是你，责任也在你。</strong>
+      </p>
+    </div>
+  </section>
+
+  <section class="chapter">
+    <div class="chapter-head"><span class="chapter-num">07</span><h2>做决定</h2></div>
+
+    <p>在 <span class="ui">Disposition</span> 区选一个结论，并且<strong>必须写理由</strong>——不写不让提交。</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>结论</th><th>什么时候用</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><span class="ui">Closed – No Further Action</span></td>
+            <td>确实有异常，但你查清了原因，属于正常业务。<br>理由里写清楚<strong>你是怎么查清的</strong>。</td>
+          </tr>
+          <tr>
+            <td><span class="ui">Closed – False Positive</span></td>
+            <td>规则报错了，这个行为本来就不该触发告警。<br>这个选项的数据会用于规则调优，<strong>请如实选择</strong>。</td>
+          </tr>
+          <tr>
+            <td><span class="ui">Escalated – Internal</span></td>
+            <td>你说不清，或者你认为确实可疑。<br>案件转交洗钱报告官（MLRO）。</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>
+      注意这里<strong>没有"确认有罪"这个选项</strong>，将来也不会有。
+      系统不认定任何人有罪，你也不需要在这一步下这个判断——你只需要决定它是否需要往上走。
+    </p>
+
+    <h3>理由怎么写</h3>
+    <ul>
+      <li>写<strong>你查了什么</strong>，不只是结论：「已取得该笔货款对应的发票与提单」比「业务正常」有用得多</li>
+      <li>用「requires further investigation」「unusual」这类措辞，不要用「fraud」「criminal」「laundering」</li>
+      <li>如果关闭，写清楚<strong>是什么让你放心的</strong>——三个月后别人看这条记录，要能理解你的判断</li>
+    </ul>
+  </section>
+
+  <section class="chapter">
+    <div class="chapter-head"><span class="chapter-num">08</span><h2>升级之后会发生什么</h2></div>
+
+    <p>你选 <span class="ui">Escalated – Internal</span> 提交后，系统立刻做三件事：</p>
+
+    <ol class="steps">
+      <li>案件状态变为 <span class="ui">ESCALATED_INTERNAL</span>，进入 MLRO 队列</li>
+      <li>创建一个<strong>客户风险复核任务</strong></li>
+      <li>客户被标记为 <span class="ui">Heightened Monitoring – Pending Review</span></li>
+    </ol>
+
+    <div class="key">
+      <span class="tag">注意看客户卡片</span>
+      <p>
+        提交后回头看客户资料，你会发现 <strong>CRR 仍然是 MEDIUM，没有变</strong>，
+        变的只是下面的监控状态。
+      </p>
+      <p>
+        这是有意的。<strong>一次升级只是一个风险信号，不足以证明客户整体风险变了。</strong>
+        修改客户风险等级需要有权限的人基于完整的客户资料重新评估。系统不会替他做这个决定。
+      </p>
+    </div>
+
+    <p>
+      再往上就不归你了：MLRO 会评估这份内部上报，由他决定是否向 NCA 提交可疑活动报告（SAR）。
+      那是一个法律动作，全行只有他能做。
+    </p>
+
+    <div class="warn">
+      <span class="tag">法律义务</span>
+      <p>
+        一旦进入上报流程，<strong>不得以任何方式让客户知情</strong>——包括通过异常的服务表现暗示。
+        这在英国是刑事罪名（tipping off）。有疑问先问 MLRO，不要自己判断。
+      </p>
+    </div>
+  </section>
+
+  <section class="chapter">
+    <div class="chapter-head"><span class="chapter-num">09</span><h2>制裁复核：完全不同的一条线</h2></div>
+
+    <p>
+      前面八章讲的都是<strong>事后</strong>的行为监控——钱已经走了，你慢慢查。
+      制裁筛查不一样：<strong>它发生在钱走之前，客户正在等。</strong>
+    </p>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th></th><th>AML 案件</th><th>制裁命中</th></tr></thead>
+        <tbody>
+          <tr><td><strong>时机</strong></td><td>隔夜批量，事后</td><td>付款提交那一刻，实时</td></tr>
+          <tr><td><strong>钱</strong></td><td>已经走了</td><td><strong>卡住，没走</strong></td></tr>
+          <tr><td><strong>紧迫性</strong></td><td>数天内处理</td><td>客户在等，尽快</td></tr>
+          <tr><td><strong>依据</strong></td><td>行为模式</td><td>官方制裁名单</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>
+      在 <span class="ui">Sanctions Review</span> 页，你会看到一张逐项比对表：姓名相似度、出生日期、
+      国籍、护照号、实体类型。<strong>不要只看姓名相似度</strong>——0.972 的相似度可能只是重名，
+      要结合出生日期和国籍一起判断。
+    </p>
+
+    <h3>两个出口</h3>
+    <div class="bands">
+      <div class="band g">
+        <span class="band-name">FALSE MATCH</span>
+        <div class="band-text"><p>不是同一个人。付款<strong>立即放行</strong>，此时才真正执行。</p></div>
+      </div>
+      <div class="band r">
+        <span class="band-name">TARGET MATCH</span>
+        <div class="band-text"><p>确认命中。付款<strong>永不执行</strong>，进入冻结与上报流程。</p></div>
+      </div>
+    </div>
+
+    <p>
+      两个都必须填理由。<strong>而且只能处置一次</strong>——提交之后不能改，系统会拒绝第二次操作。
+      所以提交前想清楚。
+    </p>
+
+    <div class="warn">
+      <span class="tag">拿不准就升级</span>
+      <p>
+        制裁是零容忍领域，没有"差不多"。如果你在 false match 和 target match 之间犹豫，
+        <strong>不要猜</strong>，交给制裁专员。误放一笔的后果远大于多花半小时。
+      </p>
+    </div>
+  </section>
+
+  <section class="chapter">
+    <div class="chapter-head"><span class="chapter-num">10</span><h2>名单更新</h2></div>
+
+    <p>
+      制裁名单会持续更新。名单一更新，系统会拿新增条目重新筛一遍<strong>所有存量客户</strong>。
+    </p>
+    <p>
+      所以你可能会看到这样一条命中：一个 2022 年开户、一直清白、<strong>今天什么都没做</strong>的老客户，
+      突然出现在待复核列表里。
+    </p>
+
+    <div class="key">
+      <span class="tag">这不是系统出错</span>
+      <p>
+        <strong>风险不一定来自客户的新行为，也可能来自名单变了。</strong>
+        付款时点的筛查只能挡住"当时已经在名单上"的人；名单更新后的重筛，
+        补的正是这个缺口。
+      </p>
+    </div>
+
+    <p>处理方式和普通制裁命中一样：逐项比对，给出结论，填写理由。</p>
+  </section>
+
+  <section class="chapter">
+    <div class="chapter-head"><span class="chapter-num">11</span><h2>常见疑问</h2></div>
+
+    <h3>我关掉的案件，如果后来证明有问题怎么办？</h3>
+    <p>
+      这就是为什么<strong>理由必须写清楚</strong>。评价一个决定看的是当时掌握的信息和推理过程，
+      不是事后结果。写清楚你查了什么、看到了什么，这条记录就是保护你的东西。
+    </p>
+
+    <h3>同一个客户反复被报，是不是系统有毛病？</h3>
+    <p>
+      也可能不是。如果一个客户的案件被关掉多次，案件页会显示
+      <span class="ui">Prior closed (90d)</span> 的次数。<strong>反复出现本身就是一个信号</strong>——
+      第五次可能就不是误报了。看到这个数字不为零，多花点时间。
+    </p>
+
+    <h3>我可以改规则的阈值吗？</h3>
+    <p>
+      不能，你也不应该有这个权限。生产规则的修改需要回溯测试、双人复核和版本管理。
+      你的贡献方式是<strong>如实标记 false positive</strong>——这些数据会汇总成规则调优的依据。
+    </p>
+
+    <h3>AI 草稿我可以完全不用吗？</h3>
+    <p>可以。它是助手，不是流程的一环。你也可以生成后全部重写。</p>
+
+    <h3>系统会不会自己把钱退回、冻结账户？</h3>
+    <p>
+      AML 那条线：不会，它连一笔交易都不碰。制裁那条线：会暂停付款，
+      但<strong>放行还是限制，仍然是你点的那一下决定的</strong>。
+    </p>
+  </section>
+
+  <section class="chapter">
+    <div class="chapter-head"><span class="chapter-num">12</span><h2>术语速查</h2></div>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>词</th><th>意思</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Alert</strong> 告警</td><td>一条规则命中一次。系统的最小输出单位。</td></tr>
+          <tr><td><strong>Case</strong> 案件</td><td>同一客户的多条告警合并成的一个调查单元。你处理的是它。</td></tr>
+          <tr><td><strong>CRR</strong></td><td>客户风险等级。开户尽调时确定，只能由有权限的人复核修改。</td></tr>
+          <tr><td><strong>MLRO</strong></td><td>洗钱报告官。全行唯一有权对外提交可疑活动报告的人。</td></tr>
+          <tr><td><strong>SAR</strong></td><td>可疑活动报告。由 MLRO 向 NCA 提交，是法律行为。</td></tr>
+          <tr><td><strong>Potential match</strong></td><td>制裁名单的疑似命中。<strong>疑似</strong>，还没有确认。</td></tr>
+          <tr><td><strong>Tipping off</strong></td><td>向客户泄露其被上报的事实。在英国是刑事罪名。</td></tr>
+          <tr><td><strong>Structuring</strong></td><td>把大额拆成多笔小额以规避监控门槛的手法。</td></tr>
+          <tr><td><strong>Layering</strong></td><td>通过多层转账切断资金与来源的关联。<strong>属于定性用词，写记录时避免使用。</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <div class="footer">
+    <p>
+      <strong>记住这一句就够了：</strong>分数决定顺序，证据决定结论，AI 帮你把两者连起来。
+      系统不认定任何人有罪——它识别异常活动，并把可解释的证据交到你手上。
+    </p>
+  </div>
+
+</div>
