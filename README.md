@@ -36,7 +36,11 @@ Ollama at `localhost:11434` with model `qwen3:4b`. If unavailable, AI drafts sil
 ## Demo notes
 
 - Actor fixed as `sarah.chen`; user management is deliberately out of scope
-- Sanctions data is a demo extract in UK Sanctions List shape (`list-v1.json` / `list-v2.json`)
+- Sanctions data is a bulk extract of the OpenSanctions `gb_fcdo_sanctions` dataset
+  (UK sanctions data originally published by FCDO), cached locally as `list-v1.json` /
+  `list-v2.json`. OpenSanctions data is CC BY-NC 4.0 — attribution required, non-commercial
+  use only. Screening resolves against the local index; no third party is called in the
+  payment path.
 - External FX (Frankfurter) and country (REST Countries) data are cached at startup; request paths stay offline
 - All customers, accounts and transactions are synthetic and generated at runtime
 

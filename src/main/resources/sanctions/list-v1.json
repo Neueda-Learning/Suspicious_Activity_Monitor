@@ -1,6 +1,8 @@
 {
   "version": "v1",
-  "source": "UK Sanctions List (HM Treasury / OFSI) — demo extract",
+  "source": "OpenSanctions — dataset gb_fcdo_sanctions (UK sanctions data originally published by FCDO)",
+  "licence": "CC BY-NC 4.0 — attribution required, non-commercial use only",
+  "note": "Bulk extract cached locally. Screening never calls a third party in the payment path.",
   "entries": [
     {
       "sourceUniqueId": "OS-DEMO-VLADIMIR-PETROV",
@@ -18,7 +20,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -37,7 +39,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -58,7 +60,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -77,7 +79,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -96,7 +98,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -115,7 +117,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -136,7 +138,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -155,7 +157,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -174,7 +176,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -193,7 +195,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -212,7 +214,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -231,7 +233,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -249,7 +251,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -272,7 +274,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -292,7 +294,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -311,7 +313,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -332,7 +334,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -351,7 +353,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -370,7 +372,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -389,7 +391,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -409,7 +411,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -428,7 +430,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -448,7 +450,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -467,7 +469,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -492,7 +494,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -511,7 +513,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -530,7 +532,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -549,7 +551,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -568,7 +570,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -588,7 +590,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -606,7 +608,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -626,7 +628,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -645,7 +647,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -671,7 +673,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -690,7 +692,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -712,7 +714,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -732,7 +734,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -751,7 +753,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -777,7 +779,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -796,7 +798,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-05-11T08:40:04Z"
@@ -817,7 +819,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-14T07:56:30Z"
@@ -838,7 +840,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -858,7 +860,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -880,7 +882,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -899,7 +901,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -918,7 +920,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-05-11T08:40:04Z"
@@ -935,7 +937,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -954,7 +956,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -971,7 +973,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -992,7 +994,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -1012,7 +1014,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -1031,7 +1033,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -1049,7 +1051,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-07-24T09:17:51Z"
@@ -1067,7 +1069,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -1085,7 +1087,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-07-24T09:17:51Z"
@@ -1106,7 +1108,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -1130,7 +1132,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -1150,7 +1152,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -1168,7 +1170,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -1194,7 +1196,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -1213,7 +1215,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -1232,7 +1234,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -1252,7 +1254,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -1272,7 +1274,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -1293,7 +1295,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -1311,7 +1313,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -1331,7 +1333,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -1350,7 +1352,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -1373,7 +1375,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -1392,7 +1394,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -1415,7 +1417,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-07-24T10:40:02Z"
@@ -1435,7 +1437,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -1454,7 +1456,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -1473,7 +1475,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -1493,7 +1495,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -1512,7 +1514,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -1530,7 +1532,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -1550,7 +1552,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -1568,7 +1570,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-07-24T09:17:51Z"
@@ -1586,7 +1588,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -1603,7 +1605,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -1622,7 +1624,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -1641,7 +1643,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -1660,7 +1662,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -1679,7 +1681,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -1701,7 +1703,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-14T07:56:30Z"
@@ -1718,7 +1720,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -1737,7 +1739,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -1754,7 +1756,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -1775,7 +1777,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-14T07:56:30Z"
@@ -1796,7 +1798,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -1813,7 +1815,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -1833,7 +1835,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -1854,7 +1856,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -1872,7 +1874,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -1895,7 +1897,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -1914,7 +1916,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -1933,7 +1935,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -1954,7 +1956,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -1976,7 +1978,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -1999,7 +2001,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -2025,7 +2027,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -2048,7 +2050,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -2067,7 +2069,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -2087,7 +2089,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -2109,7 +2111,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -2129,7 +2131,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -2148,7 +2150,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -2167,7 +2169,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -2186,7 +2188,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -2210,7 +2212,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -2229,7 +2231,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -2249,7 +2251,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -2268,7 +2270,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -2287,7 +2289,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -2308,7 +2310,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -2327,7 +2329,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -2349,7 +2351,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -2368,7 +2370,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -2391,7 +2393,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -2413,7 +2415,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -2432,7 +2434,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -2453,7 +2455,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -2469,7 +2471,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -2488,7 +2490,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -2504,7 +2506,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-06T06:40:02Z"
@@ -2520,7 +2522,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -2538,7 +2540,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -2554,7 +2556,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-02-24T08:40:10Z"
@@ -2573,7 +2575,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -2591,7 +2593,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-14T07:56:30Z"
@@ -2610,7 +2612,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -2626,7 +2628,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -2640,7 +2642,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-08T10:35:40Z"
@@ -2661,7 +2663,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -2682,7 +2684,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-14T07:56:30Z"
@@ -2696,7 +2698,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-08T10:35:40Z"
@@ -2722,7 +2724,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-02-24T16:41:06Z"
@@ -2745,7 +2747,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -2763,7 +2765,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -2779,7 +2781,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-14T07:56:30Z"
@@ -2803,7 +2805,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -2823,7 +2825,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-05-11T08:40:04Z"
@@ -2837,7 +2839,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2025-09-12T06:40:02Z"
@@ -2851,7 +2853,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-02-24T08:40:10Z"
@@ -2865,7 +2867,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-02-24T16:41:06Z"
@@ -2881,7 +2883,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-02-24T08:40:10Z"
@@ -2903,7 +2905,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-14T07:56:30Z"
@@ -2922,7 +2924,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -2943,7 +2945,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -2961,7 +2963,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -2981,7 +2983,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-14T07:56:30Z"
@@ -2998,7 +3000,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -3012,7 +3014,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-08T10:35:40Z"
@@ -3030,7 +3032,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-14T07:56:30Z"
@@ -3048,7 +3050,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -3067,7 +3069,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -3081,7 +3083,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2025-05-09T06:40:35Z"
@@ -3095,7 +3097,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2025-09-12T06:40:02Z"
@@ -3120,7 +3122,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-05-11T08:40:04Z"
@@ -3134,7 +3136,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-08T10:35:40Z"
@@ -3153,7 +3155,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-03-27T16:40:02Z"
@@ -3171,7 +3173,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -3189,7 +3191,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-02-24T16:41:06Z"
@@ -3205,7 +3207,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-02-24T08:40:10Z"
@@ -3219,7 +3221,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-02-24T16:41:06Z"
@@ -3239,7 +3241,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -3261,7 +3263,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -3281,7 +3283,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -3295,7 +3297,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2025-07-21T16:40:01Z"
@@ -3309,7 +3311,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-08T10:35:40Z"
@@ -3325,7 +3327,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -3343,7 +3345,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-14T07:56:30Z"
@@ -3364,7 +3366,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -3380,7 +3382,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-06T06:40:02Z"
@@ -3397,7 +3399,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2025-05-09T06:40:35Z"
@@ -3416,7 +3418,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-14T07:56:30Z"
@@ -3432,7 +3434,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -3458,7 +3460,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -3472,7 +3474,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2025-07-21T16:40:01Z"
@@ -3490,7 +3492,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -3508,7 +3510,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -3526,7 +3528,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-02-25T16:40:01Z"
@@ -3543,7 +3545,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-07-06T12:40:02Z"
@@ -3561,7 +3563,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -3577,7 +3579,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -3593,7 +3595,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -3610,7 +3612,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -3628,7 +3630,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -3646,7 +3648,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -3660,7 +3662,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -3678,7 +3680,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -3692,7 +3694,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -3711,7 +3713,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -3727,7 +3729,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -3743,7 +3745,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -3757,7 +3759,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -3775,7 +3777,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-07-13T08:40:01Z"
@@ -3794,7 +3796,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -3810,7 +3812,7 @@
       "measures": [
         {
           "type": "asset_freeze",
-          "source": "UK Sanctions List"
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
