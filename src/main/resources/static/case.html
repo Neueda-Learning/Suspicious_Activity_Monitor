@@ -21,6 +21,299 @@
   <script>
     const id = new URLSearchParams(location.search).get('id');
     let currentDraft = null;
+    let draftJson = null;       // parsed working copy
+    let editingNarrative = false;
+    let evidenceIndex = {};     // id → HTMLElement
+
+    function esc(s) {
+      return String(s ?? '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    function parseDraftPayload(text) {
+      if (!text || !String(text).trim()) return null;
+      try {
+        const obj = JSON.parse(text);
+        if (!obj || typeof obj !== 'object' || Array.isArray(obj)) return null;
+        if (!('narrative' in obj) && !('confirmedObservations' in obj)
+            && !('unexplainedQuestions' in obj) && !('suggestedNextChecks' in obj)) {
+          return null;
+        }
+        return obj;
+      } catch {
+        return null;
+      }
+    }
+
+    function sourceText(draft) {
+      if (!draft) return '';
+      return draft.analystFinalText || draft.rawOutput || '';
+    }
+
+    function buildEvidenceIndex() {
+      evidenceIndex = {};
+      document.querySelectorAll('[data-txn-ref]').forEach(el => {
+        evidenceIndex[el.getAttribute('data-txn-ref')] = el;
+      });
+      document.querySelectorAll('[data-alert-id]').forEach(el => {
+        const aid = el.getAttribute('data-alert-id');
+        const aref = el.getAttribute('data-alert-ref');
+        if (aid) evidenceIndex[aid] = el;
+        if (aref) evidenceIndex[aref] = el;
+      });
+    }
+
+    function flashTarget(el) {
+      if (!el) return;
+      if (el.tagName === 'DETAILS') el.open = true;
+      el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      el.classList.remove('flash');
+      void el.offsetWidth;
+      el.classList.add('flash');
+      setTimeout(() => el.classList.remove('flash'), 1200);
+    }
+
+    function renderChip(evidenceId) {
+      const hit = evidenceIndex[evidenceId];
+      if (hit) {
+        return `<button type="button" class="chip" data-jump="${esc(evidenceId)}">${esc(evidenceId)}</button>`;
+      }
+      return `<span class="chip unverified" title="Not found in this case">${esc(evidenceId)} · unverified</span>`;
+    }
+
+    function renderEvidenceKv(a) {
+      const ev = a.evidenceSnapshot || {};
+      const params = a.ruleParamsSnapshot || {};
+      const weight = params.weight != null ? params.weight : '—';
+      const rows = [];
+
+      if (a.ruleCode === 'R1') {
+        rows.push(['本笔 24h 流入', fmtMoney(ev.windowInboundGbp)]);
+        rows.push([
+          '90 天日流入中位数',
+          `${fmtMoney(ev.baselineMedianGbp)}`
+            + (ev.baselineInboundTxnCount != null
+              ? `  (${ev.baselineInboundTxnCount} 笔入账 / ${ev.baselineActiveDays} 个活跃日)`
+              : '')
+        ]);
+        rows.push(['比值', ev.ratio != null ? `${Number(ev.ratio).toFixed(2)}×` : '—']);
+      } else if (a.ruleCode === 'R2') {
+        rows.push(['窗口流入', fmtMoney(ev.inboundGbp)]);
+        rows.push(['24h 内流出', fmtMoney(ev.outboundGbp)]);
+        rows.push(['分散比例', ev.dispersalRatio != null ? `${Number(ev.dispersalRatio).toFixed(2)}×` : '—']);
+        rows.push(['对手方数', ev.counterpartyCount != null ? String(ev.counterpartyCount) : '—']);
+        rows.push(['分散耗时', ev.hoursToDisperse != null ? `${Number(ev.hoursToDisperse).toFixed(1)} h` : '—']);
+      } else if (a.ruleCode === 'R3') {
+        rows.push(['新对手方数', ev.newCount != null ? String(ev.newCount) : '—']);
+        if (Array.isArray(ev.newCounterparties) && ev.newCounterparties.length) {
+          rows.push(['新对手方', ev.newCounterparties.join(', ')]);
+        }
+      } else if (a.ruleCode === 'R4') {
+        rows.push(['高风险辖区流出', fmtMoney(ev.valueToHighRisk)]);
+        rows.push(['窗口总流出', fmtMoney(ev.totalOutbound)]);
+        rows.push(['高风险笔数', ev.highRiskTransferCount != null ? String(ev.highRiskTransferCount) : '—']);
+        if (Array.isArray(ev.highRiskCountries) && ev.highRiskCountries.length) {
+          rows.push(['涉及国家', ev.highRiskCountries.join(', ')]);
+        }
+      } else {
+        Object.keys(ev).forEach(k => {
+          if (k === 'transactionIds') return;
+          const v = ev[k];
+          if (v != null && typeof v === 'object') return;
+          rows.push([k, String(v)]);
+        });
+      }
+
+      rows.push(['评分', `强度 ${a.strength}  ×  权重 ${weight}  =  ${a.points} 分`]);
+
+      return `<dl class="evidence-kv">${rows.map(([k, v]) =>
+        `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`
+      ).join('')}</dl>`;
+    }
+
+    function renderStructuredDraft(obj, draft) {
+      const parts = [];
+
+      if (draft && draft.status === 'ACCEPTED' && draft.editedBy) {
+        parts.push(
+          `<p class="draft-accepted" id="draftAccepted">`
+          + `Edited and accepted by ${esc(draft.editedBy)}`
+          + (draft.editedAt ? ` · ${esc(fmtTs(draft.editedAt))}` : '')
+          + `</p>`
+        );
+      } else {
+        parts.push(`<p class="draft-accepted" id="draftAccepted" hidden></p>`);
+      }
+
+      if (obj.narrative) {
+        parts.push(`
+          <div class="draft-block draft-narrative">
+            <div class="draft-block-head">
+              <span class="draft-label">Narrative</span>
+              <button type="button" class="btn ghost btn-sm" id="editNarrative">Edit</button>
+            </div>
+            <p class="draft-narrative-text" id="narrativeView">${esc(obj.narrative)}</p>
+            <textarea class="draft-narrative-edit" id="narrativeEdit" hidden></textarea>
+          </div>`);
+      }
+
+      const obs = Array.isArray(obj.confirmedObservations) ? obj.confirmedObservations : [];
+      if (obs.length) {
+        parts.push(`
+          <div class="draft-block draft-observations">
+            <div class="draft-block-head"><span class="draft-label">Confirmed observations</span></div>
+            <ul class="draft-list">
+              ${obs.map(o => {
+                const statement = (o && o.statement) ? o.statement : '';
+                const ids = (o && Array.isArray(o.evidenceIds)) ? o.evidenceIds : [];
+                return `<li>
+                  <span class="draft-bullet">•</span>
+                  <div>
+                    <div class="draft-statement">${esc(statement)}</div>
+                    ${ids.length ? `<div class="chip-row">${ids.map(renderChip).join('')}</div>` : ''}
+                  </div>
+                </li>`;
+              }).join('')}
+            </ul>
+          </div>`);
+      }
+
+      const qs = Array.isArray(obj.unexplainedQuestions) ? obj.unexplainedQuestions : [];
+      if (qs.length) {
+        parts.push(`
+          <div class="draft-block draft-questions">
+            <div class="draft-block-head"><span class="draft-label">Unexplained questions</span></div>
+            <ul class="draft-list muted-list">
+              ${qs.map(q => `<li><span class="draft-bullet">?</span><div>${esc(q)}</div></li>`).join('')}
+            </ul>
+          </div>`);
+      }
+
+      const checks = Array.isArray(obj.suggestedNextChecks) ? obj.suggestedNextChecks : [];
+      if (checks.length) {
+        parts.push(`
+          <div class="draft-block draft-checks">
+            <div class="draft-block-head"><span class="draft-label">Suggested next checks</span></div>
+            <ul class="draft-list">
+              ${checks.map(c => `<li><span class="draft-bullet">→</span><div>${esc(c)}</div></li>`).join('')}
+            </ul>
+          </div>`);
+      }
+
+      parts.push(`
+        <p class="draft-disclaimer">
+          AI-generated draft — not a conclusion. The analyst is accountable for the final assessment.
+        </p>`);
+
+      return `<div class="draft-structured">${parts.join('')}</div>`;
+    }
+
+    function renderRawFallback(text) {
+      return `
+        <div class="draft-raw-fallback">
+          <p class="draft-fallback-banner">Structured view unavailable — showing raw model output</p>
+          <pre class="evidence">${esc(text)}</pre>
+        </div>`;
+    }
+
+    function renderEmptyDraft() {
+      return `<p class="muted" id="aiEmpty">Generate a draft to begin.</p>`;
+    }
+
+    function setProvenance(draft) {
+      const el = document.getElementById('aiMeta');
+      if (!el || !draft) { if (el) el.textContent = ''; return; }
+      const meta = draft.modelMetadataJson || {};
+      const ms = meta.elapsedMs != null ? ` · ${meta.elapsedMs}ms` : '';
+      el.textContent = `Draft #${draft.id} · model=${meta.model || '—'}${ms}`;
+    }
+
+    function paintDraftView() {
+      const view = document.getElementById('aiDraftView');
+      if (!view) return;
+      editingNarrative = false;
+
+      if (!currentDraft) {
+        draftJson = null;
+        view.innerHTML = renderEmptyDraft();
+        document.getElementById('acceptAi').disabled = true;
+        setProvenance(null);
+        return;
+      }
+
+      const text = sourceText(currentDraft);
+      draftJson = parseDraftPayload(text);
+      setProvenance(currentDraft);
+
+      if (!draftJson) {
+        view.innerHTML = renderRawFallback(text);
+        document.getElementById('acceptAi').disabled = true;
+        return;
+      }
+
+      view.innerHTML = renderStructuredDraft(draftJson, currentDraft);
+      const accepted = currentDraft.status === 'ACCEPTED';
+      document.getElementById('acceptAi').disabled = accepted;
+      wireDraftInteractions();
+    }
+
+    function currentNarrativeText() {
+      if (editingNarrative) {
+        const ta = document.getElementById('narrativeEdit');
+        return ta ? ta.value : (draftJson && draftJson.narrative) || '';
+      }
+      return (draftJson && draftJson.narrative) || '';
+    }
+
+    function wireDraftInteractions() {
+      const editBtn = document.getElementById('editNarrative');
+      if (editBtn) {
+        editBtn.onclick = () => {
+          const view = document.getElementById('narrativeView');
+          const ta = document.getElementById('narrativeEdit');
+          if (!view || !ta) return;
+          if (!editingNarrative) {
+            ta.value = draftJson.narrative || '';
+            ta.hidden = false;
+            view.hidden = true;
+            editingNarrative = true;
+            editBtn.textContent = 'Done';
+            ta.focus();
+            ta.style.height = 'auto';
+            ta.style.height = Math.max(view.offsetHeight, ta.scrollHeight) + 'px';
+          } else {
+            draftJson.narrative = ta.value;
+            view.textContent = ta.value;
+            ta.hidden = true;
+            view.hidden = false;
+            editingNarrative = false;
+            editBtn.textContent = 'Edit';
+          }
+        };
+      }
+
+      document.querySelectorAll('.chip[data-jump]').forEach(btn => {
+        btn.onclick = () => flashTarget(evidenceIndex[btn.getAttribute('data-jump')]);
+      });
+    }
+
+    async function refreshAuditTrail() {
+      try {
+        const d = await api('/api/cases/' + id);
+        const tbody = document.querySelector('#auditTable tbody');
+        if (!tbody) return;
+        tbody.innerHTML = (d.auditEvents || []).map(a => `
+          <tr>
+            <td>${fmtTs(a.occurredAt)}</td>
+            <td>${esc(a.actor)}</td>
+            <td>${esc(a.action)}</td>
+            <td class="mono">${esc(JSON.stringify(a.detailsJson))}</td>
+          </tr>`).join('');
+      } catch (_) { /* keep existing audit rows */ }
+    }
 
     async function load() {
       const d = await api('/api/cases/' + id);
@@ -45,11 +338,11 @@
           <section class="panel">
             <h2>Customer</h2>
             <div class="kv">
-              <div>Name</div><div><strong>${cust.name}</strong></div>
-              <div>Ref</div><div class="mono">${cust.customerRef}</div>
+              <div>Name</div><div><strong>${esc(cust.name)}</strong></div>
+              <div>Ref</div><div class="mono">${esc(cust.customerRef)}</div>
               <div>CRR</div><div>${cust.crr}</div>
-              <div>Industry</div><div>${cust.industry || ''} (${cust.legalForm || ''})</div>
-              <div>Country</div><div>${cust.incorporationCountryName || cust.incorporationCountry}</div>
+              <div>Industry</div><div>${esc(cust.industry || '')} (${esc(cust.legalForm || '')})</div>
+              <div>Country</div><div>${esc(cust.incorporationCountryName || cust.incorporationCountry)}</div>
               <div>Monitoring</div><div>${mon}</div>
             </div>
           </section>
@@ -58,9 +351,9 @@
         <section class="panel">
           <h2>Score breakdown</h2>
           ${(d.alerts || []).map(a => `
-            <details class="alert">
-              <summary>${a.ruleCode} ${a.ruleName} — <strong>${a.points}</strong> pts (strength ${a.strength})</summary>
-              <pre class="evidence">${JSON.stringify(a.evidenceSnapshot, null, 2)}</pre>
+            <details class="alert" data-alert-id="${a.id}" data-alert-ref="${esc(a.ruleCode)}-ALERT-${a.id}">
+              <summary>${esc(a.ruleCode)} ${esc(a.ruleName)} — <strong>${a.points}</strong> pts (strength ${a.strength})</summary>
+              ${renderEvidenceKv(a)}
             </details>`).join('') || '<p class="muted">No alerts</p>'}
         </section>
 
@@ -70,103 +363,116 @@
             <thead><tr><th>When</th><th>Ref</th><th>Dir</th><th>GBP</th><th>Counterparty</th><th>Country</th></tr></thead>
             <tbody>
               ${(d.timeline || []).map(t => `
-                <tr>
+                <tr data-txn-ref="${esc(t.txnRef)}">
                   <td>${fmtTs(t.executedAt)}</td>
-                  <td class="mono">${t.txnRef}</td>
-                  <td>${t.direction}</td>
+                  <td class="mono">${esc(t.txnRef)}</td>
+                  <td>${esc(t.direction)}</td>
                   <td>${fmtMoney(t.amountGbp)}</td>
-                  <td>${t.counterpartyName || ''}</td>
-                  <td>${t.counterpartyCountry || ''}</td>
+                  <td>${esc(t.counterpartyName || '')}</td>
+                  <td>${esc(t.counterpartyCountry || '')}</td>
                 </tr>`).join('')}
             </tbody>
           </table>
         </section>
 
-        <div class="grid-2">
-          <section class="panel">
-            <h2>AI investigation draft</h2>
-            <p class="muted">AI never changes scores, CRR, or case status. Analyst remains accountable.</p>
-            <div class="actions">
-              <button class="btn secondary" id="genAi" type="button">Generate draft</button>
-              <button class="btn" id="acceptAi" type="button" disabled>Accept edited draft</button>
-            </div>
-            <label>Narrative / draft JSON</label>
-            <textarea id="aiText" placeholder="Generate a draft to begin"></textarea>
-            <p class="muted" id="aiMeta"></p>
-          </section>
-          <section class="panel">
-            <h2>Disposition</h2>
-            <label>Decision</label>
-            <select id="decision">
-              <option value="CLOSED_NFA">Closed – No Further Action</option>
-              <option value="CLOSED_FALSE_POSITIVE">Closed – False Positive</option>
-              <option value="ESCALATED_INTERNAL">Escalated – Internal</option>
-            </select>
-            <label>Rationale (required)</label>
-            <textarea id="rationale" placeholder="Document the investigative rationale…"></textarea>
-            <div class="actions">
-              <button class="btn" id="disposeBtn" type="button" ${c.status !== 'OPEN' ? 'disabled' : ''}>Submit disposition</button>
-            </div>
-            <p class="muted" id="dispMsg">${c.status !== 'OPEN' ? 'Case already disposed: ' + c.status : ''}</p>
-          </section>
-        </div>
+        <section class="panel ai-draft-panel">
+          <div class="ai-draft-head">
+            <h2>Investigation draft</h2>
+            <p class="ai-provenance" id="aiMeta"></p>
+          </div>
+          <p class="muted">AI never changes scores, CRR, or case status. Analyst remains accountable.</p>
+          <div class="actions">
+            <button class="btn secondary" id="genAi" type="button">Generate draft</button>
+            <button class="btn" id="acceptAi" type="button" disabled>Accept</button>
+          </div>
+          <div id="aiDraftView"></div>
+        </section>
+
+        <section class="panel">
+          <h2>Disposition</h2>
+          <label>Decision</label>
+          <select id="decision">
+            <option value="CLOSED_NFA">Closed – No Further Action</option>
+            <option value="CLOSED_FALSE_POSITIVE">Closed – False Positive</option>
+            <option value="ESCALATED_INTERNAL">Escalated – Internal</option>
+          </select>
+          <label>Rationale (required)</label>
+          <textarea id="rationale" placeholder="Document the investigative rationale…"></textarea>
+          <div class="actions">
+            <button class="btn" id="disposeBtn" type="button" ${c.status !== 'OPEN' ? 'disabled' : ''}>Submit disposition</button>
+          </div>
+          <p class="muted" id="dispMsg">${c.status !== 'OPEN' ? 'Case already disposed: ' + c.status : ''}</p>
+        </section>
 
         <section class="panel">
           <h2>Audit trail</h2>
-          <table>
+          <table id="auditTable">
             <thead><tr><th>When</th><th>Actor</th><th>Action</th><th>Details</th></tr></thead>
             <tbody>
               ${(d.auditEvents || []).map(a => `
                 <tr>
                   <td>${fmtTs(a.occurredAt)}</td>
-                  <td>${a.actor}</td>
-                  <td>${a.action}</td>
-                  <td class="mono">${JSON.stringify(a.detailsJson)}</td>
+                  <td>${esc(a.actor)}</td>
+                  <td>${esc(a.action)}</td>
+                  <td class="mono">${esc(JSON.stringify(a.detailsJson))}</td>
                 </tr>`).join('')}
             </tbody>
           </table>
         </section>`;
 
+      buildEvidenceIndex();
+
       if (d.aiDraft) {
         currentDraft = d.aiDraft;
-        aiText.value = d.aiDraft.analystFinalText || d.aiDraft.rawOutput || '';
-        acceptAi.disabled = false;
-        aiMeta.textContent = 'Existing draft #' + d.aiDraft.id + ' · ' + d.aiDraft.status;
       }
+      paintDraftView();
 
       document.getElementById('genAi').onclick = async () => {
+        const genAi = document.getElementById('genAi');
         genAi.disabled = true;
         try {
           currentDraft = await api('/api/cases/' + id + '/ai-draft', { method: 'POST', body: '{}' });
-          aiText.value = currentDraft.rawOutput;
-          acceptAi.disabled = false;
-          const meta = currentDraft.modelMetadataJson || {};
-          aiMeta.textContent = `Draft #${currentDraft.id} · model=${meta.model} · fallback=${meta.fallbackUsed}`;
+          paintDraftView();
+          await refreshAuditTrail();
         } catch (e) { alert(e.message); }
         finally { genAi.disabled = false; }
       };
+
       document.getElementById('acceptAi').onclick = async () => {
-        if (!currentDraft) return;
+        if (!currentDraft || !draftJson) return;
         try {
+          const next = { ...draftJson, narrative: currentNarrativeText() };
+          draftJson = next;
           currentDraft = await api('/api/ai-drafts/' + currentDraft.id, {
             method: 'PUT',
-            body: JSON.stringify({ analystFinalText: aiText.value })
+            body: JSON.stringify({ analystFinalText: JSON.stringify(next) })
           });
-          aiMeta.textContent = 'Accepted draft #' + currentDraft.id;
-          location.reload();
+          paintDraftView();
+          const banner = document.getElementById('draftAccepted');
+          if (banner && currentDraft.editedBy) {
+            banner.hidden = false;
+            banner.textContent = `Edited and accepted by ${currentDraft.editedBy}`
+              + (currentDraft.editedAt ? ` · ${fmtTs(currentDraft.editedAt)}` : '');
+          }
+          document.getElementById('acceptAi').disabled = true;
+          await refreshAuditTrail();
         } catch (e) { alert(e.message); }
       };
+
       document.getElementById('disposeBtn').onclick = async () => {
         try {
           await api('/api/cases/' + id + '/disposition', {
             method: 'POST',
-            body: JSON.stringify({ decision: decision.value, rationale: rationale.value })
+            body: JSON.stringify({
+              decision: document.getElementById('decision').value,
+              rationale: document.getElementById('rationale').value
+            })
           });
           location.reload();
-        } catch (e) { dispMsg.textContent = e.message; }
+        } catch (e) { document.getElementById('dispMsg').textContent = e.message; }
       };
     }
-    load().catch(e => app.textContent = e.message);
+    load().catch(e => { document.getElementById('app').textContent = e.message; });
   </script>
 </body>
 </html>

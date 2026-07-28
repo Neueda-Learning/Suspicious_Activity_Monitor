@@ -144,6 +144,183 @@ textarea { min-height: 110px; resize: vertical; }
 .compare td.match-EXACT { color: var(--green); font-weight: 600; }
 .compare td.match-MISMATCH, .compare td.match-PARTIAL { color: var(--amber); }
 .compare td.match-NOT_PROVIDED { color: var(--muted); }
+/* ---- Score breakdown key-value ---- */
+.evidence-kv {
+  margin: 0.6rem 0 0.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.88rem;
+}
+.evidence-kv > div {
+  display: grid;
+  grid-template-columns: 11rem 1fr;
+  gap: 0.4rem 0.75rem;
+  padding: 0.2rem 0;
+  border-bottom: 1px solid #eef2f6;
+}
+.evidence-kv > div:last-child {
+  border-bottom: none;
+  margin-top: 0.25rem;
+  padding-top: 0.45rem;
+  border-top: 1px dashed var(--border);
+  font-weight: 600;
+}
+.evidence-kv dt { color: var(--muted); margin: 0; font-weight: 500; }
+.evidence-kv dd { margin: 0; color: var(--text); font-variant-numeric: tabular-nums; }
+
+/* ---- Investigation draft panel ---- */
+.ai-draft-panel .ai-draft-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.25rem;
+}
+.ai-draft-panel .ai-draft-head h2 { margin-bottom: 0; }
+.ai-provenance {
+  margin: 0;
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 0.78rem;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+.draft-structured {
+  margin-top: 0.85rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+}
+.draft-accepted {
+  margin: 0;
+  font-size: 0.88rem;
+  color: var(--green);
+  font-weight: 600;
+  background: #e8f5ec;
+  border: 1px solid #c6e4d0;
+  border-radius: 4px;
+  padding: 0.45rem 0.7rem;
+}
+.draft-block-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.4rem;
+}
+.draft-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 700;
+}
+.btn-sm { padding: 0.3rem 0.65rem; font-size: 0.8rem; }
+.draft-narrative-text,
+.draft-narrative-edit {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--text);
+  max-width: 68ch;
+}
+.draft-narrative-edit {
+  display: block;
+  width: 100%;
+  min-height: 5.5rem;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: #fafbfd;
+  resize: vertical;
+  font: inherit;
+  font-size: 1rem;
+  line-height: 1.65;
+}
+.draft-narrative-edit[hidden] { display: none; }
+.draft-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+.draft-list li {
+  display: flex;
+  gap: 0.55rem;
+  align-items: flex-start;
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+.draft-bullet {
+  flex: none;
+  width: 1.1rem;
+  text-align: center;
+  color: var(--navy);
+  font-weight: 700;
+  margin-top: 0.05rem;
+}
+.draft-questions .draft-bullet { color: var(--muted); }
+.draft-checks .draft-bullet { color: var(--navy-2); }
+.muted-list { color: var(--muted); }
+.draft-statement { color: var(--text); }
+.chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-top: 0.4rem;
+}
+.chip {
+  display: inline-flex;
+  align-items: center;
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 0.72rem;
+  padding: 0.15rem 0.45rem;
+  border-radius: 3px;
+  border: 1px solid #b9c9dc;
+  background: #eef3f9;
+  color: var(--navy);
+  cursor: pointer;
+  font-weight: 600;
+}
+.chip:hover { background: #dfe8f3; }
+.chip.unverified {
+  cursor: default;
+  background: #f3f4f6;
+  border-color: #d5d9df;
+  color: var(--muted);
+  font-weight: 500;
+}
+.draft-disclaimer {
+  margin: 0;
+  padding: 0.65rem 0.8rem;
+  border-left: 3px solid var(--amber);
+  background: #fff8ef;
+  color: var(--muted);
+  font-size: 0.85rem;
+  line-height: 1.45;
+}
+.draft-raw-fallback { margin-top: 0.75rem; }
+.draft-fallback-banner {
+  margin: 0 0 0.5rem;
+  font-size: 0.85rem;
+  color: var(--amber);
+  font-weight: 600;
+}
+
+/* flash highlight when jumping from evidence chip */
+@keyframes flash-fade {
+  0%   { background-color: #ffe08a; }
+  100% { background-color: transparent; }
+}
+tr.flash,
+details.alert.flash {
+  animation: flash-fade 1.2s ease-out;
+}
+
 @media (max-width: 900px) {
   .totals, .grid-2, .grid-3 { grid-template-columns: 1fr; }
+  .evidence-kv > div { grid-template-columns: 1fr; gap: 0.1rem; }
 }
