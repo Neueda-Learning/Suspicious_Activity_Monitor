@@ -13,5 +13,7 @@ public interface CaseRepository extends JpaRepository<CaseEntity, Long> {
 
     List<CaseEntity> findByCustomerId(Long customerId);
 
+    boolean existsByCustomerIdAndStatus(Long customerId, String status);
+
     List<CaseEntity> findByAssignedTo(String assignedTo);
 }

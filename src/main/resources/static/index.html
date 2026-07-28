@@ -13,11 +13,13 @@
       <a class="active" href="/">Case Queue</a>
       <a href="/sanctions.html">Sanctions Review</a>
       <a href="/stats.html">Rule Stats</a>
+      <button class="btn secondary" id="runBtn" type="button">Run monitoring</button>
       <button class="btn" id="payBtn" type="button">Submit Payment</button>
     </nav>
   </header>
   <main class="wrap">
     <div class="totals" id="totals"></div>
+    <p class="muted" id="runResult"></p>
     <section class="panel">
       <h2>Open cases <span class="muted" style="font-weight:500">(sorted by priority)</span></h2>
       <table>
@@ -78,6 +80,20 @@
           <td>${c.assignedTo || '—'}</td>
         </tr>`).join('');
     }
+    document.getElementById('runBtn').onclick = async () => {
+      const btn = document.getElementById('runBtn');
+      btn.disabled = true;
+      runResult.textContent = 'Evaluating every customer against the rule set…';
+      try {
+        const r = await api('/api/monitoring/run', { method: 'POST', body: '{}' });
+        runResult.textContent =
+          `${r.customersEvaluated} customers evaluated · ${r.casesRaised} new case(s) raised · ` +
+          `${r.noActionRequired} required no action · ${r.suppressedOpenCase} suppressed (case already open)`;
+        await load();
+      } catch (e) { runResult.textContent = e.message; }
+      finally { btn.disabled = false; }
+    };
+
     const modal = document.getElementById('payModal');
     document.getElementById('payBtn').onclick = () => modal.classList.add('open');
     document.getElementById('pClose').onclick = () => modal.classList.remove('open');
