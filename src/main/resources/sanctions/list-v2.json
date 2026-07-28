@@ -1,0 +1,4056 @@
+{
+  "version": "v2",
+  "source": "UK Sanctions List (HM Treasury / OFSI) — demo extract",
+  "entries": [
+    {
+      "sourceUniqueId": "OS-DEMO-VLADIMIR-PETROV",
+      "name": "Vladimir Petrov",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "V. Petrov",
+        "\u0412\u043b\u0430\u0434\u0438\u043c\u0438\u0440 \u041f\u0435\u0442\u0440\u043e\u0432"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1971-03-02",
+        "nationality": "RU",
+        "passport": "71********"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "Q4293669",
+      "name": "Vitaly Valentinovich MILONOV",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "\u041c\u0438\u043b\u043e\u043d\u043e\u0432 \u0412\u0438\u0442\u0430\u043b\u0438\u0439 \u0412\u0430\u043b\u0435\u043d\u0442\u0438\u043d\u043e\u0432\u0438\u0447"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1974-01-23",
+        "nationality": "RU"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-ZTJBJFWBVXKMLbWwvXpVwW",
+      "name": "Kirill Andreevich Zatolokin",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "downlow",
+        "\u041a\u0438\u0440\u0438\u043b\u043b \u0410\u043d\u0434\u0440\u0435\u0435\u0432\u0438\u0447 \u0417\u0430\u0442\u043e\u043b\u043e\u043a\u0438\u043d"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1992-04-30",
+        "nationality": "RU",
+        "passport": "726146360"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "Q112246703",
+      "name": "Sergey Borisovich PROKOPENKO",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "\u041f\u0420\u041e\u041a\u041e\u041f\u0415\u041d\u041a\u041e \u0421\u0435\u0440\u0433\u0435\u0439 \u0411\u043e\u0440\u0438\u0441\u043e\u0432\u0438\u0447"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1986-10-20",
+        "nationality": "UA"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-YffG5t3w73BcwRAtZeAYVz",
+      "name": "MOHAMMAD YAQOUB",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "\u0645\u062d\u0645\u062f \u064a\u0639\u0642\u0648\u0628"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1966",
+        "nationality": "AF"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "Q4399366",
+      "name": "Igor Nikolaevich RUDENSKY",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "\u0418\u0433\u043e\u0440\u044c \u041d\u0438\u043a\u043e\u043b\u0430\u0435\u0432\u0438\u0447 \u0420\u0443\u0434\u0435\u043d\u0441\u043a\u0438\u0439"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1962-09-11",
+        "nationality": "RU"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-NUaATD4uBocsrdMvK2Fnkn",
+      "name": "Sergei CHEREVKO",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "\u0421\u0435\u0440\u0433i\u0439 \u041c\u0438\u043a\u043e\u043b\u0430\u0439\u043e\u0432\u0438\u0447 \u0427\u0415\u0420\u0415\u0412\u041a\u041e",
+        "Serhiy Mikolayovich CHEREVKO",
+        "Sergey CHEREVKO"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1975-08-11",
+        "nationality": "UA"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "Q25394818",
+      "name": "Alexander Alexandrovich MAKSIMOV",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "\u041c\u0430\u043a\u0441\u0438\u043c\u043e\u0432 \u0410\u043b\u0435\u043a\u0441\u0430\u043d\u0434\u0440 \u0410\u043b\u0435\u043a\u0441\u0430\u043d\u0434\u0440\u043e\u0432\u0438\u0447"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1946-11-15",
+        "nationality": "RU"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "Q57782740",
+      "name": "Mikhail Yurievich AVDEEV",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "\u0410\u0432\u0434\u0435\u0435\u0432 \u041c\u0438\u0445\u0430\u0438\u043b \u042e\u0440\u044c\u0435\u0432\u0438\u0447"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1977-03-06",
+        "nationality": "RU"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "Q4380412",
+      "name": "Yuriy Anatolyevich PROKOFYEV",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "\u041f\u0420\u041e\u041a\u041e\u0424\u042c\u0415\u0412 \u042e\u0440\u0438\u0439 \u0410\u043d\u0430\u0442\u043e\u043b\u044c\u0435\u0432\u0438\u0447"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1939-02-20",
+        "nationality": "RU"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "Q108897120",
+      "name": "Victoria Sergeevna RODINA",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "\u0412\u0438\u043a\u0442\u043e\u0440\u0438\u044f \u0421\u0435\u0440\u0433\u0435\u0435\u0432\u043d\u0430 \u0420\u043e\u0434\u0438\u043d\u0430"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1989-10-29",
+        "nationality": "RU"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "Q26255538",
+      "name": "Iliyas Magomed-Salamovich UMAKHANOV",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "\u0418\u043b\u044c\u044f\u0301\u0441 \u041c\u0430\u0433\u043e\u043c\u0435\u0434-\u0421\u0430\u043b\u0430\u0301\u043c\u043e\u0432\u0438\u0447 \u0423\u043c\u0430\u0445\u0430\u0301\u043d\u043e\u0432"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1957-03-27",
+        "nationality": "RU"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-Hc8n3obdGhvLvGiNiCcyMj",
+      "name": "Dinorah Yoselin Bustamante Puerta",
+      "entityType": "INDIVIDUAL",
+      "aliases": [],
+      "identifiers": {
+        "dateOfBirth": "1975-01-14",
+        "nationality": "VE",
+        "companyNumber": "V-10002096"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "Q27996571",
+      "name": "FAYSAL AHMAD BIN ALI AL-ZAHRANI",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "Abu Sarah al-Saudi",
+        "Faisal Ahmed Ali Alzahrani",
+        "Abu Sara Zahrani",
+        "\u0641\u064a\u0635\u0644 \u0627\u062d\u0645\u062f \u0628\u0646 \u0639\u0644\u064a \u0627\u0644\u0632\u0647\u0631\u0627\u0646\u064a"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1986-01-19",
+        "nationality": "SA",
+        "passport": "G579315"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "Q111548653",
+      "name": "Gulbakhor ISMAILOVA",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "Ismailova GULBAKHOR",
+        "\u0413\u0443\u043b\u044c\u0431\u0430\u0445\u043e\u0440 \u0418\u0421\u041c\u0410\u0418\u041b\u041e\u0412\u0410"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1959-12-22",
+        "nationality": "RU"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "Q4156031",
+      "name": "Aleksandr Vladimirovich Dvornikov",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "\u0414\u0432\u043e\u0440\u043d\u0438\u043a\u043e\u0432, \u0410\u043b\u0435\u043a\u0441\u0430\u043d\u0434\u0440 \u0412\u043b\u0430\u0434\u0438\u043c\u0438\u0440\u043e\u0432\u0438\u0447"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1961-08-22",
+        "nationality": "RU"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "Q1100768",
+      "name": "HAMID RAJA SHALAH AL-TIKRITI",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "Hassan Al-Tikriti",
+        "\u062d\u0627\u0645\u062f \u0631\u062c\u0627 \u0635\u0644\u0627\u062d \u0627\u0644\u062a\u0643\u0631\u064a\u062a\u064a",
+        "Hamid Raja-Shalah Hassum Al-Tikriti"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1950",
+        "nationality": "IQ"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "Q4099632",
+      "name": "Alexander Leonidovich BURKOV",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "\u0410\u043b\u0435\u043a\u0441\u0430\u043d\u0434\u0440 \u041b\u0435\u043e\u043d\u0438\u0434\u043e\u0432\u0438\u0447 \u0411\u0443\u0440\u043a\u043e\u0432"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1967-04-23",
+        "nationality": "RU"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-Hnjg4zis6ArMXivoBbCvzZ",
+      "name": "Hocine Bougetof",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "Hocine Bouguetof"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1959-07-01",
+        "nationality": "DZ"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "Q95624951",
+      "name": "GHAZI HAMMUD AL-UBAIDI",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "\u063a\u0627\u0632\u064a \u062d\u0645\u0648\u062f \u0627\u0644\u0639\u0628\u064a\u062f\u064a"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1944",
+        "nationality": "IQ"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-4sjXgiXRPLpxp2nTMPHQ2s",
+      "name": "AREFULLAH AREF GHAZI MOHAMMAD",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "\u0639\u0627\u0631\u0641 \u0627\u0644\u0644\u0647 \u0639\u0627\u0631\u0641 \u063a\u0627\u0632\u06cc \u0645\u062d\u0645\u062f",
+        "Arefullah Aref"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1958",
+        "nationality": "AF"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "Q121891502",
+      "name": "Boris Yakovlevich RAPOPORT",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "\u0411\u043e\u0440\u0438\u0441 \u042f\u043a\u043e\u0432\u043b\u0435\u0432\u0438\u0447 \u0420\u0430\u043f\u043e\u043f\u043e\u0440\u0442"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1967-08-14",
+        "nationality": "RU"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-JseaPJctnK9o8wrmz8xmoT",
+      "name": "Nikita Aleksandrovich ZAKHAROV",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "\u041d\u0438\u043a\u0438\u0442\u0430 \u0410\u043b\u0435\u043a\u0441\u0430\u043d\u0434\u0440\u043e\u0432\u0438\u0447 \u0417\u0410\u0425\u0410\u0420\u041e\u0412"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1986-10-27",
+        "nationality": "RU",
+        "companyNumber": "Taxpayer No. 184101937739"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-jWxy7tNsKwZJY68hrPv28a",
+      "name": "Natalya Vladimirovna SERGUN",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "\u0421\u0415\u0420\u0413\u0423\u041d, \u041d\u0430\u0442\u0430\u043b\u044c\u044f \u0412\u043b\u0430\u0434\u0438\u043c\u0438\u0440\u043e\u0432\u043d\u0430"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1973-09-20",
+        "nationality": "UA"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-YdehUYJrAzM34YFKPcSFvm",
+      "name": "Ra'if al-Quwatly",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "Ri'af al-Quwatli",
+        "Raeef al-Quwatli",
+        "Ra'if Al-Kouatly",
+        "\u0631\u0626\u064a\u0641 \u0627\u0644\u0642\u0648\u062a\u0644\u064a",
+        "Raeef Al-Kouatly",
+        "Ri'af Al-Quwatly",
+        "Ra'if al-Quwatli",
+        "Raeef al-Quwatly"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1967-02-03"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "Q5950108",
+      "name": "Alireza ZAKANI",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "\u0639\u0644\u06cc\u0631\u0636\u0627 \u0632\u0627\u06a9\u0627\u0646\u06cc"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1966",
+        "nationality": "IR"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "Q60322884",
+      "name": "Mikhail Vladimirovich KUZMIN",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "\u041c\u0438\u0445\u0430\u0438\u043b \u0412\u043b\u0430\u0434\u0438\u043c\u0438\u0440\u043e\u0432\u0438\u0447 \u041a\u0443\u0437\u044c\u043c\u0438\u043d"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1955-08-05",
+        "nationality": "RU"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "Q22919490",
+      "name": "Vyacheslav Mikhailovich MARKHAEV",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "\u041c\u0430\u0440\u0445\u0430\u0435\u0432 \u0412\u044f\u0447\u0435\u0441\u043b\u0430\u0432 \u041c\u0438\u0445\u0430\u0439\u043b\u043e\u0432\u0438\u0447"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1955-06-01",
+        "nationality": "RU"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-S8hnfp6jnxE5cY8QjqsGKn",
+      "name": "Sergey Leonidovich TELNYKH",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "\u0422\u0415\u041b\u042c\u041d\u042b\u0425, \u0421\u0435\u0440\u0433\u0435\u0439 \u041b\u0435\u043e\u043d\u0438\u0434\u043e\u0432\u0438\u0447"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1972-04-29",
+        "nationality": "UA"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "Q4162736",
+      "name": "Vladimir Aleksandrovich Dmitriev",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "\u0412\u043b\u0430\u0434\u0438\u043c\u0438\u0440 \u0410\u043b\u0435\u043a\u0441\u0430\u043d\u0434\u0440\u043e\u0432\u0438\u0447 \u0414\u043c\u0438\u0442\u0440\u0438\u0435\u0432"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1953-08-25",
+        "nationality": "RU",
+        "passport": "531329602"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-httGM5ZRMQnarSH6JW3Z3y",
+      "name": "Rafael Antonio Franco Quintero",
+      "entityType": "INDIVIDUAL",
+      "aliases": [],
+      "identifiers": {
+        "dateOfBirth": "1973-10-14",
+        "nationality": "VE",
+        "companyNumber": "11311672"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "Q28500753",
+      "name": "Vladislav Feliksovich FILEV",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "\u0424\u0418\u041b\u0401\u0412 \u0412\u041b\u0410\u0414\u0418\u0421\u041b\u0410\u0412 \u0424\u0415\u041b\u0418\u041a\u0421\u041e\u0412\u0418\u0427",
+        "Vladislav Feliksovich FILYOV"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1963-08-31",
+        "nationality": "RU"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "Q370422",
+      "name": "Grigory Alexeyevich RAPOTA",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "\u0413\u0440\u0438\u0433\u043e\u0440\u0438\u0439 \u0410\u043b\u0435\u043a\u0441\u0435\u0435\u0432\u0438\u0447 \u0420\u0410\u041f\u041e\u0422\u0410"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1944-02-05",
+        "nationality": "RU"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-irC7Q9TTPaWezgdQUcXGbX",
+      "name": "AHMED ABDI AW-MOHAMED",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "Shaykh MUKHTAR",
+        "GODANE",
+        "Muktar Abdirahman ABU ZUBEYR",
+        "Ahmed Abdi AW MOHAMMED",
+        "GODANI",
+        "Ahmed Abdi AW-MOHAMUD",
+        "Abu ZUBEYR",
+        "Muktar Abdulrahim ABUZUBAIR"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1977-07-10",
+        "nationality": "SO"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "Q713915",
+      "name": "Wael Nader Al-Halki",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "Wael Nader Al-Halqi"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1964",
+        "nationality": "SY"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-nnPqrUudqUZ2fc9fRSSbp2",
+      "name": "Igor Nikolaevich ZAVYALOV",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "\u0418\u0433\u043e\u0440\u044c \u041d\u0438\u043a\u043e\u043b\u0430\u0435\u0432\u0438\u0447 \u0417\u0430\u0432\u044c\u044f\u043b\u043e\u0432",
+        "Igor Niolayevich ZAVYALOV"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1960-01-19",
+        "nationality": "RU",
+        "companyNumber": "4508340851",
+        "passport": "513699705"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-2Tbri3s6GgNtAwsSXh4qpL",
+      "name": "Maria Aleksandrovna OSETROVA",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "Mariya Aleksandrovna ZAKHAROVA"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1988-01-07",
+        "nationality": "RU",
+        "companyNumber": "183116181362"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "Q272154",
+      "name": "RAGHAD SADDAM HUSSEIN AL-TIKRITI",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "\u0631\u063a\u062f \u0635\u062f\u0627\u0645 \u062d\u0633\u064a\u0646 \u0627\u0644\u062a\u0643\u0631\u064a\u062a\u064a"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1967",
+        "nationality": "IQ"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-goyYCJLkU5zmczBNm4cuDR",
+      "name": "SALIM MUSTAFA MUHAMMAD AL-MANSUR",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "\u0633\u0627\u0644\u0645 \u0645\u0635\u0637\u0641\u0649 \u0645\u062d\u0645\u062f \u0627\u0644 \u0645\u0646\u0635\u0648\u0631",
+        "Salim Mansur",
+        "Saleem Al-Ifri",
+        "Salim Mustafa Muhammad Mansur Al-Ifri",
+        "Salim Mansur Mustafa",
+        "Hajji Salim Al-Shaklar"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1962-02-20",
+        "nationality": "IQ",
+        "companyNumber": "300397",
+        "passport": "A6489694"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-5QWhs7it684hqapWLbfkAL",
+      "name": "Maksim Nikolayevich SHVETS",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "\u041c\u0430\u043a\u0441\u0438\u043c \u041d\u0438\u043a\u043e\u043b\u0430\u0435\u0432\u0438\u0447 \u0428\u0412\u0415\u0426"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1993-09-05",
+        "nationality": "RU"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-05-11T08:40:04Z"
+    },
+    {
+      "sourceUniqueId": "NK-hBg59cbSo9XeVorDM4ZgxZ",
+      "name": "Andrey Stanislavovich KORINETS",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "Alexey DOGUZHIEV",
+        "\u0410\u043d\u0434\u0440\u0435\u0439 \u0421\u0442\u0430\u043d\u0438\u0441\u043b\u0430\u0432\u043e\u0432\u0438\u0447 \u041a\u041e\u0420\u0418\u041d\u0415\u0426"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1987-05-18",
+        "nationality": "RU",
+        "passport": "8707233962"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-14T07:56:30Z"
+    },
+    {
+      "sourceUniqueId": "Q4362891",
+      "name": "Alexey Viktorovich PIMANOV",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "Aleksei Viktorovich PIMANOV",
+        "\u0410\u043b\u0435\u043a\u0441\u0435\u0439 \u0412\u0438\u043a\u0442\u043e\u0440\u043e\u0432\u0438\u0447 \u041f\u0418\u041c\u0410\u041d\u041e\u0412",
+        "Alexei PIMANOV"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1962-02-09",
+        "nationality": "RU"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "Q106634218",
+      "name": "Sarvar ISMAILOV",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "\u0421\u0430\u0440\u0432\u0430\u0440 \u0418\u0421\u041c\u0410\u0418\u041b\u041e\u0412"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1995-03-14",
+        "nationality": "RU",
+        "passport": "K00239193"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-fs6JpkvwqArVYYbN5FZ9vk",
+      "name": "RUKAN RAZUKI ABD-AL-GHAFUR SULAIMAN AL-TIKRITI",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "\u0631\u0648\u0643\u0627\u0646 \u0631\u0632\u0648\u0642\u064a \u0639\u0628\u062f \u0627\u0644\u063a\u0641\u0627\u0631 \u0633\u0644\u064a\u0645\u0627\u0646 \u0627\u0644\u062a\u0643\u0631\u064a\u062a\u064a",
+        "Rukan Abdal-Ghaffur Sulayman al-Majid",
+        "Rukan Razuqi Abd al-Ghafur Al-Majid",
+        "Rukan Abd al-Ghaffur al-Majid Al-Tikriti Abu Walid"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1956",
+        "nationality": "IQ"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-3thHW82tEjtEZqjX6sfANt",
+      "name": "Andrey Aleksandrovich POLYAKOV",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "\u0410\u043d\u0434\u0440\u0435\u0439 \u0410\u043b\u0435\u043a\u0441\u0430\u043d\u0434\u0440\u043e\u0432\u0438\u0447 \u041f\u041e\u041b\u042f\u041a\u041e\u0412"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1976",
+        "nationality": "RU"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-H6GQyCwJcA59dyAMryqoNM",
+      "name": "Iryna Viktorivna KRAVCHENKO",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "\u0406\u0440\u0438\u043d\u0430 \u0412\u0456\u043a\u0442\u043e\u0440\u0456\u0432\u043d\u0430 \u041a\u0440\u0430\u0432\u0447\u0435\u043d\u043a\u043e"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1979-05-18",
+        "companyNumber": "910318264912"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-05-11T08:40:04Z"
+    },
+    {
+      "sourceUniqueId": "NK-fgjqJAHYsQXnXkQf2bpNvb",
+      "name": "Larisa Anatolievna LITVINOVA",
+      "entityType": "INDIVIDUAL",
+      "aliases": [],
+      "identifiers": {
+        "dateOfBirth": "1963-11-18",
+        "nationality": "RU"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-Z8JpBLW3MNtuYfhQVdgPYd",
+      "name": "Natalya Alekseevna BUDARINA",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "\u041d\u0430\u0442\u0430\u043b\u044c\u044f \u0410\u043b\u0435\u043a\u0441\u0435\u0435\u0432\u043d\u0430 \u0411\u0443\u0434\u0430\u0440\u0438\u043d\u0430"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1980-07-24",
+        "nationality": "RU"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-9CkTqbicCsBJSqisWup9uE",
+      "name": "Cinthia Edelmira Monterroso Gomez",
+      "entityType": "INDIVIDUAL",
+      "aliases": [],
+      "identifiers": {
+        "dateOfBirth": "1983-03-25",
+        "nationality": "GT"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "Q122900935",
+      "name": "Igor Viacheslavovich Liubovitski",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "\u0418\u0433\u043e\u0440\u044c \u0412\u044f\u0447\u0435\u0441\u043b\u0430\u0432\u043e\u0432\u0438\u0447 \u041b\u042e\u0411\u041e\u0412\u0418\u0426\u041a\u0418\u0419",
+        "Ihar Viachaslavavich Liubavitski",
+        "I\u0433\u0430\u0440 \u0412\u044f\u0447\u0430\u0441\u043b\u0430\u0432\u0430\u0432i\u0447 \u041b\u042e\u0411\u0410\u0412I\u0426\u041aI"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1983-07-21",
+        "nationality": "BY"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-23dinXRmxTu4sehASYNAGE",
+      "name": "Irina Anatolievna KOSTENKO",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "Irina Anatolyevna KOSTENKO",
+        "\u041a\u041e\u0421\u0422\u0415\u041d\u041a\u041e \u0418\u0440\u0438\u043d\u0430 \u0410\u043d\u0430\u0442\u043e\u043b\u044c\u0435\u0432\u043d\u0430"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1967-05-08",
+        "nationality": "UA"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "Q47452975",
+      "name": "Aleksander Pavlovich LAPIN",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "\u041b\u0410\u041f\u0418\u041d \u0410\u043b\u0435\u043a\u0441\u0430\u043d\u0434\u0440 \u041f\u0430\u0432\u043b\u043e\u0432\u0438\u0447"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1964-01-01",
+        "nationality": "RU"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-5VYs6avaxvnoLpZ7UtWGp4",
+      "name": "Rakesh Taraknath PANDEY",
+      "entityType": "INDIVIDUAL",
+      "aliases": [],
+      "identifiers": {
+        "dateOfBirth": "1991-03-13",
+        "nationality": "IN",
+        "companyNumber": "'07636845"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-07-24T09:17:51Z"
+    },
+    {
+      "sourceUniqueId": "NK-9tj2YJkza2XjFFJ9zbYUnX",
+      "name": "Elio Ramon Estrada Paredes",
+      "entityType": "INDIVIDUAL",
+      "aliases": [],
+      "identifiers": {
+        "dateOfBirth": "1966-12-02",
+        "nationality": "VE",
+        "companyNumber": "6857541"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-HTT2aaXeF6KjiiEBoLHnBW",
+      "name": "Arif KRASNIQI",
+      "entityType": "INDIVIDUAL",
+      "aliases": [],
+      "identifiers": {
+        "dateOfBirth": "1971-05-09",
+        "nationality": "XK",
+        "companyNumber": "1015491015"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-07-24T09:17:51Z"
+    },
+    {
+      "sourceUniqueId": "NK-ib2ch2vHeA8wAgwY6DCzGe",
+      "name": "Sulaiman Jassem Sulaiman ALI ABO GHAITH",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "Abo Ghaith",
+        "\u0633\u0644\u064a\u0645\u0627\u0646 \u062c\u0627\u0633\u0645 \u0633\u0644\u064a\u0645\u0627\u0646 \u0639\u0644\u064a \u0623\u0628\u0648\u063a\u064a\u062b"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1965-12-14",
+        "nationality": "KW",
+        "passport": "849594"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "Q29865118",
+      "name": "Sergei Sergeevich IVANOV",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "Sergey IVANOV JR.",
+        "Sergejj Sergeevich IVANOV",
+        "Sergey Sergeivich IVANOV",
+        "\u0421\u0435\u0440\u0433\u0435\u0439 \u0421\u0435\u0440\u0433\u0435\u0435\u0432\u0438\u0447 \u0418\u0432\u0430\u043d\u043e\u0432",
+        "Sergei Sergejewitsch Iwanow"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1980-10-23",
+        "nationality": "RU",
+        "passport": "759511560"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "Q4519529",
+      "name": "Rifat Gabdulkhakovich SHAIKHUTDINOV",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "\u0428\u0430\u0439\u0445\u0443\u0442\u0434\u0438\u043d\u043e\u0432 \u0420\u0438\u0444\u0430\u0442 \u0413\u0430\u0431\u0434\u0443\u043b\u0445\u0430\u043a\u043e\u0432\u0438\u0447"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1963-12-23",
+        "nationality": "RU",
+        "passport": "754710335"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-BxdfrmWUHNQUUCj5FE6tQt",
+      "name": "Mikhail Evgenyevich KUZNETSOV",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "\u041c\u0438\u0445\u0430\u0438\u043b \u0415\u0432\u0433\u0435\u043d\u044c\u0435\u0432\u0438\u0447 \u041a\u0443\u0437\u043d\u0435\u0446\u043e\u0432"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1979-06-20"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-3KRoVfPHitLoVonaD9y6bE",
+      "name": "Asharaf Seed Ahmed ALI",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "Ashraf Hussein ALI",
+        "Ashiraf Seed Ahmed ALI",
+        "Ashraf Sayed ALI",
+        "Ashraf Seed Ahmed Hussein ALI",
+        "Ashraff Seed Ahmed ALI",
+        "Ashraf Said Ahmed Hussein ALI",
+        "Al-Cardinal"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1957-01-01",
+        "nationality": "SD",
+        "passport": "B00018325"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-mv9Msh5cPTes3psKd4RgF4",
+      "name": "ALI BARZAN IBRAHIM HASAN AL-TIKRITI",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "\u0639\u0644\u064a \u0628\u0631\u0632\u0627\u0646 \u0625\u0628\u0631\u0627\u0647\u064a\u0645 \u062d\u0633\u0646 \u0627\u0644\u062a\u0643\u0631\u064a\u062a\u064a"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1981-04-18",
+        "nationality": "IQ"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "Q55653685",
+      "name": "Sergey Sergeyevich KRAVTSOV",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "\u0421\u0435\u0440\u0433\u0435\u0439 \u0421\u0435\u0440\u0433\u0435\u0435\u0432\u0438\u0447 \u041a\u0440\u0430\u0432\u0446\u043e\u0432"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1974-03-17",
+        "nationality": "RU"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-QrfCVxyw2xGZdazwXYxHgg",
+      "name": "Miguel Antonio Munoz Palacios",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "Miguel Antonio Mu\u00f1oz Palacios"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1964-07-12",
+        "nationality": "VE",
+        "companyNumber": "6186648"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-MSBirCi2fHKkmLvMMFFTLS",
+      "name": "Andrey Vasilievich BAEVSKY",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "\u0411\u0410\u0415\u0412\u0421\u041a\u0418\u0419 \u0410\u043d\u0434\u0440\u0435\u0439 \u0412\u0430\u0441\u0438\u043b\u044c\u0435\u0432\u0438\u0447",
+        "Andrey Vasilyevich BAYEVSKY"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1972-08-19",
+        "nationality": "UA"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-jCdtSTriufWncTVqVqLaWC",
+      "name": "AHMED JAN AKHUNDZADA WAZIR",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "\u0627\u062d\u0645\u062f \u062c\u0627\u0646 \u0622\u062e\u0648\u0646\u062f\u0632\u0627\u062f\u0647 \u0648\u0632\u06cc\u0631",
+        "Ahmed Jan AKHUND",
+        "Haji Ahmed JAN"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1953",
+        "nationality": "AF"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-ZkzuAKGLPDzos2D3VEmBAQ",
+      "name": "Nader Khoon Siavash",
+      "entityType": "INDIVIDUAL",
+      "aliases": [],
+      "identifiers": {
+        "dateOfBirth": "1963-04-30",
+        "nationality": "IR",
+        "passport": "'0048894753"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "Q57588106",
+      "name": "Alexander Evgenievich ANANCHENKO",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "\u0410\u041d\u0410\u041d\u0427\u0415\u041d\u041a\u041e \u0410\u043b\u0435\u043a\u0441\u0430\u043d\u0434\u0440 \u0415\u0432\u0433\u0435\u043d\u044c\u0435\u0432\u0438\u0447",
+        "Alexander Yevgenevych ANANCHENKO"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1966-02-02",
+        "nationality": "UA"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "Q48954514",
+      "name": "Anton Vadimovich GORELKIN",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "\u0410\u043d\u0442\u043e\u043d \u0412\u0430\u0434\u0438\u043c\u043e\u0432\u0438\u0447 \u0413\u043e\u0440\u0435\u043b\u043a\u0438\u043d"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1982-01-22",
+        "nationality": "RU"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "Q98181759",
+      "name": "Milan Rajko Radoicic",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "Milan Rajko Radojcic",
+        "Milan Rajko Radoi\u010di\u0107",
+        "Milan Radojicic",
+        "\u041c\u0438\u043b\u0430\u043d \u0420\u0430\u0434\u043e\u0438\u0447\u0438\u045b"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1978-02-21",
+        "nationality": "RS",
+        "companyNumber": "1174669941"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "Q105061462",
+      "name": "Tigran Oganesovich KHUDAVERDYAN",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "\u0425\u0423\u0414\u0410\u0412\u0415\u0420\u0414\u042f\u041d \u0422\u0438\u0433\u0440\u0430\u043d \u041e\u0433\u0430\u043d\u0435\u0441\u043e\u0432\u0438\u0447"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1981-12-28",
+        "nationality": "AM"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-2yYrphxJyt8wVxtM57x9Nn",
+      "name": "Muhammed Lumisa",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "Luminsa",
+        "Mukake",
+        "Lumwisa",
+        "Mukade",
+        "L Kato"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1965",
+        "nationality": "UG"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-07-24T10:40:02Z"
+    },
+    {
+      "sourceUniqueId": "Q50379197",
+      "name": "Sergei Fedorovich Rudskoi",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "\u0421\u0435\u0440\u0433\u0435\u0439 \u0424\u0435\u0434\u043e\u0440\u043e\u0432\u0438\u0447 \u0420\u0443\u0434\u0441\u043a\u043e\u0439",
+        "Sergey Fedorovich Rudskoy"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1960-10-02",
+        "nationality": "RU"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "Q108685074",
+      "name": "Irina Valentinovna IVENSKIKH",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "\u0418\u0432\u0435\u043d\u0441\u043a\u0438\u0445 \u0418\u0440\u0438\u043d\u0430 \u0412\u0430\u043b\u0435\u043d\u0442\u0438\u043d\u043e\u0432\u043d\u0430"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1972-07-22",
+        "nationality": "RU"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-jhzSAcsCfMrBrNwYLLQj4F",
+      "name": "Yasin Ahmad Dahi",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "Yasin Dhahi",
+        "\u064a\u0627\u0633\u064a\u0646 \u0623\u062d\u0645\u062f \u0627\u0644\u062c\u0628\u064a\u0646"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1960"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-3gvpiCweNzvLeYSACSs8hQ",
+      "name": "Alexander Alexandrovich Pushkov",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "\u0410\u043b\u0435\u043a\u0441\u0430\u043d\u0434\u0440 \u0410\u043b\u0435\u043a\u0441\u0430\u043d\u0434\u0440\u043e\u0432\u0438\u0447 \u041f\u0443\u0448\u043a\u043e\u0432"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1983-05-11",
+        "nationality": "RU",
+        "companyNumber": "330571433366"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "Q4503054",
+      "name": "Ruslan Khadzhismelovich TSALIKOV",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "\u0426\u0410\u041b\u0418\u041a\u041e\u0412 \u0420\u0443\u0441\u043b\u0430\u043d \u0425\u0430\u0434\u0436\u0438\u0441\u043c\u0435\u043b\u043e\u0432\u0438\u0447"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1956-07-31",
+        "nationality": "RU"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-XtSNaQkmBnR3C8WUYNafRx",
+      "name": "Ali Hammoud",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "Ali Hamoud"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1964"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "Q83375533",
+      "name": "Olga Borisovna LYUBIMOVA",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "Olga Borisovna Lubimova",
+        "\u041e\u043b\u044c\u0433\u0430 \u0411\u043e\u0440\u0438\u0441\u043e\u0432\u043d\u0430 \u041b\u044e\u0431\u0438\u043c\u043e\u0432\u0430"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1980-12-31",
+        "nationality": "RU"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-K6wKe5QGAfpyvGxgGMzFFc",
+      "name": "Sami DURIQI",
+      "entityType": "INDIVIDUAL",
+      "aliases": [],
+      "identifiers": {
+        "dateOfBirth": "1968-03-06",
+        "nationality": "XK",
+        "companyNumber": "1001059161"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-07-24T09:17:51Z"
+    },
+    {
+      "sourceUniqueId": "NK-edwS5LGae77URdrAksdPrm",
+      "name": "Anatoly Leonidovich Popov",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "Anatoly Popov"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1974-12-05"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-cz9gkjPfLPxqs6pNqMD3Cn",
+      "name": "Alexandr Vasilievich Shubin",
+      "entityType": "INDIVIDUAL",
+      "aliases": [],
+      "identifiers": {
+        "dateOfBirth": "1972-05-20",
+        "nationality": "UA"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-MzdMrmPbXYhwLeWX34jYZR",
+      "name": "Vladimir Vladimirovich SANKIN",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "\u0421\u0410\u041d\u041a\u0418\u041d \u0412\u043b\u0430\u0434\u0438\u043c\u0438\u0440 \u0412\u043b\u0430\u0434\u0438\u043c\u0438\u0440\u043e\u0432\u0438\u0447"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1984-06-07",
+        "nationality": "UA"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "Q4138366",
+      "name": "Ildar Irekovich GILMUTDINOV",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "\u0418\u043b\u044c\u0434\u0430\u0440 \u0418\u0440\u0435\u043a\u043e\u0432\u0438\u0447 \u0413\u0438\u043b\u044c\u043c\u0443\u0442\u0434\u0438\u043d\u043e\u0432"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1962-09-03",
+        "nationality": "RU"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-dJRZf2J5PpcEBDX6wyPsfa",
+      "name": "YAR MOHAMMAD RAHIMI",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "\u06cc\u0627\u0631 \u0645\u062d\u0645\u062f \u0631\u062d\u06cc\u0645\u06cc"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1953",
+        "nationality": "AF"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-99AgPHJ7p7M32WyPFwGiif",
+      "name": "Klavdia Yurievna KULBATSKAYA",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "\u041a\u0423\u041b\u042c\u0411\u0410\u0426\u041a\u0410\u042f \u041a\u043b\u0430\u0432\u0434\u0438\u044f \u042e\u0440\u044c\u0435\u0432\u043d\u0430"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1967-03-30",
+        "nationality": "UA"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-mvSzX2jaDayZ4TrZmhWrVm",
+      "name": "Harel David LIBI",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "Koko LIBI",
+        "\u05d4\u05e8\u05d0\u05dc \u05dc\u05d9\u05d1\u05d9",
+        "Coco LIBI"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1991-05-14",
+        "nationality": "IL",
+        "companyNumber": "304935919"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-14T07:56:30Z"
+    },
+    {
+      "sourceUniqueId": "Q126734086",
+      "name": "Niels Oscar TROOST",
+      "entityType": "INDIVIDUAL",
+      "aliases": [],
+      "identifiers": {
+        "dateOfBirth": "1969-11-27",
+        "nationality": "NL"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "Q57064566",
+      "name": "KIM JONG SIK",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "Kim Cho'ng-sik"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1967",
+        "nationality": "KP"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "Q20385277",
+      "name": "Ahmad Hassan Mohammed AL ASIRI",
+      "entityType": "INDIVIDUAL",
+      "aliases": [],
+      "identifiers": {
+        "dateOfBirth": "1952-02-12",
+        "nationality": "SA"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-SxVZ9L8PLjZrp3sMEUwdEx",
+      "name": "Bassam Al Hassan",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "Bassam Al Hasan",
+        "\u0628\u0633\u0627\u0645 \u0627\u0644\u062d\u0633\u0646",
+        "Bassam Hasan"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1961",
+        "nationality": "SY"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-14T07:56:30Z"
+    },
+    {
+      "sourceUniqueId": "NK-c7ZGrNpbzGzvnaJMWgh2hz",
+      "name": "EHSANULLAH SARFIDA HESAMUDDIN AKHUNDZADA",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "\u0627\u062d\u0633\u0627\u0646 \u0627\u0644\u0644\u0647 \u0633\u0631\u0641\u062f\u0627 \u062d\u0633\u0627\u0645 \u0627\u0644\u062f\u06cc\u0646 \u0622\u062e\u0648\u0646\u062f\u0632\u0627\u062f\u0647",
+        "Ehsanullah SARFIDA",
+        "Ehsanullah SARFADI"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1962",
+        "nationality": "AF"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "Q98798423",
+      "name": "Bassam Bashir Ibrahim",
+      "entityType": "INDIVIDUAL",
+      "aliases": [],
+      "identifiers": {
+        "dateOfBirth": "1960",
+        "nationality": "SY"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-g9sQJUA2dZmoHgoDEMWmsH",
+      "name": "Chol Nam Kim",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "KIM CHOL NAM"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1970-02-19",
+        "nationality": "KP",
+        "passport": "563120238"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-izFW73iCbd6Fa7mbJqqvLw",
+      "name": "TARIQ AZIZ",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "\u0637\u0627\u0631\u0642 \u0639\u0632\u064a\u0632",
+        "Tariq Mikhail Aziz"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1936-07-01",
+        "nationality": "IQ",
+        "passport": "34409/129"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "Q4532584",
+      "name": "Konstantin Lvovich ERNST",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "\u042d\u0420\u041d\u0421\u0422 \u041a\u043e\u043d\u0441\u0442\u0430\u043d\u0442\u0438\u043d \u041b\u044c\u0432\u043e\u0432\u0438\u0447"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1961-02-06"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "Q16269662",
+      "name": "Ramazani Shadari",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "Ramazani Shadary",
+        "Emmanuel Ramazani Shadary",
+        "Emmanuel Ramazani Shadari Mulanda",
+        "Emmanuel Ramazani Shadari",
+        "Ramazani Shadari Mulanda"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1960-11-29",
+        "nationality": "CD"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-HmLnFshrExmzHLQgEGKP8o",
+      "name": "Mansur Ahmad Al-Sa'adi",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "\u0645\u0646\u0635\u0648\u0631 \u0627\u0644\u0633\u0639\u0627\u062f\u064a"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1988",
+        "nationality": "YE"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "Q28500050",
+      "name": "Aleksandr Nikolaevich NEKRASOV",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "\u0410\u043b\u0435\u043a\u0441\u0430\u043d\u0434\u0440 \u041d\u0438\u043a\u043e\u043b\u0430\u0435\u0432\u0438\u0447 \u041d\u0435\u043a\u0440\u0430\u0441\u043e\u0432"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1963-06-20",
+        "nationality": "RU"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "Q60720460",
+      "name": "Gaston Hughes Ilunga Kampete",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "Hugues Raston Illunga Kampete",
+        "Gastson Hughes Ilunga Kampete"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1964-11-24",
+        "nationality": "CD",
+        "companyNumber": "1-64-86-22311-29"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "Q186013",
+      "name": "JALALUDDIN HAQQANI",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "Jalaluddin HAQANI",
+        "\u062c\u0644\u0627\u0644 \u0627\u0644\u062f\u064a\u0646 \u062d\u0642\u0627\u0646\u0649",
+        "Jallalouddin HAQANI",
+        "Jallalouddine HAQQANI"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1948",
+        "nationality": "AF"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "Q16271828",
+      "name": "Sergiy Vadimovich Abisov",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "Serhiy Vadimovich Abisov",
+        "Sergiy Vadymovych Abisov",
+        "Sergey Vadymovych Abisov",
+        "Serhiy Vadymovych Abisov",
+        "Sergey Vadimovich Abisov"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1967-11-27",
+        "nationality": "UA"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-oKVYMBZbf9k9ucbgk4nRiM",
+      "name": "BASHIR MOHAMED MAHAMOUD",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "Bashir Mohamed Mohamud",
+        "Bashir Qorgab",
+        "Gure Gap",
+        "Bashir Yare",
+        "Bashir Mahmud Mohammed",
+        "Qorgab",
+        "Bashir Mohamed Mohamoud",
+        "Bashir Mohamed Mahmoud"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1979",
+        "nationality": "SO"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-miLM4r37PvwCV7Reguovpt",
+      "name": "Hasan Shahreshtani",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "\u062d\u0633\u0646 \u0645\u0641\u062e\u0645\u06cc \u0634\u0647\u0631\u0633\u062a\u0627\u0646\u06cc",
+        "Hassan Mafkhami",
+        "Hassan Mofkhami Shahrestrani",
+        "Hassan Mofakhmi Shahrashtani",
+        "Hasan Shahrestani"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1976-08-28",
+        "nationality": "IR"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "Q4398633",
+      "name": "Arkady Romanovich Rotenberg",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "\u0410\u0440\u043a\u0430\u0434\u0438\u0439 \u0420\u043e\u043c\u0430\u043d\u043e\u0432\u0438\u0447 \u0420\u041e\u0422\u0415\u041d\u0411\u0415\u0420\u0413"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1951-12-15",
+        "nationality": "RU"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "Q4392436",
+      "name": "Vladislav Matusovich REZNIK",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "\u0412\u043b\u0430\u0434\u0438\u0441\u043b\u0430\u0432 \u041c\u0430\u0442\u0443\u0441\u043e\u0432\u0438\u0447 \u0420\u0435\u0437\u043d\u0438\u043a"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1954-05-17",
+        "nationality": "RU",
+        "passport": "4707312"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-dEQfrUokJfF4mP3EPUpCko",
+      "name": "Yulia Vladimirovna Pankova",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "\u042e\u043b\u0438\u044f \u0412\u043b\u0430\u0434\u0438\u043c\u0438\u0440\u043e\u0432\u043d\u0430 \u041f\u0430\u043d\u043a\u043e\u0432\u0430",
+        "Yuliya Vladimirovna Pankova"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1996-12-10",
+        "nationality": "RU",
+        "companyNumber": "743016842436",
+        "passport": "753221719"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-CAntk5TPurzi5WcSqQHRSA",
+      "name": "Andrei Andreevich ZADACHIN",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "Andrey Andreevich ZADACHIN",
+        "\u0417\u0410\u0414\u0410\u0427\u0418\u041d \u0410\u043d\u0434\u0440\u0435\u0439 \u0410\u043d\u0434\u0440\u0435\u0435\u0432\u0438\u0447"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1990-08-22",
+        "nationality": "RU"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "Q3350421",
+      "name": "Olga Yurevna Golodets",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "Olga Yurievna Golodets"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1962-06-01",
+        "nationality": "RU"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "Q4214210",
+      "name": "Grigory Borisovich KARASIN",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "\u0413\u0440\u0438\u0433\u043e\u0440\u0438\u0439 \u0411\u043e\u0440\u0438\u0441\u043e\u0432\u0438\u0447 \u041a\u0410\u0420\u0410\u0421\u0418\u041d"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1949-08-23",
+        "nationality": "RU"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-jjtmjYm7KcQb2CeXFFS4j8",
+      "name": "Vitaly Fridrikhovich KILCHEVSKY",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "\u041a\u0418\u041b\u042c\u0427\u0415\u0412\u0421\u041a\u0418\u0419 \u0412\u0438\u0442\u0430\u043b\u0438\u0439 \u0424\u0440\u0438\u0434\u0440\u0438\u0445\u043e\u0432\u0438\u0447"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1978-10-31",
+        "nationality": "BY"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "Q118583521",
+      "name": "Larisa AYRAPETYAN",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "Larisa Leonidovna AYRAPETYAN",
+        "Larysa AIRAPETYAN",
+        "Larisa Leonidovna Airapetyan",
+        "Larisa Hayrapetyan",
+        "Larisa Leonidovna Hayrapetyan",
+        "Larysa AYRAPETYAN"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1970-02-21",
+        "nationality": "UA"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "Q60224032",
+      "name": "Boris Mikhailovich GLADKIKH",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "\u0411\u043e\u0440\u0438\u0441 \u041c\u0438\u0445\u0430\u0439\u043b\u043e\u0432\u0438\u0447 \u0413\u043b\u0430\u0434\u043a\u0438\u0445"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1983-02-16",
+        "nationality": "RU"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-Sxz5UJrQomxDQ4NnPNoFfB",
+      "name": "Svyatoslav Evgenievich OSTROVSKY",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "Svyatoslav Yevgenievich OSTROVSKIY",
+        "\u041e\u0421\u0422\u0420\u041e\u0412\u0421\u041a\u0418\u0419 \u0421\u0432\u044f\u0442\u043e\u0441\u043b\u0430\u0432 \u0415\u0432\u0433\u0435\u043d\u044c\u0435\u0432\u0438\u0447"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1979-03-09",
+        "nationality": "RU"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-Zu2Q7xKozMkQn86Lcx7BTK",
+      "name": "Mikhail Alekseevich KLISHIN",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "\u041c\u0438\u0445\u0430\u0438\u043b \u0410\u043b\u0435\u043a\u0441\u0435\u0435\u0432\u0438\u0447 \u041a\u043b\u0438\u0448\u0438\u043d"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1954-10-09",
+        "nationality": "RU"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-SSY5PJwKkK8gSf5g7CeUUy",
+      "name": "Elena Anatolevna ILYUKHINA",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "\u0415\u043b\u0435\u043d\u0430 \u0410\u043d\u0430\u0442\u043e\u043b\u044c\u0435\u0432\u043d\u0430 \u0418\u041b\u042e\u0425\u0418\u041d\u0410"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1969-05-02",
+        "nationality": "RU"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-mUqtMGcwrwJ3MLUiKCvGEK",
+      "name": "Andrey Anatolievich Gurzhiy",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "ANDREI ANATOLIEVICH Gurzhy",
+        "Andrey Anatolyevich Gurzhiy",
+        "ANDREI ANATOLIEVICH Gurzhiy",
+        "Andrey Anatolievich Gurzhy"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1975-10-10"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-favPTmGgL2xvTk8Ck9FMYz",
+      "name": "Oleg Vyacheslavovich URZHUMTSEV",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "\u041e\u043b\u0435\u0433 \u0412\u044f\u0447\u0435\u0441\u043b\u0430\u0432\u043e\u0432\u0438\u0447 \u0423\u0420\u0416\u0423\u041c\u0426\u0415\u0412"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1968-10-22",
+        "nationality": "RU"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-G5sen3RDc42h7i76FxTrWP",
+      "name": "Dzianis Aliaksandravich Mikusheu",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "\u0414\u0435\u043d\u0438\u0441 \u0410\u043b\u0435\u043a\u0441\u0430\u043d\u0434\u0440\u043e\u0432\u0438\u0447 \u041c\u0418\u041a\u0423\u0428\u0415\u0412",
+        "Denis Alexandrovich Mikushev",
+        "\u0414\u0437\u044f\u043di\u0441 \u0410\u043b\u044f\u043a\u0441\u0430\u043d\u0434\u0440\u0430\u0432i\u0447 \u041cI\u041a\u0423\u0428\u042d\u040e",
+        "Dzianis Mikushau"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1980-03-21",
+        "nationality": "BY"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "Q4132609",
+      "name": "Aleksandr Viktorovich Galkin",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "\u0410\u043b\u0435\u043a\u0441\u0430\u043d\u0434\u0440 \u0412\u0438\u043a\u0442\u043e\u0440\u043e\u0432\u0438\u0447 \u0413\u0430\u043b\u043a\u0438\u043d"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1958-03-22",
+        "nationality": "RU"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "Q557317",
+      "name": "German Borisovich KHAN",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "\u0413\u0435\u0440\u043c\u0430\u043d \u0411\u043e\u0440\u0438\u0441\u0441\u043e\u0432\u0438\u0447 \u0425\u0410\u041d",
+        "\u0413\u0435\u0440\u043c\u0430\u043d \u0411\u043e\u0440\u0438\u0441\u043e\u0432\u0438\u0447 \u0425\u0410\u041d",
+        "Guerman KHAN",
+        "German HAN",
+        "German Borissovich KHAN"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1961-10-24",
+        "nationality": "RU"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-n5u97PHVuSD8RSa3zpEYJv",
+      "name": "IBRAHIM SULEIMAN HAMAD AL-HABLAIN",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "Abu Jabal",
+        "Barahim Suliman H. AL HBLian"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1984-12-17",
+        "nationality": "SA",
+        "companyNumber": "1047503170",
+        "passport": "F800691"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-kiTwWCSz2SzaHtE6ZR7dDZ",
+      "name": "FATER INSTITUTE",
+      "entityType": "ENTITY",
+      "aliases": [
+        "FAATER INSTITUTE",
+        "FATER ENGINEERING",
+        "FATER ENGINEERING COMPANY",
+        "GHARARGAH GHAEM FAATER INSTITUTE"
+      ],
+      "identifiers": {},
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-jAcwrG8soxkHxgxKTeZUjR",
+      "name": "Post Bank Iran",
+      "entityType": "ENTITY",
+      "aliases": [
+        "Post Bank of Iran",
+        "PBI",
+        "\u067e\u0633\u062a \u0628\u0627\u0646\u06a9 \u0627\u06cc\u0631\u0627\u0646"
+      ],
+      "identifiers": {
+        "country": "IR",
+        "companyNumber": "126785"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-KM4MMMxHRJX52m8KDFvg2F",
+      "name": "Velada LLC",
+      "entityType": "ENTITY",
+      "aliases": [],
+      "identifiers": {
+        "country": "RU"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-5SbE2xBrgHjuKwGFCVvjQM",
+      "name": "JSC PELENG",
+      "entityType": "ENTITY",
+      "aliases": [
+        "\u0410\u0410\u0422 \u041f\u0435\u043b\u0435\u043d\u0433",
+        "OAO Peleng"
+      ],
+      "identifiers": {
+        "country": "BY"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-nZ7mLTKtjhTd5jcz6V84yk",
+      "name": "HESONG TRADING CORPORATION",
+      "entityType": "ENTITY",
+      "aliases": [],
+      "identifiers": {
+        "country": "KP"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-06T06:40:02Z"
+    },
+    {
+      "sourceUniqueId": "NK-AjVR96bCcmh6PcoffM9Hy9",
+      "name": "ONE MOON MARINE SERVICES L.L.C",
+      "entityType": "ENTITY",
+      "aliases": [],
+      "identifiers": {
+        "country": "AE"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-m2Sb2V4G2S6gVcxYXMKjTT",
+      "name": "Limited Liability Company STROYGAZMONTAZH",
+      "entityType": "ENTITY",
+      "aliases": [
+        "Stroygazmontazh Corporation (SGM Group)"
+      ],
+      "identifiers": {
+        "country": "RU"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-jY5VewofnpCeiWs3AsNQNe",
+      "name": "SCAFFOLLO GLOBE FZE",
+      "entityType": "ENTITY",
+      "aliases": [],
+      "identifiers": {
+        "country": "AE"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-02-24T08:40:10Z"
+    },
+    {
+      "sourceUniqueId": "NK-nxganH6MCPFbRobdEMYni9",
+      "name": "OKB TSP",
+      "entityType": "ENTITY",
+      "aliases": [
+        "OKB TSP Scientific Production Limited Liability Company"
+      ],
+      "identifiers": {
+        "country": "BY",
+        "companyNumber": "19036 9982 (Belarus)"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-Ak4Y3BipjQpkNHNFLxRQJ9",
+      "name": "Maritime Administrative Bureau",
+      "entityType": "ENTITY",
+      "aliases": [
+        "North Korea Maritime Administration Bureau"
+      ],
+      "identifiers": {
+        "country": "KP"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-14T07:56:30Z"
+    },
+    {
+      "sourceUniqueId": "NK-eqoAhKVq2cfFzqW5exA3wh",
+      "name": "JSC RUSATOM ARCTIC",
+      "entityType": "ENTITY",
+      "aliases": [
+        "\u0410\u041e \u0420\u0443\u0441\u0430\u0442\u043e\u043c \u0410\u0440\u043a\u0442\u0438\u043a"
+      ],
+      "identifiers": {
+        "country": "RU",
+        "companyNumber": "9705215178"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-kKAPC2Zr43mfUMTt4qghXB",
+      "name": "Syronics-Syrian Arab Co. for Electronic Industries",
+      "entityType": "ENTITY",
+      "aliases": [],
+      "identifiers": {
+        "country": "SY"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-NmbVe2rjBGdaiemxriYJpg",
+      "name": "OOO Imenie TSARGRAD",
+      "entityType": "ENTITY",
+      "aliases": [],
+      "identifiers": {},
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-08T10:35:40Z"
+    },
+    {
+      "sourceUniqueId": "NK-hMnCtTPLaFfUY3ZBpCbd7z",
+      "name": "NPK Progress",
+      "entityType": "ENTITY",
+      "aliases": [
+        "OOO \"NPK \"PROGRESS\"",
+        "Limited Liability Company Scientific and Production Company PROGRESS",
+        "\u041d\u041f\u041a \u041f\u0420\u041e\u0413\u0420\u0415\u0421\u0421"
+      ],
+      "identifiers": {
+        "country": "RU",
+        "companyNumber": "1167746544349"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-hMqExnoAzGQNVvJcs3oJho",
+      "name": "Federal State Budget Institution for Science and Research 'All-Russia National Scientific Research Institute for Wine Growing and Wine Making 'MAGARACH' Russian Academy of Sciences'",
+      "entityType": "ENTITY",
+      "aliases": [
+        "State Enterprise 'Magarach' of the National Institute of Wine",
+        "Gosudarstvenoye predpriyatiye Agrofirma 'Magarach' nacionalnogo instituta vinograda i vina 'Magarach'",
+        "\u0413\u043e\u0441\u0443\u0434\u0430\u0440\u0441\u0442\u0432\u0435\u043d\u043d\u043e\u0435 \u043f\u0440\u0435\u0434\u043f\u0440\u0438\u044f\u0442\u0438\u0435 \u0410\u0433\u0440\u043e\u0444\u0438\u0440\u043c\u0430 \u2018\u041c\u0430\u0433\u0430\u0440\u0430\u0447\u2019 \u041d\u0430\u0446\u0438\u043e\u043d\u0430\u043b\u044c\u043d\u043e\u0433\u043e \u0438\u043d\u0441\u0442\u0438\u0442\u0443\u0442\u0430 \u0432\u0438\u043d\u043e\u0433\u0440\u0430\u0434\u0430 \u0438 \u0432\u0438\u043d\u0430 \u2018\u041c\u0430\u0433\u0430\u0440\u0430\u0447\u2019",
+        "State Unitary Enterprise of the 'Republic of Crimea' National Institute of Wine 'Magarach'"
+      ],
+      "identifiers": {
+        "country": "UA"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-14T07:56:30Z"
+    },
+    {
+      "sourceUniqueId": "NK-aZSKePoUJes3TJH59QPPSs",
+      "name": "Thine Ngat Kyal (Jewellery) Co., Ltd",
+      "entityType": "ENTITY",
+      "aliases": [],
+      "identifiers": {},
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-08T10:35:40Z"
+    },
+    {
+      "sourceUniqueId": "NK-CN4N6HkLWwEgURTpUBjctd",
+      "name": "SINARA BANK JOINT STOCK COMPANY",
+      "entityType": "ENTITY",
+      "aliases": [
+        "\u0410\u041e \u00ab\u0421\u0418\u041d\u0410\u0420\u0410 \u0411\u0410\u041d\u041a\u00bb",
+        "SINARA BANK JSC",
+        "\u0411\u0410\u041d\u041a \u0421\u0418\u041d\u0410\u0420\u0410",
+        "\u0410\u041a\u0426\u0418\u041e\u041d\u0415\u0420\u041d\u041e\u0415 \u041e\u0411\u0429\u0415\u0421\u0422\u0412\u041e \u0411\u0410\u041d\u041a \u0421\u0418\u041d\u0410\u0420\u0410",
+        "BANK SINARA",
+        "SVERDLOVSK COMMERCIAL BANK",
+        "JOINT-STOCK COMPANY BANK SINARA",
+        "\u0410\u041a\u0426\u0418\u041e\u041d\u0415\u0420\u041d\u041e\u0415 \u041e\u0411\u0429\u0415\u0421\u0422\u0412\u041e \u0421\u0418\u041d\u0410\u0420\u0410 \u0411\u0410\u041d\u041a"
+      ],
+      "identifiers": {
+        "country": "RU",
+        "companyNumber": "1026600000460"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-02-24T16:41:06Z"
+    },
+    {
+      "sourceUniqueId": "NK-nhcFGhDCN2Zpvk7u4NsahJ",
+      "name": "Scientific and Production Enterprise \"Zvukotekhnika\"",
+      "entityType": "ENTITY",
+      "aliases": [
+        "Research and Production Enterprise 'Zvukotekhnika'",
+        "JSC \"NPP \"ZVUKOTECHNIKA\"",
+        "JSC RESEARCH AND PRODUCTION ENTERPRISE ZVUKOTEKHNIKA",
+        "JOINT-STOCK COMPANY 'SCIENTIFIC AND PRODUCTION ENTERPRISE 'ZVUKOTEKHNIKA'",
+        "\u0410\u041a\u0426\u0418\u041e\u041d\u0415\u0420\u041d\u041e\u0415 \u041e\u0411\u0429\u0415\u0421\u0422\u0412\u041e \u041d\u0410\u0423\u0427\u041d\u041e-\u041f\u0420\u041e\u0418\u0417\u0412\u041e\u0414\u0421\u0422\u0412\u0415\u041d\u041d\u041e\u0415 \u041f\u0420\u0415\u0414\u041f\u0420\u0418\u042f\u0422\u0418\u0415 \u0417\u0412\u0423\u041a\u041e\u0422\u0415\u0425\u041d\u0418\u041a\u0410"
+      ],
+      "identifiers": {
+        "country": "RU",
+        "companyNumber": "1023302153115"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-douL5zmceJ4iLoP4PUPp8q",
+      "name": "Dongguan Shengyin CNC Equipment Co., LTD",
+      "entityType": "ENTITY",
+      "aliases": [
+        "\u4e1c\u839e\u5723\u5bc5\u6570\u63a7\u8bbe\u5907\u6709\u9650\u516c\u53f8"
+      ],
+      "identifiers": {
+        "country": "CN"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-mTFUczzEeJ4Jss5qCh4TeM",
+      "name": "Euskadi Ta Askatasuna (ETA)",
+      "entityType": "ENTITY",
+      "aliases": [
+        "Basque Homeland and Liberty"
+      ],
+      "identifiers": {},
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-14T07:56:30Z"
+    },
+    {
+      "sourceUniqueId": "NK-fB3Skz7dytKLSWtyR2Tb6K",
+      "name": "Mining Enterprise 1",
+      "entityType": "ENTITY",
+      "aliases": [
+        "Mining Enterprise ME1",
+        "Mining Enterprise Number One",
+        "Mining Enterprise No. 1",
+        "Myanmar Mining Enterprise Number 1",
+        "No 1 Mining Enterprise",
+        "ME1",
+        "Myanma Mining Enterprise Number 1"
+      ],
+      "identifiers": {
+        "country": "MM"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-3PgHL5B9yc8S73hSqVNF4b",
+      "name": "LIMITED LIABILITY COMPANY ENGINEERING CENTER OF SEVGU",
+      "entityType": "ENTITY",
+      "aliases": [
+        "LLC ITS SEVGU",
+        "\u041e\u041e\u041e \u0418\u0426 \u0421\u0415\u0412\u0413\u0423"
+      ],
+      "identifiers": {
+        "country": "UA",
+        "companyNumber": "9204558287"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-05-11T08:40:04Z"
+    },
+    {
+      "sourceUniqueId": "NK-WYQAxMQH2TDJ4MatBRhdKF",
+      "name": "Umbra Navi Shipmanagement",
+      "entityType": "ENTITY",
+      "aliases": [],
+      "identifiers": {},
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2025-09-12T06:40:02Z"
+    },
+    {
+      "sourceUniqueId": "NK-je2LgyLLyxbV8jZwyUumb2",
+      "name": "KUNLUN RED STAR ENERGY HOLDINGS LIMITED",
+      "entityType": "ENTITY",
+      "aliases": [],
+      "identifiers": {},
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-02-24T08:40:10Z"
+    },
+    {
+      "sourceUniqueId": "NK-8SqEpFevgSnFCoAnqzbEpH",
+      "name": "Villar Shipmanagement Ltd",
+      "entityType": "ENTITY",
+      "aliases": [],
+      "identifiers": {},
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-02-24T16:41:06Z"
+    },
+    {
+      "sourceUniqueId": "NK-7TuMdA2bx2gRJUwPcTqFhw",
+      "name": "SHREEVAANI EXOM FZE",
+      "entityType": "ENTITY",
+      "aliases": [],
+      "identifiers": {
+        "country": "AE"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-02-24T08:40:10Z"
+    },
+    {
+      "sourceUniqueId": "NK-ZSYwNUJeVRptthnMWmLtzs",
+      "name": "KOREA MINING DEVELOPMENT TRADING CORPORATION",
+      "entityType": "ENTITY",
+      "aliases": [
+        "CHANGGWANG SINYONG CORPORATION",
+        "KOMID",
+        "EXTERNAL TECHNOLOGY GENERAL CORPORATION",
+        "The Korea Mining Development Corporation (KOMID)",
+        "DPRKN MINING DEVELOPMENT TRADING COOPERATION"
+      ],
+      "identifiers": {
+        "country": "KP"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-14T07:56:30Z"
+    },
+    {
+      "sourceUniqueId": "NK-eg4ohezDeCLZwqa2s5gm6A",
+      "name": "Media Land",
+      "entityType": "ENTITY",
+      "aliases": [
+        "Media Land LLC"
+      ],
+      "identifiers": {
+        "country": "RU",
+        "companyNumber": "2536288610"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-cTHarBqCAwLN566QPxzc7U",
+      "name": "LIMITED LIABILITY COMPANY \"HELIKO GROUP\"",
+      "entityType": "ENTITY",
+      "aliases": [
+        "HeliCo Group LLC",
+        "OOO \u0425\u0435\u043b\u0438\u043a\u043e \u0413\u0440\u0443\u043f\u043f",
+        "\u041e\u0411\u0429\u0415\u0421\u0422\u0412\u041e \u0421 \u041e\u0413\u0420\u0410\u041d\u0418\u0427\u0415\u041d\u041d\u041e\u0419 \u041e\u0422\u0412\u0415\u0422\u0421\u0422\u0412\u0415\u041d\u041d\u041e\u0421\u0422\u042c\u042e '\u0425\u0415\u041b\u0418\u041a\u041e \u0413\u0420\u0423\u041f\u041f'"
+      ],
+      "identifiers": {
+        "country": "RU",
+        "companyNumber": "1142373002430"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-kaeYfr34grpwdbw2C3PbUc",
+      "name": "Joint-stock company \"Service Registry\"",
+      "entityType": "ENTITY",
+      "aliases": [
+        "JSC \"Service Register\""
+      ],
+      "identifiers": {
+        "companyNumber": "8605006147"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-fcuhVo9TNte5iLq9KwVh2t",
+      "name": "NATIONAL AEROSPACE TECHNOLOGY ADMINISTRATION",
+      "entityType": "ENTITY",
+      "aliases": [
+        "NATIONAL AEROSPACE DEVELOPMENT ADMINISTRATION",
+        "NADA",
+        "NATA"
+      ],
+      "identifiers": {
+        "country": "KP"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-14T07:56:30Z"
+    },
+    {
+      "sourceUniqueId": "NK-HtNU5k4jMGVyrnPFo78Cws",
+      "name": "ALEVKURP OJSC",
+      "entityType": "ENTITY",
+      "aliases": [
+        "OTKRYTOE AKTSIONERNOE OBSCHESTVO ALEVKURP",
+        "ALEVKURP Joint Stock Company"
+      ],
+      "identifiers": {},
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-BTnfzQEoLuNhx3JuysQhFb",
+      "name": "Petrostroi-SPB Aktsionernoe Obshchestvo ATTK-NN",
+      "entityType": "ENTITY",
+      "aliases": [],
+      "identifiers": {},
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-08T10:35:40Z"
+    },
+    {
+      "sourceUniqueId": "NK-KqDyEmnNJRxyA4qGbsG9Ys",
+      "name": "T.M.G. ENGINEERING LIMITED",
+      "entityType": "ENTITY",
+      "aliases": [
+        "TMG Ltd."
+      ],
+      "identifiers": {
+        "country": "GB"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-14T07:56:30Z"
+    },
+    {
+      "sourceUniqueId": "NK-kwEy2uuK4S4wE8bxenEBrY",
+      "name": "HAMZA DIVISION",
+      "entityType": "ENTITY",
+      "aliases": [
+        "\u0641\u0631\u0642\u0629 \u0627\u0644\u062d\u0645\u0632\u0629",
+        "Hamzat Division",
+        "al-Hamza Division"
+      ],
+      "identifiers": {},
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-RvS5jL6GohsmbgY5yScM8u",
+      "name": "Federal State Enterprise \"Plant named after Y.M. Sverdlov\"",
+      "entityType": "ENTITY",
+      "aliases": [
+        "SVERDLOV STATE-OWNED ENTERPRISE"
+      ],
+      "identifiers": {
+        "country": "RU",
+        "companyNumber": "1025201752982"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-c4NdoasutXV9SJMwRUigap",
+      "name": "Yitong Shipping Ltd",
+      "entityType": "ENTITY",
+      "aliases": [],
+      "identifiers": {},
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2025-05-09T06:40:35Z"
+    },
+    {
+      "sourceUniqueId": "NK-Hr6p9VPwCms2kCwJMhDiLY",
+      "name": "Vroom Marine Ventures FZE",
+      "entityType": "ENTITY",
+      "aliases": [],
+      "identifiers": {},
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2025-09-12T06:40:02Z"
+    },
+    {
+      "sourceUniqueId": "NK-EdrFqx4ijyDVDPiEPyugGY",
+      "name": "GUP RK 'SOLNECHNAYA TAVRIKA'",
+      "entityType": "ENTITY",
+      "aliases": [
+        "GUP RK 'SOLNECHNAYA TAVRIKA' SANATORIY MECHTA",
+        "FILIAL GUP RK 'SOLNECHNAYA TAVRIKA' PANSIONAT-DOL 'LUCHISTYY'",
+        "SUE RK 'SOLNECHNAYA TAVRIKA'",
+        "GUP RK \"SOLNECHNAYA TAVRIKA\" OSK DEL'FIN",
+        "STATE UNITARY ENTERPRISE OF THE REPUBLIC OF CRIMEA 'SOLNECHNAYA TAVRIKA'",
+        "GUP RK 'SOLNECHNAYA TAVRIKA' DETSKIY LAGER' DRUZHBA'",
+        "\u0413\u0423\u041f \u0420\u041a '\u0421\u041e\u041b\u041d\u0415\u0427\u041d\u0410\u042f \u0422\u0410\u0412\u0420\u0418\u041a\u0410'"
+      ],
+      "identifiers": {
+        "country": "UA",
+        "companyNumber": "9102009400"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-05-11T08:40:04Z"
+    },
+    {
+      "sourceUniqueId": "NK-F368w393MaCZ6hv5VLyDcx",
+      "name": "OOO SCF Arctic",
+      "entityType": "ENTITY",
+      "aliases": [],
+      "identifiers": {},
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-08T10:35:40Z"
+    },
+    {
+      "sourceUniqueId": "NK-6ogB89ZTkNKzFX9MGJPUsN",
+      "name": "LEGEND INNOVATION CO., LTD",
+      "entityType": "ENTITY",
+      "aliases": [
+        "\u179b\u17c1\u1787\u17c1\u1793 \u17a2\u17ca\u17b7\u1793\u1793\u17be\u179c\u17c1\u179f\u17b7\u1793 \u17af.\u1780"
+      ],
+      "identifiers": {
+        "country": "KH",
+        "companyNumber": "00070350"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-03-27T16:40:02Z"
+    },
+    {
+      "sourceUniqueId": "NK-dpLc27sU5qP4T8cKSTNnJ3",
+      "name": "Joint-stock company \"REGISTER\"",
+      "entityType": "ENTITY",
+      "aliases": [
+        "JSC \"REGISTER\""
+      ],
+      "identifiers": {
+        "companyNumber": "7704028206"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-DyccFxZUxGkUThivmyQxBi",
+      "name": "ZHENGZHOU TIMEWAY MACHINE TOOL CO LTD",
+      "entityType": "ENTITY",
+      "aliases": [
+        "\u90d1\u5dde\u5e02\u5e1d\u739b\u514b\u673a\u68b0\u5de5\u5177"
+      ],
+      "identifiers": {
+        "country": "CN"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-02-24T16:41:06Z"
+    },
+    {
+      "sourceUniqueId": "NK-2AXazwpXQMBfMhBoF9cMxe",
+      "name": "NAVRATAN VENTURES FZE",
+      "entityType": "ENTITY",
+      "aliases": [],
+      "identifiers": {
+        "country": "AE"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-02-24T08:40:10Z"
+    },
+    {
+      "sourceUniqueId": "NK-Jc64AsYEfhQD6pJPikLhAs",
+      "name": "Evergreen Embrace Corp",
+      "entityType": "ENTITY",
+      "aliases": [],
+      "identifiers": {},
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-02-24T16:41:06Z"
+    },
+    {
+      "sourceUniqueId": "NK-Au3hYYy5Q4g5YPiVK7T9mC",
+      "name": "Bochvar National Research Institute (VNIIINM)",
+      "entityType": "ENTITY",
+      "aliases": [
+        "VNIIINM",
+        "Bochvar National Research Institute for Inorganic Materials"
+      ],
+      "identifiers": {
+        "country": "RU",
+        "companyNumber": "7734598490"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-XoW48bstBDh5cyDzwcd6vx",
+      "name": "Joint Stock Company \"Repair Base for Repair of Aircraft Instruments and Aerodrome Equipment\"",
+      "entityType": "ENTITY",
+      "aliases": [
+        "\u0410\u041e \u0417\u0412\u0415\u0417\u0414\u0410",
+        "JSC Zvezda",
+        "Joint Stock Company \"Scientific and Production Enterprise \"Zvezda\" Named After Academician G.I. Severin\"",
+        "JSC REMBAZA"
+      ],
+      "identifiers": {
+        "country": "RU",
+        "companyNumber": "1096440000425"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-eYLn79iE9sQY8XHwYkwGSL",
+      "name": "PAO SEVERSTAL",
+      "entityType": "ENTITY",
+      "aliases": [
+        "PJSC Severstal",
+        "\u041f\u0410\u041e \u0421\u0435\u0432\u0435\u0440\u0441\u0442\u0430\u043b\u044c"
+      ],
+      "identifiers": {
+        "country": "RU",
+        "companyNumber": "1023501236901"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-5WnypyCLVYS7TfhEhX2baQ",
+      "name": "Lidoil DMCC",
+      "entityType": "ENTITY",
+      "aliases": [],
+      "identifiers": {},
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2025-07-21T16:40:01Z"
+    },
+    {
+      "sourceUniqueId": "NK-P8LAtNRPAxRXr6PmEJruYr",
+      "name": "Hteedan Port (Kyeemyindine)",
+      "entityType": "ENTITY",
+      "aliases": [],
+      "identifiers": {},
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-08T10:35:40Z"
+    },
+    {
+      "sourceUniqueId": "NK-Uy8dWaz84nQXfRM7thwf8w",
+      "name": "International Union of Public Associations 'Great Don Army'",
+      "entityType": "ENTITY",
+      "aliases": [],
+      "identifiers": {
+        "country": "RU"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-esnBNYsYEy8DVEUmdC9Nuz",
+      "name": "Test Tafsir",
+      "entityType": "ENTITY",
+      "aliases": [
+        "Test Tafsir Eng Co."
+      ],
+      "identifiers": {
+        "country": "IR"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-14T07:56:30Z"
+    },
+    {
+      "sourceUniqueId": "NK-jA5PUWpMcmETyXfWkc7ruc",
+      "name": "JSC RUSPOLYMET",
+      "entityType": "ENTITY",
+      "aliases": [
+        "JSC Ruspolimet",
+        "Joint-Stock Company Ruspolymet",
+        "\u0410\u041a\u0426\u0418\u041e\u041d\u0415\u0420\u041d\u041e\u0415 \u041e\u0411\u0429\u0415\u0421\u0422\u0412\u041e '\u0420\u0423\u0421\u041f\u041e\u041b\u0418\u041c\u0415\u0422'"
+      ],
+      "identifiers": {
+        "country": "RU",
+        "companyNumber": "1055214499966"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-cNSp4tM4EJgxo7ZspS8ErN",
+      "name": "SHANGHAI DONGFENG SHIPPING CO LTD",
+      "entityType": "ENTITY",
+      "aliases": [],
+      "identifiers": {
+        "country": "CN"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-06T06:40:02Z"
+    },
+    {
+      "sourceUniqueId": "NK-jaReUaXGjcwM9tm7XuYbtU",
+      "name": "Maxcon Marine Services Inc",
+      "entityType": "ENTITY",
+      "aliases": [
+        "Maxcon Marine Services Inc (UAE)",
+        "Maxcon Marine Services"
+      ],
+      "identifiers": {},
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2025-05-09T06:40:35Z"
+    },
+    {
+      "sourceUniqueId": "NK-jcVeBGdezdQAbQd64Nd5wV",
+      "name": "MAKHTAB AL-KHIDAMAT",
+      "entityType": "ENTITY",
+      "aliases": [
+        "Afghan Service Bureau",
+        "Al Kifah",
+        "\u0645\u0643\u062a\u0628 \u0627\u0644\u062e\u062f\u0645\u0627\u062a",
+        "MAK"
+      ],
+      "identifiers": {},
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-14T07:56:30Z"
+    },
+    {
+      "sourceUniqueId": "NK-FdqqNUo7WRQnX6EzAB6AzE",
+      "name": "MEITARIM FARM",
+      "entityType": "ENTITY",
+      "aliases": [
+        "MEITARIM OUTPOST"
+      ],
+      "identifiers": {},
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-7dnxtoeLXcd9PPofZ6qMqY",
+      "name": "OJSC KEREMET BANK",
+      "entityType": "ENTITY",
+      "aliases": [
+        "Otkrytoe Aktsionernoe Obschestvo Keremet Bank",
+        "OAO Keremet Bank",
+        "OAO \u041a\u0435\u0440\u0435\u043c\u0435\u0442-\u0431\u0430\u043d\u043a",
+        "Open Joint Stock Company Keremet Bank",
+        "\u041e\u0442\u043a\u0440\u044b\u0442\u043e\u0435 \u0430\u043a\u0446\u0438\u043e\u043d\u0435\u0440\u043d\u043e\u0435 \u043e\u0431\u0449\u0435\u0441\u0442\u0432\u043e \u041a\u0435\u0440\u0435\u043c\u0435\u0442 \u0411\u0430\u043d\u043a",
+        "OJCS Keremet Bank",
+        "\u041e\u0410\u041e \u0420\u043e\u0441\u0438\u043d\u0431\u0430\u043d\u043a",
+        "OJSC Rosinbank"
+      ],
+      "identifiers": {
+        "country": "KG",
+        "companyNumber": "02012201010017"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-XorRFV52qeFhfBBBRytAzx",
+      "name": "Maritime Ship Trade Co",
+      "entityType": "ENTITY",
+      "aliases": [],
+      "identifiers": {},
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2025-07-21T16:40:01Z"
+    },
+    {
+      "sourceUniqueId": "NK-jugpkkFP3EjWeWXm8AKAY7",
+      "name": "Joint-stock company \"Registrar Capital\"",
+      "entityType": "ENTITY",
+      "aliases": [
+        "JSC 'Registrar Capital'"
+      ],
+      "identifiers": {
+        "companyNumber": "6659035711"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "Q47612487",
+      "name": "Rashid Taan Kathim",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "\u0631\u0634\u064a\u062f \u0637\u0639\u0627\u0646 \u0643\u0627\u0638\u0645"
+      ],
+      "identifiers": {
+        "nationality": "IQ"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "Q138606713",
+      "name": "Tijani Ibrahim Moussa MOHAMED",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "Al Zeir Salem"
+      ],
+      "identifiers": {
+        "nationality": "SD"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-02-25T16:40:01Z"
+    },
+    {
+      "sourceUniqueId": "gb-fcdo-chw0041",
+      "name": "Viktor Fedorovic Taranchenko",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "V. F. Taranchenko",
+        "Victor Fedorovich Taranchenko"
+      ],
+      "identifiers": {},
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-07-06T12:40:02Z"
+    },
+    {
+      "sourceUniqueId": "NK-Vg5ABjHiTNhxFwadKGUYAv",
+      "name": "Ahmed KARIMOV",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "Ahmed KERIMOV"
+      ],
+      "identifiers": {
+        "nationality": "AZ"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-8wmUZbVfmgSrWpG8c5a7mT",
+      "name": "Marat Khamitovich USMANOV",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "\u041c\u0430\u0440\u0430\u0442 \u0425\u0430\u043c\u0438\u0442\u043e\u0432\u0438\u0447 \u0423\u0421\u041c\u0410\u041d\u041e\u0412"
+      ],
+      "identifiers": {},
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "Q471035",
+      "name": "THOMAS LUBANGA",
+      "entityType": "INDIVIDUAL",
+      "aliases": [],
+      "identifiers": {
+        "nationality": "CD"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-K8E52uYCpXFUNCLwZkAJEZ",
+      "name": "Raymond RIZK",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "Raymond Rizq",
+        "\u0631\u0632\u0642 \u0631\u064a\u0645\u0648\u0646"
+      ],
+      "identifiers": {},
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-K5bcJg5f53fuFsJZsZTWQT",
+      "name": "Alexander Georgievich KOVAL",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "\u041a\u041e\u0412\u0410\u041b\u042c \u0410\u043b\u0435\u043a\u0441\u0430\u043d\u0434\u0440 \u0413\u0435\u043e\u0440\u0433\u0438\u0435\u0432\u0438\u0447"
+      ],
+      "identifiers": {
+        "nationality": "RU"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-mGqzjkmAsMgVSKyKEAGSxP",
+      "name": "Ali Salehi",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "\u0639\u0644\u06cc \u0635\u0627\u0644\u062d\u06cc"
+      ],
+      "identifiers": {
+        "nationality": "IR"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-ixRonW5Pkxi6gJ82ENHdBW",
+      "name": "Bassam Al-Misri",
+      "entityType": "INDIVIDUAL",
+      "aliases": [],
+      "identifiers": {},
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-SnpmwDQQV7WqePrx3mrPBn",
+      "name": "Aleksandr KRIVETS",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "\u041a\u0420\u0418\u0412\u0415\u0426, \u0410\u043b\u0435\u043a\u0441\u0430\u043d\u0434\u0440"
+      ],
+      "identifiers": {
+        "nationality": "BY"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-AbLjwc2S6aT79aQ6MDutRv",
+      "name": "Oleg Chistyakov",
+      "entityType": "INDIVIDUAL",
+      "aliases": [],
+      "identifiers": {},
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "Q124310755",
+      "name": "Kifah Mulhim",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "Kifah Moulhem",
+        "Kifah Milhim",
+        "Kifah Moulhim",
+        "Kifah Mulhem"
+      ],
+      "identifiers": {},
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-oA98j69oa2FoFTXcS6xUrN",
+      "name": "Hassan Akharian",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "Hossein Akharian"
+      ],
+      "identifiers": {},
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "Q5956563",
+      "name": "Mohammad Salah Jokar",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "Mohammad Saleh Jokar"
+      ],
+      "identifiers": {},
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-PPZQuxdKenWSvTzHibK6iD",
+      "name": "HAN YU-RO",
+      "entityType": "INDIVIDUAL",
+      "aliases": [],
+      "identifiers": {},
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "gb-fcdo-rus3698",
+      "name": "Aleksandr Klimovich KAN",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "\u0410\u043b\u0435\u043a\u0441\u0430\u043d\u0434\u0440 \u041a\u043b\u0438\u043c\u043e\u0432\u0438\u0447 \u041a\u0430\u043d"
+      ],
+      "identifiers": {
+        "nationality": "RU"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-07-13T08:40:01Z"
+    },
+    {
+      "sourceUniqueId": "NK-QqWubnA5A46xR2T27utE83",
+      "name": "Seyed Mohsen Vahabzadeh Moghadam",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "\u0633\u06cc\u062f \u0645\u062d\u0633\u0646 \u0648\u0647\u0627\u0628 \u0632\u0627\u062f\u0647 \u0645\u0642\u062f\u0645"
+      ],
+      "identifiers": {
+        "nationality": "IR",
+        "companyNumber": "'0042587662"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-Zn6Zt9dDd3EwPfDjVq2jg3",
+      "name": "Maria Vladimirovna CHEKADANOVA",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "Mariya Vladimirovna CHEKADANOVA"
+      ],
+      "identifiers": {},
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "OS-DEMO-DORMANT-HIT-001",
+      "name": "Northern Peak Holdings Ltd",
+      "entityType": "ENTITY",
+      "aliases": [
+        "Northern Peak Holdings",
+        "NPH Ltd"
+      ],
+      "identifiers": {
+        "companyNumber": "UK-NP-88421",
+        "country": "GB"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List",
+          "note": "v2 addition for rescreen demo"
+        }
+      ],
+      "sourceUpdatedAt": "2026-07-20T10:00:00Z"
+    },
+    {
+      "sourceUniqueId": "Q131674",
+      "name": "Anatoly Evgenievich KARPOV",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "\u041a\u0430\u0440\u043f\u043e\u0432 \u0410\u043d\u0430\u0442\u043e\u043b\u0438\u0439 \u0415\u0432\u0433\u0435\u043d\u044c\u0435\u0432\u0438\u0447"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1951-05-23",
+        "nationality": "RU"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-ak3suENRfdQapcsjXfvHPH",
+      "name": "Wavewhisper Shipping Ltd",
+      "entityType": "ENTITY",
+      "aliases": [],
+      "identifiers": {},
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2025-07-21T16:40:01Z"
+    },
+    {
+      "sourceUniqueId": "NK-3LTCXv9ZstZM2VuyZmaid9",
+      "name": "Pacific Real Estate Property Management Company",
+      "entityType": "ENTITY",
+      "aliases": [
+        "Pacific Real Estate Building",
+        "Golden Phoenix Entertainment City",
+        "Tai Ping Yang Fang DI Chan WU YE Guan LI Co, Ltd",
+        "Junyiwang Real Estate Property Management Co., Ltd."
+      ],
+      "identifiers": {
+        "country": "KH"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-kdGdkUp7enMxE2faRxNU3c",
+      "name": "CRUISE MISSILE INDUSTRY GROUP",
+      "entityType": "ENTITY",
+      "aliases": [
+        "Cruise Systems Industry Group",
+        "8th Imam Industries Group",
+        "Samen Al-A'Emmeh Industries Group",
+        "The Naval Defense Missile Industry Group",
+        "SAIG",
+        "CMIG",
+        "Naval Defence Missile Industry Group"
+      ],
+      "identifiers": {
+        "country": "IR"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "Q28006887",
+      "name": "Dmitry Anatolievich Belik",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "\u0414\u043c\u0438\u0442\u0440\u0438\u0439 \u0410\u043d\u0430\u0442\u043e\u043b\u044c\u0435\u0432\u0438\u0447 \u0411\u0415\u041b\u0418\u041a"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1969-10-17",
+        "nationality": "UA"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-UHJTZk7XgCcrZnvbUcFoP2",
+      "name": "Twigwaneho",
+      "entityType": "ENTITY",
+      "aliases": [
+        "Twirwaneho"
+      ],
+      "identifiers": {},
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-07-24T10:40:02Z"
+    },
+    {
+      "sourceUniqueId": "NK-7QPD4bFQ3YuBQz2qmpQpH9",
+      "name": "WISSOL COMMODITIES FZCO",
+      "entityType": "ENTITY",
+      "aliases": [],
+      "identifiers": {
+        "country": "AE",
+        "companyNumber": "DMCC201071"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-RutBzj6pccZqjuw9eWFkU8",
+      "name": "MOHAMMAD NAIM BARICH KHUDAIDAD",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "Gul Mohammed Naim Barich",
+        "\u0645\u062d\u0645\u062f \u0646\u0639\u064a\u0645 \u0628\u0631\u064a\u062e \u062e\u062f\u0627\u064a\u062f\u0627\u062f",
+        "Naim Bareh",
+        "Naeem Baric",
+        "Naim Barech",
+        "Ghul Mohammad",
+        "Gul Mohammad Kamran",
+        "Naim Naim Barich"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1975",
+        "nationality": "AF"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "NK-djtWp8o3zuEwnoU9edS8ns",
+      "name": "CHEAZ-Siberia",
+      "entityType": "ENTITY",
+      "aliases": [],
+      "identifiers": {},
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-08T10:35:40Z"
+    },
+    {
+      "sourceUniqueId": "NK-3vKisX9kPznQxjw2gqcZLM",
+      "name": "Abdurrahim al Kani",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "Abdurahem Al Shaqaqi",
+        "Abdurahem Khalifa",
+        "Abdul Rahim al Kani",
+        "Abdul Rahim Khalifa",
+        "Abdurrahim Al Shaqaqi",
+        "Abdul Rahim Al Shaqaqi",
+        "Abdurrahim Khalifa",
+        "Abdurahem al Kani"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1981-02-22",
+        "nationality": "LY",
+        "passport": "H4FG6H2J"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    },
+    {
+      "sourceUniqueId": "Q4104665",
+      "name": "Nikolay Ivanovich VASILIEV",
+      "entityType": "INDIVIDUAL",
+      "aliases": [
+        "\u0412\u0430\u0441\u0438\u043b\u044c\u0435\u0432 \u041d\u0438\u043a\u043e\u043b\u0430\u0439 \u0418\u0432\u0430\u043d\u043e\u0432\u0438\u0447"
+      ],
+      "identifiers": {
+        "dateOfBirth": "1958-03-28",
+        "nationality": "BY"
+      },
+      "measures": [
+        {
+          "type": "asset_freeze",
+          "source": "UK Sanctions List"
+        }
+      ],
+      "sourceUpdatedAt": "2026-01-09T14:15:18Z"
+    }
+  ]
+}

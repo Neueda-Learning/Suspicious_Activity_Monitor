@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rule Stats — AML Alert Triage</title>
+  <link rel="stylesheet" href="/css/app.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">AML Alert Triage <span>Rule Stats</span></div>
+    <nav class="nav">
+      <a href="/">Case Queue</a>
+      <a href="/sanctions.html">Sanctions Review</a>
+      <a class="active" href="/stats.html">Rule Stats</a>
+    </nav>
+  </header>
+  <main class="wrap">
+    <div class="grid-2">
+      <section class="panel"><h2>Rule trigger counts</h2><canvas id="rulesChart" height="220"></canvas></section>
+      <section class="panel"><h2>Disposition distribution</h2><canvas id="dispChart" height="220"></canvas></section>
+    </div>
+  </main>
+  <footer class="footer">The system does not determine guilt. It identifies unusual activity and provides investigators with explainable evidence.</footer>
+  <script src="/js/api.js"></script>
+  <script>
+    api('/api/stats/rules').then(data => {
+      const rules = data.ruleTriggers || {};
+      const disp = data.dispositionDistribution || {};
+      new Chart(rulesChart, {
+        type: 'bar',
+        data: {
+          labels: Object.keys(rules),
+          datasets: [{ label: 'Triggers', data: Object.values(rules), backgroundColor: '#0b1f33' }]
+        },
+        options: { plugins: { legend: { display: false } } }
+      });
+      new Chart(dispChart, {
+        type: 'doughnut',
+        data: {
+          labels: Object.keys(disp),
+          datasets: [{ data: Object.values(disp), backgroundColor: ['#0b1f33','#1f6b3a','#5b6b7c','#db0011'] }]
+        }
+      });
+    }).catch(e => alert(e.message));
+  </script>
+</body>
+</html>

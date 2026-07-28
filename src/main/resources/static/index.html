@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AML Alert Triage — Case Queue</title>
+  <link rel="stylesheet" href="/css/app.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">AML Alert Triage <span>UK · GBP · Corporate</span></div>
+    <nav class="nav">
+      <a class="active" href="/">Case Queue</a>
+      <a href="/sanctions.html">Sanctions Review</a>
+      <a href="/stats.html">Rule Stats</a>
+      <button class="btn" id="payBtn" type="button">Submit Payment</button>
+    </nav>
+  </header>
+  <main class="wrap">
+    <div class="totals" id="totals"></div>
+    <section class="panel">
+      <h2>Open cases <span class="muted" style="font-weight:500">(sorted by priority)</span></h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Case</th><th>Customer</th><th>Band</th><th>Score</th><th>Alerts</th><th>SLA</th><th>Assignee</th>
+          </tr>
+        </thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </section>
+  </main>
+
+  <div class="modal-backdrop" id="payModal">
+    <div class="modal">
+      <h3>Submit payment for screening</h3>
+      <label>Customer ref</label>
+      <input id="pCustomer" value="CUS-000001" />
+      <label>Beneficiary name</label>
+      <input id="pName" value="Vladmir Petrov" />
+      <label>Beneficiary country</label>
+      <input id="pCountry" value="RU" maxlength="2" />
+      <label>Amount</label>
+      <input id="pAmount" type="number" value="12500" />
+      <label>Currency</label>
+      <input id="pCcy" value="GBP" maxlength="3" />
+      <label>Date of birth (optional)</label>
+      <input id="pDob" value="1971-03-02" />
+      <label>Nationality (optional)</label>
+      <input id="pNat" value="RU" />
+      <div class="actions">
+        <button class="btn" id="pSubmit" type="button">Screen payment</button>
+        <button class="btn ghost" id="pClose" type="button">Cancel</button>
+      </div>
+      <p class="muted" id="pResult"></p>
+    </div>
+  </div>
+
+  <footer class="footer">The system does not determine guilt. It identifies unusual activity and provides investigators with explainable evidence.</footer>
+  <script src="/js/api.js"></script>
+  <script>
+    async function load() {
+      const data = await api('/api/cases?status=OPEN&sort=priority');
+      const t = data.totals;
+      document.getElementById('totals').innerHTML = `
+        <div class="total"><div class="label">Alerts</div><div class="value">${t.alerts}</div></div>
+        <div class="total"><div class="label">Open cases</div><div class="value">${t.cases}</div></div>
+        <div class="total"><div class="label">Assigned to me</div><div class="value">${t.assignedToMe}</div></div>
+        <div class="total"><div class="label">Overdue</div><div class="value">${t.overdue}</div></div>`;
+      document.getElementById('rows').innerHTML = data.items.map(c => `
+        <tr onclick="location.href='/case.html?id=${c.id}'">
+          <td class="mono">${c.caseRef}${c.overdue ? ' <span class="badge warn">OVERDUE</span>' : ''}</td>
+          <td>${c.customerName || ''} <div class="muted mono">${c.customerRef || ''}</div></td>
+          <td><span class="band ${c.priorityBand}">${bandLabel(c.priorityBand)}</span></td>
+          <td><strong>${c.priorityScore}</strong></td>
+          <td>${c.alertCount}</td>
+          <td>${fmtTs(c.slaDueAt)}</td>
+          <td>${c.assignedTo || '—'}</td>
+        </tr>`).join('');
+    }
+    const modal = document.getElementById('payModal');
+    document.getElementById('payBtn').onclick = () => modal.classList.add('open');
+    document.getElementById('pClose').onclick = () => modal.classList.remove('open');
+    document.getElementById('pSubmit').onclick = async () => {
+      const body = {
+        customerRef: pCustomer.value.trim(),
+        beneficiaryName: pName.value.trim(),
+        beneficiaryCountry: pCountry.value.trim(),
+        amount: Number(pAmount.value),
+        currency: pCcy.value.trim(),
+        beneficiaryDob: pDob.value || null,
+        beneficiaryNationality: pNat.value || null
+      };
+      try {
+        const res = await api('/api/payments', { method: 'POST', body: JSON.stringify(body) });
+        pResult.textContent = res.status === 'HELD'
+          ? `Payment held pending review · hit #${res.sanctionsHitId}`
+          : `Released · txn #${res.paymentTxnId}`;
+        if (res.status === 'HELD') setTimeout(() => location.href = '/sanctions.html', 900);
+      } catch (e) { pResult.textContent = e.message; }
+    };
+    load().catch(e => alert(e.message));
+  </script>
+</body>
+</html>

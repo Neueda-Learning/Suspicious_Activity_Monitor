@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Case Detail — AML Alert Triage</title>
+  <link rel="stylesheet" href="/css/app.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">AML Alert Triage <span>Case Detail</span></div>
+    <nav class="nav">
+      <a href="/">Case Queue</a>
+      <a href="/sanctions.html">Sanctions Review</a>
+      <a href="/stats.html">Rule Stats</a>
+    </nav>
+  </header>
+  <main class="wrap" id="app">Loading…</main>
+  <footer class="footer">The system does not determine guilt. It identifies unusual activity and provides investigators with explainable evidence.</footer>
+  <script src="/js/api.js"></script>
+  <script>
+    const id = new URLSearchParams(location.search).get('id');
+    let currentDraft = null;
+
+    async function load() {
+      const d = await api('/api/cases/' + id);
+      const c = d.caseRecord;
+      const cust = d.customer;
+      const mon = cust.monitoringStatus === 'PENDING_REVIEW'
+        ? `<span class="badge warn">${cust.monitoringStatus}</span>`
+        : `<span class="badge">${cust.monitoringStatus}</span>`;
+      document.getElementById('app').innerHTML = `
+        <div class="grid-2">
+          <section class="panel">
+            <h2>${c.caseRef} · <span class="band ${c.priorityBand}">${bandLabel(c.priorityBand)}</span> · ${c.priorityScore}</h2>
+            <div class="kv">
+              <div>Status</div><div>${c.status}</div>
+              <div>Assignee</div><div>${c.assignedTo || '—'}</div>
+              <div>SLA due</div><div>${fmtTs(c.slaDueAt)}</div>
+              <div>Window</div><div>${fmtTs(c.windowStart)} → ${fmtTs(c.windowEnd)}</div>
+              <div>Prior closed (90d)</div><div>${c.priorRecentCases}</div>
+              <div>CRR review</div><div>${c.crrReviewRequired ? 'Required' : 'No'}</div>
+            </div>
+          </section>
+          <section class="panel">
+            <h2>Customer</h2>
+            <div class="kv">
+              <div>Name</div><div><strong>${cust.name}</strong></div>
+              <div>Ref</div><div class="mono">${cust.customerRef}</div>
+              <div>CRR</div><div>${cust.crr}</div>
+              <div>Industry</div><div>${cust.industry || ''} (${cust.legalForm || ''})</div>
+              <div>Country</div><div>${cust.incorporationCountryName || cust.incorporationCountry}</div>
+              <div>Monitoring</div><div>${mon}</div>
+            </div>
+          </section>
+        </div>
+
+        <section class="panel">
+          <h2>Score breakdown</h2>
+          ${(d.alerts || []).map(a => `
+            <details class="alert">
+              <summary>${a.ruleCode} ${a.ruleName} — <strong>${a.points}</strong> pts (strength ${a.strength})</summary>
+              <pre class="evidence">${JSON.stringify(a.evidenceSnapshot, null, 2)}</pre>
+            </details>`).join('') || '<p class="muted">No alerts</p>'}
+        </section>
+
+        <section class="panel">
+          <h2>Transaction timeline</h2>
+          <table>
+            <thead><tr><th>When</th><th>Ref</th><th>Dir</th><th>GBP</th><th>Counterparty</th><th>Country</th></tr></thead>
+            <tbody>
+              ${(d.timeline || []).map(t => `
+                <tr>
+                  <td>${fmtTs(t.executedAt)}</td>
+                  <td class="mono">${t.txnRef}</td>
+                  <td>${t.direction}</td>
+                  <td>${fmtMoney(t.amountGbp)}</td>
+                  <td>${t.counterpartyName || ''}</td>
+                  <td>${t.counterpartyCountry || ''}</td>
+                </tr>`).join('')}
+            </tbody>
+          </table>
+        </section>
+
+        <div class="grid-2">
+          <section class="panel">
+            <h2>AI investigation draft</h2>
+            <p class="muted">AI never changes scores, CRR, or case status. Analyst remains accountable.</p>
+            <div class="actions">
+              <button class="btn secondary" id="genAi" type="button">Generate draft</button>
+              <button class="btn" id="acceptAi" type="button" disabled>Accept edited draft</button>
+            </div>
+            <label>Narrative / draft JSON</label>
+            <textarea id="aiText" placeholder="Generate a draft to begin"></textarea>
+            <p class="muted" id="aiMeta"></p>
+          </section>
+          <section class="panel">
+            <h2>Disposition</h2>
+            <label>Decision</label>
+            <select id="decision">
+              <option value="CLOSED_NFA">Closed – No Further Action</option>
+              <option value="CLOSED_FALSE_POSITIVE">Closed – False Positive</option>
+              <option value="ESCALATED_INTERNAL">Escalated – Internal</option>
+            </select>
+            <label>Rationale (required)</label>
+            <textarea id="rationale" placeholder="Document the investigative rationale…"></textarea>
+            <div class="actions">
+              <button class="btn" id="disposeBtn" type="button" ${c.status !== 'OPEN' ? 'disabled' : ''}>Submit disposition</button>
+            </div>
+            <p class="muted" id="dispMsg">${c.status !== 'OPEN' ? 'Case already disposed: ' + c.status : ''}</p>
+          </section>
+        </div>
+
+        <section class="panel">
+          <h2>Audit trail</h2>
+          <table>
+            <thead><tr><th>When</th><th>Actor</th><th>Action</th><th>Details</th></tr></thead>
+            <tbody>
+              ${(d.auditEvents || []).map(a => `
+                <tr>
+                  <td>${fmtTs(a.occurredAt)}</td>
+                  <td>${a.actor}</td>
+                  <td>${a.action}</td>
+                  <td class="mono">${JSON.stringify(a.detailsJson)}</td>
+                </tr>`).join('')}
+            </tbody>
+          </table>
+        </section>`;
+
+      if (d.aiDraft) {
+        currentDraft = d.aiDraft;
+        aiText.value = d.aiDraft.analystFinalText || d.aiDraft.rawOutput || '';
+        acceptAi.disabled = false;
+        aiMeta.textContent = 'Existing draft #' + d.aiDraft.id + ' · ' + d.aiDraft.status;
+      }
+
+      document.getElementById('genAi').onclick = async () => {
+        genAi.disabled = true;
+        try {
+          currentDraft = await api('/api/cases/' + id + '/ai-draft', { method: 'POST', body: '{}' });
+          aiText.value = currentDraft.rawOutput;
+          acceptAi.disabled = false;
+          const meta = currentDraft.modelMetadataJson || {};
+          aiMeta.textContent = `Draft #${currentDraft.id} · model=${meta.model} · fallback=${meta.fallbackUsed}`;
+        } catch (e) { alert(e.message); }
+        finally { genAi.disabled = false; }
+      };
+      document.getElementById('acceptAi').onclick = async () => {
+        if (!currentDraft) return;
+        try {
+          currentDraft = await api('/api/ai-drafts/' + currentDraft.id, {
+            method: 'PUT',
+            body: JSON.stringify({ analystFinalText: aiText.value })
+          });
+          aiMeta.textContent = 'Accepted draft #' + currentDraft.id;
+          location.reload();
+        } catch (e) { alert(e.message); }
+      };
+      document.getElementById('disposeBtn').onclick = async () => {
+        try {
+          await api('/api/cases/' + id + '/disposition', {
+            method: 'POST',
+            body: JSON.stringify({ decision: decision.value, rationale: rationale.value })
+          });
+          location.reload();
+        } catch (e) { dispMsg.textContent = e.message; }
+      };
+    }
+    load().catch(e => app.textContent = e.message);
+  </script>
+</body>
+</html>

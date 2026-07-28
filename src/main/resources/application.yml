@@ -1,0 +1,29 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/aml
+    username: aml
+    password: aml
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+    properties:
+      hibernate:
+        jdbc:
+          time_zone: UTC
+  flyway:
+    enabled: true
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+server:
+  port: 8080
+aml:
+  actor: sarah.chen
+  ollama:
+    base-url: http://localhost:11434
+    model: qwen3:4b
+    timeout-ms: 15000
+  sanctions:
+    list-v1: classpath:sanctions/list-v1.json
+    list-v2: classpath:sanctions/list-v2.json

@@ -1,0 +1,6 @@
+{
+  "source": "Internal higher-risk jurisdiction list — informed by FATF public statements on high-risk and monitored jurisdictions, augmented by internal policy",
+  "note": "Maintained by Financial Crime Policy. Jurisdictions removed from FATF monitoring may still be retained here where internal policy requires it.",
+  "updatedAt": "2026-06-01",
+  "codes": ["KP", "IR", "MM", "SY", "YE", "AF", "HT", "ML", "SS", "VE", "CD", "NG"]
+}

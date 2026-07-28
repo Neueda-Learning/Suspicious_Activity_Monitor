@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sanctions Review — AML Alert Triage</title>
+  <link rel="stylesheet" href="/css/app.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">AML Alert Triage <span>Sanctions Review</span></div>
+    <nav class="nav">
+      <a href="/">Case Queue</a>
+      <a class="active" href="/sanctions.html">Sanctions Review</a>
+      <a href="/stats.html">Rule Stats</a>
+      <button class="btn secondary" id="syncBtn" type="button">Sync list-v2</button>
+    </nav>
+  </header>
+  <main class="wrap">
+    <section class="panel">
+      <h2>Potential sanctions matches</h2>
+      <p class="muted" id="syncMsg"></p>
+      <table>
+        <thead><tr><th>ID</th><th>Trigger</th><th>Screened name</th><th>Similarity</th><th>Status</th><th></th></tr></thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </section>
+    <section class="panel" id="detail" style="display:none">
+      <h2>Match detail #<span id="hitId"></span></h2>
+      <table class="compare" id="cmp"></table>
+      <h3>Listed measures</h3>
+      <pre class="evidence" id="measures"></pre>
+      <label>Outcome</label>
+      <select id="outcome">
+        <option value="FALSE_MATCH">False match</option>
+        <option value="TARGET_MATCH">Target match</option>
+      </select>
+      <label>Resolution rationale (required)</label>
+      <textarea id="rationale"></textarea>
+      <div class="actions">
+        <button class="btn" id="resolveBtn" type="button">Resolve</button>
+      </div>
+      <p class="muted" id="resolveMsg"></p>
+    </section>
+  </main>
+  <footer class="footer">The system does not determine guilt. It identifies unusual activity and provides investigators with explainable evidence.</footer>
+  <script src="/js/api.js"></script>
+  <script>
+    let selected = null;
+    async function load() {
+      const hits = await api('/api/sanctions-hits?status=POTENTIAL_MATCH');
+      window._hits = hits;
+      rows.innerHTML = hits.map((h, i) => `
+        <tr>
+          <td>${h.id}</td>
+          <td>${h.triggerType}</td>
+          <td>${h.screenedName}</td>
+          <td>${h.nameSimilarity}</td>
+          <td><span class="badge warn">Potential match</span></td>
+          <td><button class="btn ghost" data-i="${i}" onclick="showHit(window._hits[+this.dataset.i])">Review</button></td>
+        </tr>`).join('') || '<tr><td colspan="6" class="muted">No open potential matches</td></tr>';
+    }
+    window.showHit = function(h) {
+      selected = h;
+      detail.style.display = 'block';
+      hitId.textContent = h.id;
+      const md = h.matchDetailsSnapshot || {};
+      const rowsHtml = Object.keys(md).filter(k => k !== 'overall').map(k => {
+        const v = md[k] || {};
+        return `<tr><td>${k}</td><td>${v.input ?? '—'}</td><td>${v.listed ?? '—'}</td>
+          <td class="match-${v.match || ''}">${v.match || (v.similarity != null ? v.similarity : '')}</td></tr>`;
+      }).join('');
+      cmp.innerHTML = `<thead><tr><th>Attribute</th><th>Input</th><th>Listed</th><th>Result</th></tr></thead><tbody>${rowsHtml}</tbody>`;
+      const snap = h.sanctionsEntrySnapshot || {};
+      measures.textContent = JSON.stringify(snap.measures || snap, null, 2);
+    };
+    resolveBtn.onclick = async () => {
+      if (!selected) return;
+      try {
+        await api('/api/sanctions-hits/' + selected.id + '/resolve', {
+          method: 'POST',
+          body: JSON.stringify({ outcome: outcome.value, rationale: rationale.value })
+        });
+        resolveMsg.textContent = 'Resolved';
+        detail.style.display = 'none';
+        load();
+      } catch (e) { resolveMsg.textContent = e.message; }
+    };
+    syncBtn.onclick = async () => {
+      syncBtn.disabled = true;
+      try {
+        const r = await api('/api/sanctions/sync', { method: 'POST', body: '{}' });
+        syncMsg.textContent = `Sync complete: added=${r.added}, updated=${r.updated}, rescreened=${r.customersRescreened}, new potential matches=${r.potentialMatchesCreated}`;
+        await load();
+      } catch (e) { syncMsg.textContent = e.message; }
+      finally { syncBtn.disabled = false; }
+    };
+    load().catch(e => alert(e.message));
+  </script>
+</body>
+</html>
