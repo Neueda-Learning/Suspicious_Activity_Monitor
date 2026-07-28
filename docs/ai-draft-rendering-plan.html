@@ -1,0 +1,618 @@
+<title>AI Draft Rendering — 实施方案</title>
+<style>
+  :root {
+    --paper:      #F4F7F7;
+    --card:       #FFFFFF;
+    --ink:        #10191B;
+    --body:       #2A3A3D;
+    --muted:      #62787C;
+    --rule:       #D8E3E3;
+    --rule-soft:  #E8EFEF;
+    --accent:     #0E7C86;
+    --accent-ink: #0A5C64;
+    --accent-wash:#E3F1F2;
+    --ok:         #2F7D4F;
+    --warn:       #A65E00;
+    --crit:       #AF2318;
+    --code-bg:    #ECF2F2;
+
+    --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", "PingFang SC",
+            "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper:      #0C1214;
+      --card:       #131C1E;
+      --ink:        #EAF2F2;
+      --body:       #C2D2D3;
+      --muted:      #80989C;
+      --rule:       #243436;
+      --rule-soft:  #1B282A;
+      --accent:     #3FB4BE;
+      --accent-ink: #6FD3DB;
+      --accent-wash:#12292C;
+      --ok:         #5FBE86;
+      --warn:       #D8963C;
+      --crit:       #E3705F;
+      --code-bg:    #172224;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper:#0C1214; --card:#131C1E; --ink:#EAF2F2; --body:#C2D2D3; --muted:#80989C;
+    --rule:#243436; --rule-soft:#1B282A; --accent:#3FB4BE; --accent-ink:#6FD3DB;
+    --accent-wash:#12292C; --ok:#5FBE86; --warn:#D8963C; --crit:#E3705F; --code-bg:#172224;
+  }
+  :root[data-theme="light"] {
+    --paper:#F4F7F7; --card:#FFFFFF; --ink:#10191B; --body:#2A3A3D; --muted:#62787C;
+    --rule:#D8E3E3; --rule-soft:#E8EFEF; --accent:#0E7C86; --accent-ink:#0A5C64;
+    --accent-wash:#E3F1F2; --ok:#2F7D4F; --warn:#A65E00; --crit:#AF2318; --code-bg:#ECF2F2;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--body);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    max-width: 60rem;
+    margin: 0 auto;
+    padding: 3.5rem 1.5rem 6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  /* ---------- masthead ---------- */
+  .masthead { display: flex; flex-direction: column; gap: 1.25rem; }
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0;
+  }
+  h1 {
+    font-family: var(--mono);
+    font-size: clamp(1.7rem, 4vw, 2.4rem);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    color: var(--ink);
+    margin: 0;
+    text-wrap: balance;
+  }
+  .standfirst { font-size: 1.05rem; color: var(--muted); margin: 0; max-width: 46rem; }
+
+  .facts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .fact { background: var(--card); padding: 0.85rem 1rem; }
+  .fact dt {
+    font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--muted); margin: 0 0 0.3rem;
+  }
+  .fact dd {
+    margin: 0; font-family: var(--mono); font-size: 0.9rem; color: var(--ink);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ---------- sections ---------- */
+  section { display: flex; flex-direction: column; gap: 1.1rem; }
+
+  h2 {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  h3 {
+    font-family: var(--sans);
+    font-size: 1.06rem;
+    font-weight: 650;
+    color: var(--ink);
+    margin: 0;
+    text-wrap: balance;
+  }
+  p { margin: 0; max-width: 62ch; }
+  section > p, .card > p, .card > ul, .card > ol { max-width: 64ch; }
+
+  ul, ol { margin: 0; padding-left: 1.2rem; display: flex; flex-direction: column; gap: 0.45rem; }
+  li { max-width: 60ch; }
+
+  code {
+    font-family: var(--mono);
+    font-size: 0.86em;
+    background: var(--code-bg);
+    padding: 0.1em 0.36em;
+    border-radius: 2px;
+    color: var(--ink);
+  }
+  .ref { white-space: nowrap; }
+
+  /* ---------- cards ---------- */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    padding: 1.35rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+
+  /* decisions: the three things already settled */
+  .decision { border-left: 3px solid var(--accent); }
+  .decision .verdict {
+    font-family: var(--mono);
+    font-size: 0.95rem;
+    color: var(--ink);
+    background: var(--accent-wash);
+    padding: 0.7rem 0.9rem;
+    border-radius: 2px;
+    max-width: none;
+  }
+
+  /* numbered build steps — the order is load-bearing, see §Order */
+  .step { position: relative; }
+  .step-head { display: flex; align-items: baseline; gap: 0.8rem; flex-wrap: wrap; }
+  .step-num {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--card);
+    background: var(--accent);
+    padding: 0.15rem 0.5rem;
+    border-radius: 2px;
+    flex: none;
+  }
+  .est {
+    margin-left: auto;
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+    flex: none;
+  }
+  .where {
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    color: var(--muted);
+    border-top: 1px dashed var(--rule);
+    padding-top: 0.7rem;
+    max-width: none;
+    word-break: break-word;
+  }
+  .where b { color: var(--ink); font-weight: 600; }
+
+  /* callouts */
+  .note {
+    border-left: 3px solid var(--warn);
+    background: var(--card);
+    border-top: 1px solid var(--rule);
+    border-right: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    border-radius: 3px;
+    padding: 1rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .note.stop { border-left-color: var(--crit); }
+  .note .label {
+    font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--warn); margin: 0;
+  }
+  .note.stop .label { color: var(--crit); }
+
+  /* wireframe / code blocks */
+  pre {
+    margin: 0;
+    background: var(--code-bg);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    padding: 1rem 1.1rem;
+    overflow-x: auto;
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    line-height: 1.55;
+    color: var(--ink);
+  }
+  pre.wire { font-size: 0.74rem; line-height: 1.5; }
+
+  /* tables */
+  .table-wrap { overflow-x: auto; border: 1px solid var(--rule); border-radius: 3px; }
+  table { border-collapse: collapse; width: 100%; min-width: 32rem; background: var(--card); }
+  th, td { text-align: left; padding: 0.62rem 0.9rem; border-bottom: 1px solid var(--rule-soft); }
+  th {
+    font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--muted); font-weight: 600; background: var(--rule-soft);
+  }
+  tbody tr:last-child td { border-bottom: none; }
+  td.num { font-family: var(--mono); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  tfoot td {
+    font-family: var(--mono); font-weight: 600; color: var(--ink);
+    border-top: 1px solid var(--rule); font-variant-numeric: tabular-nums;
+  }
+
+  /* acceptance checklist */
+  .checks { list-style: none; padding: 0; gap: 0; }
+  .checks li {
+    display: flex; gap: 0.9rem; align-items: flex-start;
+    padding: 0.8rem 0; border-bottom: 1px solid var(--rule-soft);
+    max-width: none;
+  }
+  .checks li:last-child { border-bottom: none; }
+  .box {
+    flex: none; width: 1.05rem; height: 1.05rem; margin-top: 0.28rem;
+    border: 1.5px solid var(--muted); border-radius: 2px;
+  }
+  .checks .what { flex: 1; }
+  .checks .what b { color: var(--ink); font-weight: 600; }
+
+  .beat {
+    font-family: var(--mono); font-size: 0.66rem; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--accent); border: 1px solid var(--accent); border-radius: 2px;
+    padding: 0.05rem 0.35rem; flex: none; margin-top: 0.32rem;
+  }
+
+  .footer {
+    border-top: 1px solid var(--rule);
+    padding-top: 1.25rem;
+    font-family: var(--mono);
+    font-size: 0.76rem;
+    color: var(--muted);
+    display: flex; flex-wrap: wrap; gap: 0.4rem 1.5rem;
+  }
+
+  @media (max-width: 34rem) {
+    .page { padding: 2.25rem 1.1rem 4rem; gap: 2.25rem; }
+    .est { margin-left: 0; width: 100%; }
+  }
+</style>
+
+<div class="page">
+
+  <header class="masthead">
+    <p class="eyebrow">AML Alert Triage · 前端工单</p>
+    <h1>AI Draft 结构化渲染</h1>
+    <p class="standfirst">
+      把案件详情页里那块装着原始 JSON 的 textarea，改造成一个可读、可核对、可编辑的调查草稿面板。
+      这一屏承载演示的最后一个高潮：分析师当场修正 AI 的措辞并署名。
+    </p>
+    <dl class="facts">
+      <div class="fact"><dt>预计工时</dt><dd>2 小时 30 分</dd></div>
+      <div class="fact"><dt>涉及文件</dt><dd>2 个（纯前端）</dd></div>
+      <div class="fact"><dt>后端改动</dt><dd>可选，10 行</dd></div>
+      <div class="fact"><dt>验收</dt><dd>7 步走查</dd></div>
+    </dl>
+  </header>
+
+  <section>
+    <h2>现状与目标</h2>
+    <p>
+      当前 AI 面板是两个按钮加一个 <code>&lt;textarea&gt;</code>，里面塞着整段 JSON
+      （<code class="ref">case.html:93</code>），并且被 <code>grid-2</code> 挤成半宽
+      （<code class="ref">case.html:85</code>）。评委看到的是一坨大括号。
+    </p>
+    <p>
+      后端已经返回结构化数据了，四个字段齐备。前端只是没有把它渲染出来——所以这是一个纯展示层任务，
+      不需要动规则引擎、不需要动数据库。
+    </p>
+    <pre>POST /api/cases/{id}/ai-draft   → 生成草稿
+PUT  /api/ai-drafts/{id}        → 提交分析师最终版
+
+rawOutput 的结构（已实现，可直接依赖）：
+{
+  "narrative": "3-4 句资金流向叙述",
+  "confirmedObservations": [
+    { "statement": "...", "evidenceIds": ["R1-ALERT-1", "TXN-002713"] }
+  ],
+  "unexplainedQuestions": [ "..." ],
+  "suggestedNextChecks":  [ "..." ]
+}</pre>
+  </section>
+
+  <section>
+    <h2>已决事项 · 不要重新讨论</h2>
+
+    <div class="card decision">
+      <h3>分析师只能编辑 narrative，其余三段只读</h3>
+      <p class="verdict">narrative → 可编辑　｜　observations / questions / next checks → 只读</p>
+      <p>
+        narrative 是分析师签字的话，应该用她的措辞。confirmed observations 带证据链接、由机器推导，
+        让她自由改写会破坏可追溯性——她不认可就重新生成，或在处置理由里写明。
+      </p>
+      <p>这条也正好对准演示动作：要改的就是 <code>This may constitute layering.</code> 那一句。</p>
+    </div>
+
+    <div class="card decision">
+      <h3><code>analystFinalText</code> 存完整 JSON，不是那一句</h3>
+      <p class="verdict">读取：<code>analystFinalText ?? rawOutput</code> → 解析 → 渲染</p>
+      <p>
+        审计留痕的原则是签字对象必须自洽完整。只存片段的话，三个月后回看不知道她当时接受的全文是什么。
+        提交时取当前 JSON、替换 <code>narrative</code>、整个 PUT 回去。
+      </p>
+    </div>
+
+    <div class="card decision">
+      <h3>模型编造的证据编号标成 unverified，不做成链接</h3>
+      <p class="verdict">命中索引 → 可点击 chip　｜　未命中 → 灰色 unverified 标记</p>
+      <p>
+        前端用 timeline 的 <code>txnRef</code> 和 alert 的 <code>id</code> 建索引，命中才可点。
+        五行代码换来一句很有分量的话：<em>如果模型引用了一条不存在的交易，界面会标成未验证，而不是假装它存在。</em>
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <h2>目标形态</h2>
+    <pre class="wire">┌─ Investigation draft ──────────────── Draft #12 · template · 159ms ─┐
+│                                                                     │
+│  NARRATIVE                                            [ Edit ]      │
+│  ACME Trading Ltd (CUS-000001) shows unusual payment activity in    │
+│  the review window with a priority score of 83 (RED). Inbound       │
+│  funds were followed by rapid outbound transfers across multiple    │
+│  counterparties. This may constitute layering.                      │
+│                                                                     │
+│  CONFIRMED OBSERVATIONS                                             │
+│  •  Amount deviation contributed 30 points (strength 0.854)         │
+│       [R1-ALERT-1] [TXN-002713] [TXN-002714] [TXN-002715]           │
+│  •  Rapid dispersal contributed 27 points (strength 0.885)          │
+│       [R2-ALERT-2] [TXN-002716] … [TXN-002720]                      │
+│                                                                     │
+│  UNEXPLAINED QUESTIONS                                              │
+│  ?  What is the commercial rationale for the inbound credits?       │
+│  ?  Are the new counterparties known to the relationship manager?   │
+│                                                                     │
+│  SUGGESTED NEXT CHECKS                                              │
+│  →  Request invoice/contract pack for the review-window transfers   │
+│  →  Confirm beneficial ownership and source of funds with KYC       │
+│                                                                     │
+│  ⚠ AI-generated draft — not a conclusion. The analyst is            │
+│    accountable for the final assessment.                            │
+└─────────────────────────────────────────────────────────────────────┘</pre>
+    <p>
+      四段要有不同的视觉权重：narrative 用正文字号，observations 带项目符号加证据 chip，
+      questions 用问号前缀并弱化，next checks 用箭头前缀。
+      <b>不要做成四个长得一样的方框</b>——层次感是这一屏说服力的来源。
+    </p>
+  </section>
+
+  <section>
+    <h2>五项改动</h2>
+
+    <div class="card step">
+      <div class="step-head">
+        <span class="step-num">01</span>
+        <h3>布局改全宽</h3>
+        <span class="est">15 min</span>
+      </div>
+      <p>
+        拆掉包住 AI 面板和 Disposition 的 <code>grid-2</code>，AI 面板独占一行，Disposition 移到它下面。
+        符合分析师的实际顺序：读完草稿才做决定。
+      </p>
+      <p class="where"><b>位置</b> · <code>case.html:85</code></p>
+    </div>
+
+    <div class="card step">
+      <div class="step-head">
+        <span class="step-num">02</span>
+        <h3>四段式渲染骨架</h3>
+        <span class="est">40 min</span>
+      </div>
+      <p>
+        替换 textarea。<b>先用写死的假数据把样式调满意，再接真实数据</b>——倒过来做会陷在
+        「数据对了但难看」里反复改。
+      </p>
+      <p>
+        面板右上角保留 provenance 一行：<code>Draft #12 · model=template · 159ms</code>。
+        这行不起眼，但它证明了每次生成都有出处记录。
+      </p>
+      <p class="where"><b>位置</b> · <code>case.html:93–95</code> 替换　<b>样式</b> · <code>app.css</code> 新增</p>
+    </div>
+
+    <div class="card step">
+      <div class="step-head">
+        <span class="step-num">03</span>
+        <h3>接真实数据 + 解析兜底</h3>
+        <span class="est">25 min</span>
+      </div>
+      <p>
+        数据源是 <code>analystFinalText ?? rawOutput</code>。解析失败或缺字段时不能白屏，见下方兜底一节。
+      </p>
+      <p class="where"><b>位置</b> · <code>case.html:130–135</code>（载入既有草稿）、<code>case.html:141</code>（生成后）</p>
+    </div>
+
+    <div class="card step">
+      <div class="step-head">
+        <span class="step-num">04</span>
+        <h3>证据 chip 与时间线联动</h3>
+        <span class="est">35 min</span>
+      </div>
+      <ul>
+        <li>时间线 <code>&lt;tr&gt;</code> 加 <code>data-txn-ref="${t.txnRef}"</code></li>
+        <li>告警 <code>&lt;details&gt;</code> 加 <code>data-alert-id="${a.id}"</code></li>
+        <li>渲染 chip 前先建索引；命中出 <code>&lt;button class="chip"&gt;</code>，未命中出 <code>&lt;span class="chip unverified"&gt;</code></li>
+        <li>点击行为：<code>scrollIntoView({ block: 'center' })</code> 加一个 <code>.flash</code> class，1.2 秒后移除，CSS 用 <code>@keyframes</code> 让背景色渐隐</li>
+      </ul>
+      <p>
+        <b>这是「可解释」从口号变成可操作的那一下。</b>评委看到点一个编号、下面那条交易就亮起来，
+        比任何一页 PPT 都直接。
+      </p>
+      <p class="where"><b>位置</b> · <code>case.html:73</code>（时间线行）、<code>case.html:61</code>（告警块）</p>
+    </div>
+
+    <div class="card step">
+      <div class="step-head">
+        <span class="step-num">05</span>
+        <h3>narrative 内联编辑与署名</h3>
+        <span class="est">30 min</span>
+      </div>
+      <ul>
+        <li>点 <code>Edit</code>：narrative 段落原地换成 <code>&lt;textarea&gt;</code>，<b>字体字号行高保持完全一致</b>，视觉上像直接在改那句话，不是弹出一个表单</li>
+        <li>点 <code>Accept</code>：取当前 JSON、替换 <code>narrative</code>、PUT 完整对象</li>
+        <li>成功后 narrative 上方出现一行 <code>Edited and accepted by sarah.chen · 14:32</code>，Accept 按钮置灰</li>
+      </ul>
+      <div class="note stop">
+        <p class="label">必须改掉</p>
+        <p>
+          现在接受后是 <code>location.reload()</code>（<code class="ref">case.html:156</code>）。
+          演示时整页闪一下非常难看，而且会把观众刚看过的滚动位置丢掉。改成局部更新。
+        </p>
+      </div>
+      <p class="where"><b>位置</b> · <code>case.html:148–157</code></p>
+    </div>
+  </section>
+
+  <section>
+    <h2>顺手修：Score breakdown 也在甩 JSON</h2>
+    <div class="card step">
+      <div class="step-head">
+        <span class="step-num">06</span>
+        <h3>证据面板改成键值列表</h3>
+        <span class="est">20 min</span>
+      </div>
+      <p>
+        <code class="ref">case.html:63</code> 现在是 <code>&lt;pre&gt;{...}&lt;/pre&gt;</code>。
+        这一屏在演示流程里<b>比 AI 面板更早出现</b>，那里甩一坨 JSON 会先把调子定坏。
+      </p>
+      <pre>本笔 24h 流入        £84,200
+90 天日流入中位数     £9,536      (35 笔入账 / 22 个活跃日)
+比值                 8.83×
+强度 0.854  ×  权重 35  =  30 分</pre>
+      <p>
+        最后那行把评分公式直接摊在评委面前。<b>这比在 PPT 上写公式有效得多</b>——
+        它出现在证据旁边，而不是出现在一页幻灯片上。
+      </p>
+      <p class="where"><b>位置</b> · <code>case.html:60–64</code></p>
+    </div>
+  </section>
+
+  <section>
+    <h2>兜底 · 必做</h2>
+    <div class="note">
+      <p class="label">结构化渲染不能成为新的翻车点</p>
+      <p>
+        目前走的是模板路径，输出稳定。但演示当天如果 Ollama 起来了，模型可能返回解析不了的东西。
+      </p>
+      <ul>
+        <li><b>解析失败</b>：退回当前的 <code>&lt;pre&gt;</code> 原文显示，顶部加一行提示
+          <code>Structured view unavailable — showing raw model output</code></li>
+        <li><b>字段缺失</b>：缺哪段就不渲染哪段，不要抛异常，不要渲染空标题</li>
+        <li><b>数组为空</b>：整段隐藏，而不是显示一个空列表</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>时间与顺序</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>顺序</th><th>内容</th><th>产出</th><th>预计</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="num">01</td><td>布局改全宽</td><td>面板占满一行</td><td class="num">15 min</td></tr>
+          <tr><td class="num">02</td><td>四段骨架（假数据）</td><td>样式定稿</td><td class="num">40 min</td></tr>
+          <tr><td class="num">03</td><td>接真实数据 + 兜底</td><td>真实草稿可渲染</td><td class="num">25 min</td></tr>
+          <tr><td class="num">04</td><td>证据 chip + 高亮</td><td>点击可跳转</td><td class="num">35 min</td></tr>
+          <tr><td class="num">05</td><td>内联编辑 + 局部刷新</td><td>演示动作可跑通</td><td class="num">30 min</td></tr>
+          <tr><td class="num">06</td><td>Score breakdown 键值化</td><td>证据面板不再是 JSON</td><td class="num">20 min</td></tr>
+        </tbody>
+        <tfoot>
+          <tr><td colspan="3">合计</td><td class="num">2 h 45 min</td></tr>
+        </tfoot>
+      </table>
+    </div>
+    <p>
+      时间紧的话，<b>04 和 06 是可以砍的</b>；01–03 和 05 是演示动作的最小闭环，一个都不能少。
+    </p>
+  </section>
+
+  <section>
+    <h2>验收走查</h2>
+    <p>
+      跑之前先起服务：<code>./run.sh</code>（它会固定 JDK 17 并带上 demo profile），
+      然后打开 <code>CASE-2026-0001</code>（ACME Trading Ltd，83 分）。
+    </p>
+    <ul class="checks">
+      <li>
+        <span class="box"></span>
+        <span class="what"><b>点 Generate draft</b> → 四段清晰可辨，视觉层次分明，页面上看不到大括号</span>
+      </li>
+      <li>
+        <span class="box"></span>
+        <span class="what"><b>点任一 <code>TXN-002716</code> chip</b> → 时间线对应行滚动到视野中央并闪一下</span>
+      </li>
+      <li>
+        <span class="box"></span>
+        <span class="what"><b>点 Edit</b> → 把 <code>This may constitute layering.</code> 改成
+          <code>This shows rapid dispersal of funds and requires further investigation.</code></span>
+        <span class="beat">Beat 5</span>
+      </li>
+      <li>
+        <span class="box"></span>
+        <span class="what"><b>点 Accept</b> → 页面不刷新，narrative 上方出现
+          <code>Edited and accepted by sarah.chen</code></span>
+        <span class="beat">Beat 5</span>
+      </li>
+      <li>
+        <span class="box"></span>
+        <span class="what"><b>滚到 Audit trail</b> → <code>AI_DRAFT_GENERATED</code> 和
+          <code>AI_DRAFT_EDITED_AND_ACCEPTED</code> 两条都在</span>
+      </li>
+      <li>
+        <span class="box"></span>
+        <span class="what"><b>展开 <code>+30 R1</code></b> → 看到
+          <code>强度 0.854 × 权重 35 = 30 分</code>，不是 JSON</span>
+        <span class="beat">Beat 1</span>
+      </li>
+      <li>
+        <span class="box"></span>
+        <span class="what"><b>手动把 rawOutput 改坏</b> → 退回原文显示并给出提示，不白屏、不报错</span>
+      </li>
+    </ul>
+    <p>
+      第 3 到第 5 步连起来就是演示里 Beat 5 的完整动作。<b>排练时按这个顺序走。</b>
+    </p>
+  </section>
+
+  <section>
+    <h2>不要做的事</h2>
+    <ul>
+      <li><b>不要改后端评分逻辑。</b>分数、告警、证据快照都已定稿并有测试覆盖，改了讲稿数字就得重来。</li>
+      <li><b>不要引入前端框架或构建步骤。</b>现在是纯 HTML 加原生 JS，改完刷新即见。周四之前不值得为此付出配置成本。</li>
+      <li><b>不要让 AI 面板出现任何能改分数、改状态、改 CRR 的控件。</b>这是整个项目的立论，界面上不能有反例。</li>
+      <li><b>不要动 <code>rawOutput</code>。</b>它是模型原始输出，必须保持不可变；分析师的修改只进
+        <code>analystFinalText</code>。</li>
+    </ul>
+  </section>
+
+  <div class="footer">
+    <span>AML Alert Triage</span>
+    <span>docs/ai-draft-rendering-plan.html</span>
+    <span>前置条件：main 分支 736b4d2 之后</span>
+  </div>
+
+</div>
