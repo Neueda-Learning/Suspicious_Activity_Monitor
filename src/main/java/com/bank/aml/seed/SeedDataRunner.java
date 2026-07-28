@@ -51,8 +51,10 @@ public class SeedDataRunner implements ApplicationRunner {
     private final CaseConsolidationService caseConsolidationService;
     private final AppProperties appProperties;
 
+    private static final long RANDOM_SEED = 42L;
+
     private final AtomicInteger txnSeq = new AtomicInteger(1000);
-    private final Random random = new Random(42);
+    private final Random random = new Random(RANDOM_SEED);
 
     @Override
     @Transactional
@@ -69,6 +71,9 @@ public class SeedDataRunner implements ApplicationRunner {
     @Transactional
     public Map<String, Long> seedAll() {
         log.info("Seeding AML demo data for {}", DEMO_DAY);
+        // Both generators must be rewound, not just the reference counter: otherwise every reset
+        // produces a different baseline, and with it a different ACME score.
+        random.setSeed(RANDOM_SEED);
         txnSeq.set(1000);
         List<CustomerEntity> customers = seedCustomers();
         seedBaselineTransactions(customers);
@@ -227,25 +232,23 @@ public class SeedDataRunner implements ApplicationRunner {
             assignAndSetSla(c, i < 2 ? -(2 + i) : (6 + i * 2));
         }
 
-        // one closed recent case for prior_recent_cases realism on a customer
+        // A closed case from three weeks ago, so prior_recent_cases is not always zero.
+        // It goes through the rule engine like every other case — its score is earned, not typed in.
         CustomerEntity closedCust = customers.get(30);
-        CaseEntity closed = new CaseEntity();
-        closed.setCaseRef("CASE-2026-0099");
-        closed.setCustomerId(closedCust.getId());
-        closed.setPriorityScore(48);
-        closed.setPriorityBand("AMBER");
-        closed.setStatus("CLOSED_NFA");
-        closed.setCrrReviewRequired(false);
-        closed.setPriorRecentCases(0);
-        closed.setAssignedTo(appProperties.getActor());
-        closed.setOpenedAt(DEMO_NOW.minus(20, ChronoUnit.DAYS));
-        closed.setDisposedAt(DEMO_NOW.minus(18, ChronoUnit.DAYS));
-        closed.setDisposedBy(appProperties.getActor());
-        closed.setDispositionReason("Activity explained by seasonal inventory restocking.");
-        closed.setSlaDueAt(DEMO_NOW.minus(19, ChronoUnit.DAYS));
-        closed.setWindowStart(closed.getOpenedAt().minus(24, ChronoUnit.HOURS));
-        closed.setWindowEnd(closed.getOpenedAt());
-        caseRepository.save(closed);
+        Instant closedAsOf = DEMO_NOW.minus(20, ChronoUnit.DAYS);
+        injectBehaviour(closedCust, Profile.DISPERSAL_NO_HIGH_RISK, closedAsOf.minus(2, ChronoUnit.HOURS), 99);
+        caseConsolidationService.evaluateAndConsolidate(closedCust.getId(), closedAsOf)
+                .ifPresent(closed -> {
+                    closed.setStatus("CLOSED_NFA");
+                    closed.setAssignedTo(appProperties.getActor());
+                    closed.setOpenedAt(closedAsOf);
+                    closed.setSlaDueAt(closedAsOf.plus(24, ChronoUnit.HOURS));
+                    closed.setDisposedAt(closedAsOf.plus(2, ChronoUnit.DAYS));
+                    closed.setDisposedBy(appProperties.getActor());
+                    closed.setDispositionReason("Activity explained by seasonal inventory restocking; "
+                            + "invoices and shipping documents obtained from the relationship manager.");
+                    caseRepository.save(closed);
+                });
     }
 
     /**

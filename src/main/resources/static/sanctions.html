@@ -59,6 +59,14 @@
           <td><span class="badge warn">Potential match</span></td>
           <td><button class="btn ghost" data-i="${i}" onclick="showHit(window._hits[+this.dataset.i])">Review</button></td>
         </tr>`).join('') || '<tr><td colspan="6" class="muted">No open potential matches</td></tr>';
+
+      // Arriving from a payment that was just held: open that hit instead of a list to search.
+      const wanted = Number(new URLSearchParams(location.search).get('hitId'));
+      const target = wanted ? hits.find(h => h.id === wanted) : null;
+      if (target) {
+        showHit(target);
+        detail.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     }
     window.showHit = function(h) {
       selected = h;

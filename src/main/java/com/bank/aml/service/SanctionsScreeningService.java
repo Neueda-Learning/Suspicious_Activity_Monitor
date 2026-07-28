@@ -249,17 +249,17 @@ public class SanctionsScreeningService {
         if (!RESOLVE.contains(req.outcome())) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "outcome must be FALSE_MATCH or TARGET_MATCH");
         }
-        SanctionsHitEntity hit = hitRepository.findById(id)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Hit not found"));
-        if (!"POTENTIAL_MATCH".equals(hit.getStatus())) {
+        if (hitRepository.findById(id).isEmpty()) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Hit not found");
+        }
+        // Single atomic claim: whoever flips POTENTIAL_MATCH first owns the outcome.
+        int claimed = hitRepository.resolveIfUnresolved(
+                id, req.outcome(), req.rationale(), appProperties.getActor(), Instant.now());
+        SanctionsHitEntity hit = hitRepository.findById(id).orElseThrow();
+        if (claimed == 0) {
             throw new ResponseStatusException(HttpStatus.CONFLICT,
                     "Hit already resolved as " + hit.getStatus());
         }
-        hit.setStatus(req.outcome());
-        hit.setResolutionRationale(req.rationale());
-        hit.setResolvedBy(appProperties.getActor());
-        hit.setResolvedAt(Instant.now());
-        hit = hitRepository.save(hit);
 
         // Carry the decision through to the payment itself, otherwise "held" is only a label.
         String paymentStatus = null;

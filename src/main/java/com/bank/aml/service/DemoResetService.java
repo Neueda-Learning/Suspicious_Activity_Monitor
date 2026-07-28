@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -18,6 +19,7 @@ import org.springframework.transaction.annotation.Transactional;
  * The same applies to disposed cases and accumulated AI drafts during a rehearsal.
  */
 @Service
+@Profile("demo")
 @RequiredArgsConstructor
 @Slf4j
 public class DemoResetService {

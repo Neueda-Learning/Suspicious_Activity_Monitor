@@ -10,19 +10,22 @@ import com.bank.aml.web.dto.SyncResponse;
 import jakarta.validation.Valid;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.server.ResponseStatusException;
 
 @RestController
 @RequiredArgsConstructor
 public class SanctionsController {
     private final SanctionsScreeningService sanctionsScreeningService;
-    private final DemoResetService demoResetService;
+    private final Optional<DemoResetService> demoResetService;
 
     @PostMapping("/api/payments")
     public PaymentResponse payment(@Valid @RequestBody PaymentRequest body) {
@@ -44,9 +47,15 @@ public class SanctionsController {
         return sanctionsScreeningService.syncListV2();
     }
 
-    /** Demo-only. Restores the opening state so the list-update beat survives a rehearsal. */
+    /**
+     * Demo-only, and enforced: the service bean exists only under the {@code demo} profile,
+     * so outside a demo run this endpoint cannot truncate anything.
+     */
     @PostMapping("/api/demo/reset")
     public Map<String, Object> reset() {
-        return demoResetService.reset();
+        return demoResetService
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND,
+                        "Reset is only available when the 'demo' profile is active"))
+                .reset();
     }
 }

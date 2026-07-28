@@ -96,7 +96,10 @@
         pResult.textContent = res.status === 'HELD'
           ? `Payment held pending review · hit #${res.sanctionsHitId}`
           : `Released · txn #${res.paymentTxnId}`;
-        if (res.status === 'HELD') setTimeout(() => location.href = '/sanctions.html', 900);
+        // Carry the hit id across so the reviewer lands on this payment rather than a list to search.
+        if (res.status === 'HELD') {
+          setTimeout(() => location.href = `/sanctions.html?hitId=${res.sanctionsHitId}`, 900);
+        }
       } catch (e) { pResult.textContent = e.message; }
     };
     load().catch(e => alert(e.message));
