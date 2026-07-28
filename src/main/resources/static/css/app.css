@@ -324,3 +324,31 @@ details.alert.flash {
   .totals, .grid-2, .grid-3 { grid-template-columns: 1fr; }
   .evidence-kv > div { grid-template-columns: 1fr; gap: 0.1rem; }
 }
+
+/* Failure banner. A suppressed alert() leaves a blank screen with no explanation —
+   the worst possible failure mode in front of an audience. */
+.page-error {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem 0.75rem;
+  margin: 0 0 1rem;
+  padding: 0.85rem 1.1rem;
+  border: 1px solid #f3b7bd;
+  border-left: 4px solid #b00020;
+  border-radius: 4px;
+  background: #fdf0f2;
+  color: #6d0715;
+  font-size: 0.92rem;
+}
+.page-error span { flex: 1 1 20rem; }
+.page-error button {
+  border: 1px solid #b00020;
+  background: transparent;
+  color: #b00020;
+  border-radius: 4px;
+  padding: 0.3rem 0.75rem;
+  font: inherit;
+  cursor: pointer;
+}
+.page-error button:hover { background: #b00020; color: #fff; }

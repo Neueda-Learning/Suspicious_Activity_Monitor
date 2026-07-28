@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Rule Stats — AML Alert Triage</title>
-  <link rel="stylesheet" href="/css/app.css" />
+  <link rel="stylesheet" href="/css/app.css?v=2" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 </head>
 <body>
@@ -23,7 +23,7 @@
     </div>
   </main>
   <footer class="footer">The system does not determine guilt. It identifies unusual activity and provides investigators with explainable evidence.</footer>
-  <script src="/js/api.js"></script>
+  <script src="/js/api.js?v=2"></script>
   <script>
     api('/api/stats/rules').then(data => {
       const rules = data.ruleTriggers || {};
@@ -43,7 +43,7 @@
           datasets: [{ data: Object.values(disp), backgroundColor: ['#0b1f33','#1f6b3a','#5b6b7c','#db0011'] }]
         }
       });
-    }).catch(e => alert(e.message));
+    }).catch(e => showPageError(e.message));
   </script>
 </body>
 </html>

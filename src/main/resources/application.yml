@@ -16,6 +16,14 @@ spring:
   jackson:
     serialization:
       write-dates-as-timestamps: false
+  web:
+    resources:
+      # Never cache the UI. A browser holding a stale js/css against freshly served HTML
+      # produces errors that look like application faults and cost real time to diagnose.
+      cache:
+        cachecontrol:
+          no-store: true
+          must-revalidate: true
 server:
   port: 8080
 aml:
