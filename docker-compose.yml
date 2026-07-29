@@ -26,6 +26,13 @@ services:
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/aml
       SPRING_DATASOURCE_USERNAME: aml
       SPRING_DATASOURCE_PASSWORD: aml
+      # Ollama runs on the developer machine; localhost inside this container would
+      # point back to the application container itself.
+      AML_OLLAMA_BASE_URL: http://host.docker.internal:11434
+      AML_OLLAMA_MODEL: qwen3:4b
+      AML_OLLAMA_TIMEOUT_MS: 60000
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     depends_on:
       postgres:
         condition: service_healthy

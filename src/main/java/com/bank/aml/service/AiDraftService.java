@@ -24,6 +24,7 @@ import java.util.Map;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.client.SimpleClientHttpRequestFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -91,10 +92,22 @@ public class AiDraftService {
             String llm = callOllama(input, template);
             if (llm != null && !llm.isBlank()) {
                 JsonNode parsed = Jsons.MAPPER.readTree(extractJson(llm));
-                if (parsed.has("narrative")) {
+                boolean validShape = parsed.path("narrative").isTextual()
+                        && parsed.path("confirmedObservations").isArray()
+                        && parsed.path("unexplainedQuestions").isArray()
+                        && parsed.path("suggestedNextChecks").isArray();
+                if (validShape) {
                     raw = Jsons.pretty(parsed);
                     fallbackUsed = false;
                     modelName = appProperties.getOllama().getModel();
+                } else {
+                    log.warn(
+                            "Ollama response did not match the required draft schema "
+                                    + "(narrative={}, observations={}, questions={}, checks={})",
+                            parsed.path("narrative").getNodeType(),
+                            parsed.path("confirmedObservations").getNodeType(),
+                            parsed.path("unexplainedQuestions").getNodeType(),
+                            parsed.path("suggestedNextChecks").getNodeType());
                 }
             }
         } catch (Exception ex) {
@@ -187,6 +200,9 @@ public class AiDraftService {
                 Keep narrative to 3-4 sentences.
                 Evidence IDs must be copied verbatim from the provided alert ruleCode/id or the
                 transaction txnRef values. Never invent an identifier.
+                confirmedObservations must be an array of objects. Every object must contain a
+                statement string and an evidenceIds array of strings. The other two list fields
+                must be arrays of strings.
                 Input evidence:
                 %s
                 """.formatted(Jsons.pretty(input));
@@ -195,13 +211,58 @@ public class AiDraftService {
         body.put("model", appProperties.getOllama().getModel());
         body.put("prompt", prompt);
         body.put("stream", false);
-        body.put("format", "json");
+        body.put("format", buildDraftSchema());
+        // qwen3:4b is a thinking-capable model. Disabling hidden reasoning keeps the
+        // response in the standard `response` field and reduces demo latency.
+        body.put("think", false);
         Map<String, Object> options = new HashMap<>();
         options.put("temperature", 0.2);
         body.put("options", options);
 
-        JsonNode resp = client.post().uri("/api/generate").body(body).retrieve().body(JsonNode.class);
+        JsonNode resp = client.post()
+                .uri("/api/generate")
+                .contentType(MediaType.APPLICATION_JSON)
+                .accept(MediaType.APPLICATION_JSON)
+                .body(body)
+                .retrieve()
+                .body(JsonNode.class);
         return resp == null ? null : resp.path("response").asText(null);
+    }
+
+    private ObjectNode buildDraftSchema() {
+        ObjectNode schema = Jsons.obj();
+        schema.put("type", "object");
+        schema.put("additionalProperties", false);
+        ObjectNode properties = schema.putObject("properties");
+
+        properties.putObject("narrative").put("type", "string");
+
+        ObjectNode observations = properties.putObject("confirmedObservations");
+        observations.put("type", "array");
+        ObjectNode observation = observations.putObject("items");
+        observation.put("type", "object");
+        observation.put("additionalProperties", false);
+        ObjectNode observationProperties = observation.putObject("properties");
+        observationProperties.putObject("statement").put("type", "string");
+        ObjectNode evidenceIds = observationProperties.putObject("evidenceIds");
+        evidenceIds.put("type", "array");
+        evidenceIds.putObject("items").put("type", "string");
+        observation.putArray("required").add("statement").add("evidenceIds");
+
+        ObjectNode questions = properties.putObject("unexplainedQuestions");
+        questions.put("type", "array");
+        questions.putObject("items").put("type", "string");
+
+        ObjectNode checks = properties.putObject("suggestedNextChecks");
+        checks.put("type", "array");
+        checks.putObject("items").put("type", "string");
+
+        schema.putArray("required")
+                .add("narrative")
+                .add("confirmedObservations")
+                .add("unexplainedQuestions")
+                .add("suggestedNextChecks");
+        return schema;
     }
 
     private static String extractJson(String text) {

@@ -31,7 +31,7 @@ aml:
   ollama:
     base-url: http://localhost:11434
     model: qwen3:4b
-    timeout-ms: 15000
+    timeout-ms: 60000
   sanctions:
     list-v1: classpath:sanctions/list-v1.json
     list-v2: classpath:sanctions/list-v2.json

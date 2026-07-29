@@ -203,9 +203,14 @@
           </div>`);
       }
 
+      const fallbackUsed = Boolean(draft && draft.modelMetadataJson
+        && draft.modelMetadataJson.fallbackUsed);
       parts.push(`
         <p class="draft-disclaimer">
-          AI-generated draft — not a conclusion. The analyst is accountable for the final assessment.
+          ${fallbackUsed
+            ? 'Offline template fallback — evidence-grounded, but not model-generated.'
+            : 'AI-generated draft — not a conclusion.'}
+          The analyst is accountable for the final assessment.
         </p>`);
 
       return `<div class="draft-structured">${parts.join('')}</div>`;
@@ -228,7 +233,8 @@
       if (!el || !draft) { if (el) el.textContent = ''; return; }
       const meta = draft.modelMetadataJson || {};
       const ms = meta.elapsedMs != null ? ` · ${meta.elapsedMs}ms` : '';
-      el.textContent = `Draft #${draft.id} · model=${meta.model || '—'}${ms}`;
+      const fallback = meta.fallbackUsed ? ' · template fallback' : '';
+      el.textContent = `Draft #${draft.id} · model=${meta.model || '—'}${fallback}${ms}`;
     }
 
     function paintDraftView() {
@@ -389,6 +395,7 @@
             <button class="btn secondary" id="genAi" type="button">Generate draft</button>
             <button class="btn" id="acceptAi" type="button" disabled>Accept</button>
           </div>
+          <p class="ai-progress" id="aiProgress" role="status" aria-live="polite" hidden></p>
           <div id="aiDraftView"></div>
         </section>
 
@@ -438,13 +445,44 @@
 
       document.getElementById('genAi').onclick = async () => {
         const genAi = document.getElementById('genAi');
+        const acceptAi = document.getElementById('acceptAi');
+        const progress = document.getElementById('aiProgress');
+        const startedAt = Date.now();
+        const originalLabel = genAi.textContent;
+        const stageTimers = [];
+
+        const setProgress = message => {
+          progress.textContent = message;
+          progress.hidden = false;
+        };
+
         genAi.disabled = true;
+        genAi.classList.add('is-loading');
+        genAi.textContent = 'Generating…';
+        acceptAi.disabled = true;
+        setProgress('Collecting case evidence…');
+        stageTimers.push(setTimeout(
+          () => setProgress('Generating draft with the configured model…'), 450));
+        stageTimers.push(setTimeout(
+          () => setProgress('Validating structure and evidence citations…'), 1250));
         try {
-          currentDraft = await api('/api/cases/' + id + '/ai-draft', { method: 'POST', body: '{}' });
+          const response = await api('/api/cases/' + id + '/ai-draft', { method: 'POST', body: '{}' });
+          const remaining = Math.max(0, 1800 - (Date.now() - startedAt));
+          if (remaining) await new Promise(resolve => setTimeout(resolve, remaining));
+          currentDraft = response;
           paintDraftView();
           await refreshAuditTrail();
         } catch (e) { showPageError(e.message); }
-        finally { genAi.disabled = false; }
+        finally {
+          stageTimers.forEach(clearTimeout);
+          progress.hidden = true;
+          genAi.classList.remove('is-loading');
+          genAi.textContent = originalLabel;
+          genAi.disabled = false;
+          if (currentDraft) {
+            acceptAi.disabled = currentDraft.status === 'ACCEPTED' || !draftJson;
+          }
+        }
       };
 
       document.getElementById('acceptAi').onclick = async () => {
