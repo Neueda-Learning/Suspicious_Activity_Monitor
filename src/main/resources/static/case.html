@@ -91,32 +91,32 @@
       const rows = [];
 
       if (a.ruleCode === 'R1') {
-        rows.push(['本笔 24h 流入', fmtMoney(ev.windowInboundGbp)]);
+        rows.push(['Inbound in this 24h window', fmtMoney(ev.windowInboundGbp)]);
         rows.push([
-          '90 天日流入中位数',
+          '90-day median daily inbound',
           `${fmtMoney(ev.baselineMedianGbp)}`
             + (ev.baselineInboundTxnCount != null
-              ? `  (${ev.baselineInboundTxnCount} 笔入账 / ${ev.baselineActiveDays} 个活跃日)`
+              ? `  (${ev.baselineInboundTxnCount} inbound transactions / ${ev.baselineActiveDays} active days)`
               : '')
         ]);
-        rows.push(['比值', ev.ratio != null ? `${Number(ev.ratio).toFixed(2)}×` : '—']);
+        rows.push(['Ratio', ev.ratio != null ? `${Number(ev.ratio).toFixed(2)}×` : '—']);
       } else if (a.ruleCode === 'R2') {
-        rows.push(['窗口流入', fmtMoney(ev.inboundGbp)]);
-        rows.push(['24h 内流出', fmtMoney(ev.outboundGbp)]);
-        rows.push(['分散比例', ev.dispersalRatio != null ? `${Number(ev.dispersalRatio).toFixed(2)}×` : '—']);
-        rows.push(['对手方数', ev.counterpartyCount != null ? String(ev.counterpartyCount) : '—']);
-        rows.push(['分散耗时', ev.hoursToDisperse != null ? `${Number(ev.hoursToDisperse).toFixed(1)} h` : '—']);
+        rows.push(['Window inbound', fmtMoney(ev.inboundGbp)]);
+        rows.push(['Outbound within 24h', fmtMoney(ev.outboundGbp)]);
+        rows.push(['Dispersal ratio', ev.dispersalRatio != null ? `${Number(ev.dispersalRatio).toFixed(2)}×` : '—']);
+        rows.push(['Counterparties', ev.counterpartyCount != null ? String(ev.counterpartyCount) : '—']);
+        rows.push(['Time to disperse', ev.hoursToDisperse != null ? `${Number(ev.hoursToDisperse).toFixed(1)} h` : '—']);
       } else if (a.ruleCode === 'R3') {
-        rows.push(['新对手方数', ev.newCount != null ? String(ev.newCount) : '—']);
+        rows.push(['New counterparties', ev.newCount != null ? String(ev.newCount) : '—']);
         if (Array.isArray(ev.newCounterparties) && ev.newCounterparties.length) {
-          rows.push(['新对手方', ev.newCounterparties.join(', ')]);
+          rows.push(['Counterparty references', ev.newCounterparties.join(', ')]);
         }
       } else if (a.ruleCode === 'R4') {
-        rows.push(['高风险辖区流出', fmtMoney(ev.valueToHighRisk)]);
-        rows.push(['窗口总流出', fmtMoney(ev.totalOutbound)]);
-        rows.push(['高风险笔数', ev.highRiskTransferCount != null ? String(ev.highRiskTransferCount) : '—']);
+        rows.push(['Outbound to higher-risk jurisdictions', fmtMoney(ev.valueToHighRisk)]);
+        rows.push(['Total window outbound', fmtMoney(ev.totalOutbound)]);
+        rows.push(['Higher-risk transfers', ev.highRiskTransferCount != null ? String(ev.highRiskTransferCount) : '—']);
         if (Array.isArray(ev.highRiskCountries) && ev.highRiskCountries.length) {
-          rows.push(['涉及国家', ev.highRiskCountries.join(', ')]);
+          rows.push(['Countries involved', ev.highRiskCountries.join(', ')]);
         }
       } else {
         Object.keys(ev).forEach(k => {
@@ -127,7 +127,7 @@
         });
       }
 
-      rows.push(['评分', `强度 ${a.strength}  ×  权重 ${weight}  =  ${a.points} 分`]);
+      rows.push(['Score', `Strength ${a.strength}  ×  weight ${weight}  =  ${a.points} points`]);
 
       return `<dl class="evidence-kv">${rows.map(([k, v]) =>
         `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`
