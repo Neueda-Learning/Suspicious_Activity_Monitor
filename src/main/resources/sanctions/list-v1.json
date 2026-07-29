@@ -21,6 +21,10 @@
         {
           "type": "asset_freeze",
           "source": "OpenSanctions / UK FCDO"
+        },
+        {
+          "type": "travel_ban",
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"

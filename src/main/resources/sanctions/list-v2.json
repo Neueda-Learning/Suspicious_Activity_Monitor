@@ -21,6 +21,10 @@
         {
           "type": "asset_freeze",
           "source": "OpenSanctions / UK FCDO"
+        },
+        {
+          "type": "travel_ban",
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-01-09T14:15:18Z"
@@ -3834,6 +3838,10 @@
           "type": "asset_freeze",
           "source": "OpenSanctions / UK FCDO",
           "note": "v2 addition for rescreen demo"
+        },
+        {
+          "type": "trust_services",
+          "source": "OpenSanctions / UK FCDO"
         }
       ],
       "sourceUpdatedAt": "2026-07-20T10:00:00Z"

@@ -11,8 +11,8 @@
     <div class="brand">AML Alert Triage <span>Sanctions Review</span></div>
     <nav class="nav">
       <a href="/">Case Queue</a>
-      <a class="active" href="/sanctions.html">Sanctions Review</a>
-      <a href="/stats.html">Rule Stats</a>
+      <a href="/demo.html">Live Demo</a>
+      <span class="nav-spacer" aria-hidden="true"></span>
     </nav>
   </header>
   <main class="wrap">
@@ -27,7 +27,11 @@
       <h2>Match detail #<span id="hitId"></span></h2>
       <table class="compare" id="cmp"></table>
       <h3>Listed measures</h3>
-      <pre class="evidence" id="measures"></pre>
+      <dl class="evidence-kv plain" id="measures"></dl>
+      <details class="raw-snapshot">
+        <summary>Raw listing snapshot</summary>
+        <pre class="evidence" id="measuresRaw"></pre>
+      </details>
       <label>Outcome</label>
       <select id="outcome">
         <option value="FALSE_MATCH">False match</option>
@@ -45,6 +49,24 @@
   <script src="/js/api.js?v=2"></script>
   <script>
     let selected = null;
+    function esc(s) {
+      return String(s).replace(/[&<>"']/g, c =>
+        ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+    }
+    // Restriction codes carried by the listing itself. Anything unmapped falls back to the
+    // raw code with underscores stripped, so a new measure type never renders as blank.
+    const MEASURE_LABELS = {
+      asset_freeze: 'Asset freeze',
+      travel_ban: 'Travel ban',
+      arms_embargo: 'Arms embargo',
+      transport_ban: 'Transport ban',
+      trust_services: 'Trust services restriction'
+    };
+    function measureLabel(type) {
+      if (!type) return 'Unspecified measure';
+      return MEASURE_LABELS[type]
+        || type.replace(/_/g, ' ').replace(/^./, c => c.toUpperCase());
+    }
     async function load() {
       const hits = (await api('/api/sanctions-hits?status=POTENTIAL_MATCH'))
         .filter(h => h.triggerType !== 'LIST_UPDATE_RESCREEN');
@@ -79,7 +101,13 @@
       }).join('');
       cmp.innerHTML = `<thead><tr><th>Attribute</th><th>Input</th><th>Listed</th><th>Result</th></tr></thead><tbody>${rowsHtml}</tbody>`;
       const snap = h.sanctionsEntrySnapshot || {};
-      measures.textContent = JSON.stringify(snap.measures || snap, null, 2);
+      const listed = Array.isArray(snap.measures) ? snap.measures : [];
+      measures.innerHTML = listed.length
+        ? listed.map(m =>
+            `<div><dt>${esc(measureLabel(m.type))}</dt><dd>${esc(m.source || '—')}</dd></div>`
+          ).join('')
+        : '<div><dt class="muted">No measures recorded on this listing</dt><dd></dd></div>';
+      measuresRaw.textContent = JSON.stringify(snap, null, 2);
     };
     resolveBtn.onclick = async () => {
       if (!selected) return;

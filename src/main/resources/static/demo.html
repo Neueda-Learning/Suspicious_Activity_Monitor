@@ -32,7 +32,6 @@
       border-radius: 6px; padding: 0.8rem 1rem; margin-bottom: 1rem; display: none;
     }
     .banner.show { display: block; }
-    .final-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
     .big-action { font-size: 1.05rem; padding: 0.8rem 1.6rem; }
     .spin { display: inline-block; width: 0.9em; height: 0.9em; border: 2px solid #fff;
       border-top-color: transparent; border-radius: 50%; animation: rot 0.7s linear infinite;
@@ -45,8 +44,6 @@
     <div class="brand">Live Demo <span>Two payments · two controls</span></div>
     <nav class="nav">
       <a href="/">Case Queue</a>
-      <a href="/sanctions.html">Sanctions Review</a>
-      <a href="/stats.html">Rule Stats</a>
       <a class="active" href="/demo.html">Live Demo</a>
       <button class="btn ghost" id="resetBtn" type="button" style="color:#fff;border-color:#3a5a7a">Reset demo</button>
     </nav>
@@ -90,16 +87,13 @@
       </p>
     </section>
 
-    <div class="final-cards">
-      <section class="panel result-card ok" id="cardFinalCase" style="display:none">
-        <h3>Case raised</h3>
-        <dl class="kv" id="kvFinalCase"></dl>
-      </section>
-      <section class="panel result-card hold" id="cardB" style="display:none">
-        <h3>Payment B — held before execution</h3>
-        <dl class="kv" id="kvB"></dl>
-      </section>
-    </div>
+    <section class="panel result-card hold" id="cardB" style="display:none">
+      <h3>Payment B — held before execution</h3>
+      <dl class="kv" id="kvB"></dl>
+      <p style="margin-top:0.7rem">
+        <a class="btn secondary" id="sanctionsLink" href="/sanctions.html" style="display:none">Review in Sanctions Review</a>
+      </p>
+    </section>
   </main>
 
   <footer class="footer">Two controls, two outcomes: transaction monitoring prioritises behaviour; sanctions screening gates the payment itself.</footer>
@@ -179,11 +173,6 @@
           <dt>Same payment, in evidence</dt><dd class="mono">${esc(c.focusTxnRef || '—')}</dd>
           <dt>Opened by</dt><dd>Monitoring run, as of ${ts(state.simulatedAsOf)}</dd>`;
         $('openCaseLink').href = `/case.html?id=${c.id}`;
-        $('cardFinalCase').style.display = '';
-        $('kvFinalCase').innerHTML = `
-          <dt>Case</dt><dd class="mono">${esc(c.caseRef)}</dd>
-          <dt>Priority</dt><dd><span class="band ${esc(c.priorityBand)}">${esc(c.priorityBand)}</span> · ${esc(c.priorityScore)}</dd>
-          <dt>What it means</dt><dd>Behaviour prioritised for investigation — every point traceable to a rule</dd>`;
       }
       const b = state.sanctionsHold;
       if (b) {
@@ -195,6 +184,9 @@
           <dt>Name similarity</dt><dd>${b.nameSimilarity != null ? esc(b.nameSimilarity) + ' (0–1 similarity, not an identity probability)' : '—'}</dd>
           <dt>Date of birth</dt><dd>${esc(b.dateOfBirthMatch)}</dd>
           <dt>Nationality</dt><dd>${esc(b.nationalityMatch)}</dd>`;
+        const sLink = $('sanctionsLink');
+        sLink.style.display = '';
+        if (b.hitId) sLink.href = `/sanctions.html?hitId=${b.hitId}`;
       }
     }
 
@@ -251,7 +243,7 @@
       showBanner('Full reset in progress — rebuilding customers, history and the case queue. This takes a few seconds.', false);
       try {
         await api('/api/demo/reset', { method: 'POST', body: '{}' });
-        ['cardA','cardActivity','cardCase','cardFinalCase','cardB'].forEach(id => $(id).style.display = 'none');
+        ['cardA','cardActivity','cardCase','cardB'].forEach(id => $(id).style.display = 'none');
         await loadState();
       } catch (e) {
         showBanner(e.message, false);
