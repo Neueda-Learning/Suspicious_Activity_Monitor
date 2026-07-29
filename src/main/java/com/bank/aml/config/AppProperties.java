@@ -18,7 +18,7 @@ public class AppProperties {
     public static class Ollama {
         private String baseUrl = "http://localhost:11434";
         private String model = "qwen3:4b";
-        private long timeoutMs = 15000;
+        private long timeoutMs = 60000;
     }
 
     @Getter

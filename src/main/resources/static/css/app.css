@@ -189,6 +189,34 @@ tr.focus-txn td { border-bottom: 1px solid #f0d9b5; }
   color: var(--muted);
   font-variant-numeric: tabular-nums;
 }
+.ai-progress {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  min-height: 1.5rem;
+  margin: 0.7rem 0 0;
+  color: var(--navy-2);
+  font-size: 0.86rem;
+  font-weight: 600;
+}
+.ai-progress[hidden] { display: none; }
+.ai-progress::before,
+.btn.is-loading::before {
+  content: "";
+  width: 0.85rem;
+  height: 0.85rem;
+  flex: none;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: ai-spin 0.7s linear infinite;
+}
+.btn.is-loading {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+@keyframes ai-spin { to { transform: rotate(360deg); } }
 .draft-structured {
   margin-top: 0.85rem;
   display: flex;

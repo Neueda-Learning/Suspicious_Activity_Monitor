@@ -55,7 +55,7 @@ list-update flow, which is only meaningful against a list that has not been sync
 
 ## Optional LLM
 
-Ollama at `localhost:11434` with model `qwen3:4b`. If unavailable, AI drafts silently fall back to the template (`fallbackUsed=true`).
+Ollama on the host at `localhost:11434` with model `qwen3:4b`. The Docker application reaches it through `host.docker.internal`. If unavailable, AI drafts fall back to the evidence-grounded template (`fallbackUsed=true`) and the UI labels the result as a template fallback.
 
 ## Demo notes
 
