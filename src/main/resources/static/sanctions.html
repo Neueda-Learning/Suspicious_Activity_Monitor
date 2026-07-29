@@ -13,13 +13,11 @@
       <a href="/">Case Queue</a>
       <a class="active" href="/sanctions.html">Sanctions Review</a>
       <a href="/stats.html">Rule Stats</a>
-      <button class="btn secondary" id="syncBtn" type="button">Sync list-v2</button>
     </nav>
   </header>
   <main class="wrap">
     <section class="panel">
       <h2>Potential sanctions matches</h2>
-      <p class="muted" id="syncMsg"></p>
       <table>
         <thead><tr><th>ID</th><th>Trigger</th><th>Screened name</th><th>Similarity</th><th>Status</th><th></th></tr></thead>
         <tbody id="rows"></tbody>
@@ -48,7 +46,8 @@
   <script>
     let selected = null;
     async function load() {
-      const hits = await api('/api/sanctions-hits?status=POTENTIAL_MATCH');
+      const hits = (await api('/api/sanctions-hits?status=POTENTIAL_MATCH'))
+        .filter(h => h.triggerType !== 'LIST_UPDATE_RESCREEN');
       window._hits = hits;
       rows.innerHTML = hits.map((h, i) => `
         <tr>
@@ -93,15 +92,6 @@
         detail.style.display = 'none';
         load();
       } catch (e) { resolveMsg.textContent = e.message; }
-    };
-    syncBtn.onclick = async () => {
-      syncBtn.disabled = true;
-      try {
-        const r = await api('/api/sanctions/sync', { method: 'POST', body: '{}' });
-        syncMsg.textContent = `Sync complete: added=${r.added}, updated=${r.updated}, rescreened=${r.customersRescreened}, new potential matches=${r.potentialMatchesCreated}`;
-        await load();
-      } catch (e) { syncMsg.textContent = e.message; }
-      finally { syncBtn.disabled = false; }
     };
     load().catch(e => showPageError(e.message));
   </script>
