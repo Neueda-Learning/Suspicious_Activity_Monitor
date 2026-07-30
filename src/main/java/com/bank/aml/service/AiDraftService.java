@@ -19,8 +19,11 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -56,30 +59,7 @@ public class AiDraftService {
         List<TransactionEntity> txns =
                 transactionRepository.findByCustomerIdAndExecutedAtBetween(c.getCustomerId(), ws, we);
 
-        ObjectNode input = Jsons.obj();
-        input.put("caseRef", c.getCaseRef());
-        input.put("priorityScore", c.getPriorityScore());
-        input.put("priorityBand", c.getPriorityBand());
-        input.put("customerRef", customer.getCustomerRef());
-        input.put("customerName", customer.getName());
-        input.put("crr", customer.getCrr());
-        input.set("alerts", Jsons.toTree(alerts.stream().map(a -> Map.of(
-                "id", a.getId(),
-                "ruleCode", a.getRuleCode(),
-                "ruleName", a.getRuleName(),
-                "points", a.getPoints(),
-                "strength", a.getStrength(),
-                "evidence", a.getEvidenceSnapshot()
-        )).toList()));
-        input.set("transactions", Jsons.toTree(txns.stream().map(t -> Map.of(
-                "id", t.getId(),
-                "txnRef", t.getTxnRef(),
-                "direction", t.getDirection(),
-                "amountGbp", t.getAmountGbp(),
-                "counterpartyName", t.getCounterpartyName() == null ? "" : t.getCounterpartyName(),
-                "counterpartyCountry", t.getCounterpartyCountry() == null ? "" : t.getCounterpartyCountry(),
-                "executedAt", t.getExecutedAt().toString()
-        )).toList()));
+        ObjectNode input = buildModelInput(c, customer, alerts, txns);
 
         ObjectNode template = buildTemplate(c, customer, alerts, txns);
         String raw = Jsons.pretty(template);
@@ -89,7 +69,7 @@ public class AiDraftService {
 
         Instant start = Instant.now();
         try {
-            String llm = callOllama(input, template);
+            String llm = callOllama(input);
             if (llm != null && !llm.isBlank()) {
                 JsonNode parsed = Jsons.MAPPER.readTree(extractJson(llm));
                 boolean validShape = parsed.path("narrative").isTextual()
@@ -97,7 +77,8 @@ public class AiDraftService {
                         && parsed.path("unexplainedQuestions").isArray()
                         && parsed.path("suggestedNextChecks").isArray();
                 if (validShape) {
-                    raw = Jsons.pretty(parsed);
+                    ObjectNode normalized = normalizeDraftCitations(parsed, alerts, txns);
+                    raw = Jsons.pretty(normalized);
                     fallbackUsed = false;
                     modelName = appProperties.getOllama().getModel();
                 } else {
@@ -117,7 +98,7 @@ public class AiDraftService {
 
         ObjectNode meta = Jsons.obj();
         meta.put("model", modelName);
-        meta.put("promptVersion", "v1");
+        meta.put("promptVersion", "v2");
         meta.put("temperature", 0.2);
         meta.put("elapsedMs", elapsed);
         meta.put("fallbackUsed", fallbackUsed);
@@ -133,6 +114,88 @@ public class AiDraftService {
         auditService.record("AI_DRAFT_GENERATED", "AI_DRAFT", draft.getId(),
                 Map.of("caseId", caseId, "fallbackUsed", fallbackUsed));
         return draft;
+    }
+
+    static ObjectNode buildModelInput(
+            CaseEntity c, CustomerEntity customer, List<AlertEntity> alerts, List<TransactionEntity> txns) {
+        ObjectNode input = Jsons.obj();
+        Map<Long, String> refById = new HashMap<>();
+        txns.forEach(t -> refById.put(t.getId(), t.getTxnRef()));
+        input.put("caseRef", c.getCaseRef());
+        input.put("priorityScore", c.getPriorityScore());
+        input.put("priorityBand", c.getPriorityBand());
+        input.put("customerRef", customer.getCustomerRef());
+        input.put("customerName", customer.getName());
+        input.put("crr", customer.getCrr());
+        input.set("alerts", Jsons.toTree(alerts.stream().map(a -> Map.of(
+                "evidenceId", alertEvidenceId(a),
+                "ruleCode", a.getRuleCode(),
+                "ruleName", a.getRuleName(),
+                "points", a.getPoints(),
+                "strength", a.getStrength(),
+                "evidence", modelEvidence(a, refById)
+        )).toList()));
+        input.set("transactions", Jsons.toTree(txns.stream().map(t -> Map.of(
+                "txnRef", t.getTxnRef(),
+                "direction", t.getDirection(),
+                "amountGbp", t.getAmountGbp(),
+                "counterpartyName", t.getCounterpartyName() == null ? "" : t.getCounterpartyName(),
+                "counterpartyCountry", t.getCounterpartyCountry() == null ? "" : t.getCounterpartyCountry(),
+                "executedAt", t.getExecutedAt().toString()
+        )).toList()));
+        return input;
+    }
+
+    private static JsonNode modelEvidence(AlertEntity alert, Map<Long, String> refById) {
+        JsonNode source = alert.getEvidenceSnapshot();
+        if (source == null || !source.isObject()) return source;
+
+        ObjectNode evidence = ((ObjectNode) source).deepCopy();
+        JsonNode transactionIds = evidence.remove("transactionIds");
+        if (transactionIds != null && transactionIds.isArray()) {
+            ArrayNode transactionRefs = Jsons.arr();
+            for (JsonNode id : transactionIds) {
+                String ref = refById.get(id.asLong());
+                if (ref != null) transactionRefs.add(ref);
+            }
+            evidence.set("transactionRefs", transactionRefs);
+        }
+        return evidence;
+    }
+
+    static ObjectNode normalizeDraftCitations(
+            JsonNode parsed, List<AlertEntity> alerts, List<TransactionEntity> txns) {
+        ObjectNode normalized = ((ObjectNode) parsed).deepCopy();
+        Map<String, String> canonicalByAlias = new LinkedHashMap<>();
+
+        alerts.forEach(a -> canonicalByAlias.put(alertEvidenceId(a), alertEvidenceId(a)));
+        txns.forEach(t -> canonicalByAlias.put(t.getTxnRef(), t.getTxnRef()));
+
+        // Older prompts exposed database primary keys. Prefer a matching transaction when an
+        // alert and transaction happen to share the same numeric ID, because transaction IDs
+        // were the values most often emitted as citations.
+        txns.forEach(t -> canonicalByAlias.put(String.valueOf(t.getId()), t.getTxnRef()));
+        alerts.forEach(a -> canonicalByAlias.putIfAbsent(
+                String.valueOf(a.getId()), alertEvidenceId(a)));
+
+        for (JsonNode observation : normalized.path("confirmedObservations")) {
+            if (!observation.isObject() || !observation.path("evidenceIds").isArray()) continue;
+            Set<String> seen = new LinkedHashSet<>();
+            ArrayNode evidenceIds = Jsons.arr();
+            for (JsonNode idNode : observation.path("evidenceIds")) {
+                if (!idNode.isTextual()) continue;
+                String supplied = idNode.asText().trim();
+                if (supplied.isEmpty()) continue;
+                String canonical = canonicalByAlias.getOrDefault(supplied, supplied);
+                if (seen.add(canonical)) evidenceIds.add(canonical);
+            }
+            ((ObjectNode) observation).set("evidenceIds", evidenceIds);
+        }
+        return normalized;
+    }
+
+    private static String alertEvidenceId(AlertEntity alert) {
+        return alert.getRuleCode() + "-ALERT-" + alert.getId();
     }
 
     private ObjectNode buildTemplate(
@@ -156,7 +219,7 @@ public class AiDraftService {
             obs.put("statement", a.getRuleName() + " contributed " + a.getPoints() + " points (strength "
                     + a.getStrength() + ").");
             ArrayNode ids = Jsons.arr();
-            ids.add(a.getRuleCode() + "-ALERT-" + a.getId());
+            ids.add(alertEvidenceId(a));
             if (a.getEvidenceSnapshot() != null && a.getEvidenceSnapshot().has("transactionIds")) {
                 for (JsonNode id : a.getEvidenceSnapshot().get("transactionIds")) {
                     String ref = refById.get(id.asLong());
@@ -182,7 +245,7 @@ public class AiDraftService {
         return out;
     }
 
-    private String callOllama(ObjectNode input, ObjectNode templateHint) {
+    private String callOllama(ObjectNode input) {
         SimpleClientHttpRequestFactory rf = new SimpleClientHttpRequestFactory();
         long timeout = appProperties.getOllama().getTimeoutMs();
         rf.setConnectTimeout(Duration.ofMillis(Math.min(timeout, 5000)));
@@ -198,8 +261,8 @@ public class AiDraftService {
                 modify CRR; declare money laundering / guilt; auto-submit SAR; modify rules.
                 Use cautious language: unusual activity, requires further investigation.
                 Keep narrative to 3-4 sentences.
-                Evidence IDs must be copied verbatim from the provided alert ruleCode/id or the
-                transaction txnRef values. Never invent an identifier.
+                Evidence IDs must be copied verbatim only from an alert evidenceId or a transaction
+                txnRef value. Never use a database ID, ruleCode by itself, or invent an identifier.
                 confirmedObservations must be an array of objects. Every object must contain a
                 statement string and an evidenceIds array of strings. The other two list fields
                 must be arrays of strings.

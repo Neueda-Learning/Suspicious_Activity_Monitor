@@ -6,6 +6,12 @@
       "runtimeExecutable": "bash",
       "runtimeArgs": ["-c", "export JAVA_HOME=$(/usr/libexec/java_home -v 17) && exec ./mvnw spring-boot:run -Dspring-boot.run.profiles=demo"],
       "port": 8080
+    },
+    {
+      "name": "ui-mockup",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "8090", "--directory", "docs/ui-mockup"],
+      "port": 8090
     }
   ]
 }

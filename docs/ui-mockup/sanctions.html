@@ -3,14 +3,6 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <script>
-    // Set the theme before first paint, or dark-mode users get a light flash.
-    (function () {
-      const saved = localStorage.getItem('aml-theme');
-      const dark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      document.documentElement.dataset.theme = saved || (dark ? 'dark' : 'light');
-    })();
-  </script>
   <title>Sanctions Review — AML Alert Triage</title>
   <link rel="stylesheet" href="assets/theme.css" />
 </head>
@@ -45,9 +37,9 @@
   <div id="footer"></div>
 
   <script src="assets/ui.js"></script>
-  <script src="assets/api.js"></script>
+  <script src="assets/mock-data.js"></script>
   <script>
-    mountShell({ active: 'sanctions', sub: 'Sanctions Review' },
+    mountShell({ active: 'queue', sub: 'Sanctions Review' },
       'The system does not determine guilt. It identifies unusual activity and provides investigators with explainable evidence.');
 
     // Restriction codes carried by the listing itself. Anything unmapped falls back to the
@@ -228,18 +220,8 @@
           return;
         }
         btn.classList.add('is-loading'); btn.disabled = true;
+        await mockFetch(null, 700);
         const outcome = document.querySelector('input[name="outcome"]:checked').value;
-        try {
-          await api(`/api/sanctions-hits/${selected.id}/resolve`, {
-            method: 'POST',
-            body: JSON.stringify({ outcome, rationale: ta.value.trim() })
-          });
-        } catch (err) {
-          btn.classList.remove('is-loading'); btn.disabled = false;
-          document.getElementById('resolveMsg').innerHTML =
-            `<span style="color:var(--red-fg);font-weight:600">${esc(err.message)}</span>`;
-          return;
-        }
         hits = hits.filter(x => x.id !== selected.id);
         selected = null;
         renderList();
@@ -254,14 +236,7 @@
           '<div class="sk" style="height:44px;margin-bottom:.5rem"></div>').join('')}</div>`;
       renderEmpty();
 
-      try {
-        hits = (await api('/api/sanctions-hits?status=POTENTIAL_MATCH'))
-          .filter(h => h.triggerType !== 'LIST_UPDATE_RESCREEN');
-      } catch (err) {
-        document.getElementById('hitList').innerHTML = '';
-        showPageError(err.message);
-        return;
-      }
+      hits = (await mockFetch(MOCK.hits, 420)).filter(h => h.triggerType !== 'LIST_UPDATE_RESCREEN');
       renderList();
 
       // Arriving from a payment that was just held: open that hit instead of a list to search.

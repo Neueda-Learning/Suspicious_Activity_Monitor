@@ -1,6 +1,7 @@
 package com.bank.aml.web.dto;
 
 import java.time.Instant;
+import java.util.List;
 
 public record CaseSummaryDto(
         Long id,
@@ -15,4 +16,5 @@ public record CaseSummaryDto(
         Instant slaDueAt,
         Instant openedAt,
         boolean overdue,
-        int alertCount) {}
+        int alertCount,
+        List<String> ruleCodes) {}

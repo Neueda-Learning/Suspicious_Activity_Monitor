@@ -3,14 +3,6 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <script>
-    // Set the theme before first paint, or dark-mode users get a light flash.
-    (function () {
-      const saved = localStorage.getItem('aml-theme');
-      const dark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      document.documentElement.dataset.theme = saved || (dark ? 'dark' : 'light');
-    })();
-  </script>
   <title>Rule Stats — AML Alert Triage</title>
   <link rel="stylesheet" href="assets/theme.css" />
 </head>
@@ -56,9 +48,9 @@
   <div id="footer"></div>
 
   <script src="assets/ui.js"></script>
-  <script src="assets/api.js"></script>
+  <script src="assets/mock-data.js"></script>
   <script>
-    mountShell({ active: 'stats', sub: 'Rule Stats' },
+    mountShell({ active: 'queue', sub: 'Rule Stats' },
       'The system does not determine guilt. It identifies unusual activity and provides investigators with explainable evidence.');
 
     const SLICE_COLORS = ['var(--green-dot)', 'var(--blue-dot)', 'var(--amber-dot)', 'var(--red-dot)'];
@@ -122,14 +114,7 @@
       document.getElementById('rulesChart').innerHTML = Array.from({ length: 4 }, () =>
         '<div class="sk" style="height:22px;margin-bottom:.7rem"></div>').join('');
 
-      let data;
-      try {
-        data = await api('/api/stats/rules');
-      } catch (err) {
-        document.getElementById('rulesChart').innerHTML = '';
-        showPageError(err.message);
-        return;
-      }
+      const data = await mockFetch(MOCK.stats, 450);
       renderRules(data.ruleTriggers || {});
       renderDispositions(data.dispositionDistribution || {});
     })();

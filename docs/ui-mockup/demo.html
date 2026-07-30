@@ -3,14 +3,6 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <script>
-    // Set the theme before first paint, or dark-mode users get a light flash.
-    (function () {
-      const saved = localStorage.getItem('aml-theme');
-      const dark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      document.documentElement.dataset.theme = saved || (dark ? 'dark' : 'light');
-    })();
-  </script>
   <title>Live Demo — AML in Action</title>
   <link rel="stylesheet" href="assets/theme.css" />
 </head>
@@ -114,7 +106,7 @@
   <div id="footer"></div>
 
   <script src="assets/ui.js"></script>
-  <script src="assets/api.js"></script>
+  <script src="assets/mock-data.js"></script>
   <script>
     mountShell({ active: 'demo', sub: 'Live Demo' },
       'Two controls, two outcomes: transaction monitoring prioritises behaviour; sanctions screening gates the payment itself.');
@@ -247,30 +239,17 @@
     }
 
     async function loadState() {
-      try {
-        state = await api('/api/demo/scenario');
-      } catch (err) {
-        showBanner(`${err.message} The scenario API exists only under the 'demo' profile — restart the app with SPRING_PROFILES_ACTIVE=demo.`, true);
-        return;
-      }
+      state = await mockFetch(MOCK.demoStates.READY, 350);
       hideBanner();
       renderSteps();
       renderResults();
     }
 
-    const STEP_ENDPOINTS = {
-      PAYMENT_A_RELEASED: '/api/demo/scenario/payment-a',
-      ACTIVITY_READY: '/api/demo/scenario/activity',
-      CASE_RAISED: '/api/demo/scenario/run-monitoring',
-      PAYMENT_B_HELD: '/api/demo/scenario/payment-b'
-    };
-
     $('mainBtn').onclick = async () => {
       if (busy) return;
       const idx = ORDER.indexOf(state.step);
       const nextKey = ORDER[idx + 1];
-      const endpoint = STEP_ENDPOINTS[nextKey];
-      if (!nextKey || !endpoint) return;
+      if (!nextKey) return;
 
       busy = true;
       const btn = $('mainBtn');
@@ -279,17 +258,7 @@
       const label = btn.textContent;
       btn.textContent = 'Working…';
 
-      try {
-        state = await api(endpoint, { method: 'POST' });
-      } catch (err) {
-        // Out-of-order or stale state: the banner offers a refresh back to server truth.
-        showBanner(err.message, true);
-        busy = false;
-        btn.classList.remove('is-loading');
-        btn.textContent = label;
-        btn.disabled = false;
-        return;
-      }
+      state = await mockFetch(MOCK.demoStates[nextKey], 900);
 
       busy = false;
       btn.classList.remove('is-loading');
@@ -306,14 +275,7 @@
       const btn = e.currentTarget;
       btn.classList.add('is-loading');
       showBanner('Full reset in progress — rebuilding customers, history and the case queue. This takes a few seconds.', false);
-      try {
-        await api('/api/demo/reset', { method: 'POST' });
-      } catch (err) {
-        showBanner(err.message, true);
-        busy = false;
-        btn.classList.remove('is-loading');
-        return;
-      }
+      await mockFetch(null, 1200);
       ['cardA', 'cardActivity', 'cardCase', 'cardB'].forEach(id => {
         $(id).hidden = true;
         $(id).classList.remove('reveal');

@@ -66,6 +66,7 @@ public class CaseService {
                 .sorted(cmp)
                 .map(c -> {
                     CustomerEntity cust = customerRepository.findById(c.getCustomerId()).orElse(null);
+                    List<AlertEntity> caseAlerts = alertRepository.findByCaseId(c.getId());
                     return new CaseSummaryDto(
                             c.getId(),
                             c.getCaseRef(),
@@ -79,7 +80,13 @@ public class CaseService {
                             c.getSlaDueAt(),
                             c.getOpenedAt(),
                             c.getSlaDueAt() != null && c.getSlaDueAt().isBefore(now) && "OPEN".equals(c.getStatus()),
-                            alertRepository.findByCaseId(c.getId()).size());
+                            caseAlerts.size(),
+                            caseAlerts.stream()
+                                    .map(AlertEntity::getRuleCode)
+                                    .filter(code -> code != null && !code.isBlank())
+                                    .distinct()
+                                    .sorted()
+                                    .toList());
                 })
                 .toList();
 

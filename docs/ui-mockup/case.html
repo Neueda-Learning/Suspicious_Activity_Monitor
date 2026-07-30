@@ -3,14 +3,6 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <script>
-    // Set the theme before first paint, or dark-mode users get a light flash.
-    (function () {
-      const saved = localStorage.getItem('aml-theme');
-      const dark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      document.documentElement.dataset.theme = saved || (dark ? 'dark' : 'light');
-    })();
-  </script>
   <title>Case Detail — AML Alert Triage</title>
   <link rel="stylesheet" href="assets/theme.css" />
 </head>
@@ -20,7 +12,7 @@
   <div id="footer"></div>
 
   <script src="assets/ui.js"></script>
-  <script src="assets/api.js"></script>
+  <script src="assets/mock-data.js"></script>
   <script>
     mountShell({ active: 'queue', sub: 'Case Detail' },
       'The system does not determine guilt. It identifies unusual activity and provides investigators with explainable evidence.');
@@ -30,7 +22,6 @@
     let draftJson = null;
     let editingNarrative = false;
     let evidenceIndex = {};
-    let evidenceLabels = {};
 
     const bandColor = b => `var(--${String(b).toLowerCase()}-dot)`;
 
@@ -137,37 +128,21 @@
 
     function buildEvidenceIndex() {
       evidenceIndex = {};
-      evidenceLabels = {};
       document.querySelectorAll('[data-txn-ref]').forEach(el => {
-        const ref = el.getAttribute('data-txn-ref');
-        const id = el.getAttribute('data-txn-id');
-        evidenceIndex[ref] = el;
-        evidenceLabels[ref] = ref;
-        // Compatibility for drafts generated before prompt v2, when the model could see DB IDs.
-        if (id) {
-          evidenceIndex[id] = el;
-          evidenceLabels[id] = ref;
-        }
+        evidenceIndex[el.getAttribute('data-txn-ref')] = el;
       });
       document.querySelectorAll('[data-alert-id]').forEach(el => {
         const aid = el.getAttribute('data-alert-id');
         const aref = el.getAttribute('data-alert-ref');
-        if (aref) {
-          evidenceIndex[aref] = el;
-          evidenceLabels[aref] = aref;
-        }
-        if (aid && !evidenceIndex[aid]) {
-          evidenceIndex[aid] = el;
-          evidenceLabels[aid] = aref || aid;
-        }
+        if (aid) evidenceIndex[aid] = el;
+        if (aref) evidenceIndex[aref] = el;
       });
     }
 
     function renderChip(evidenceId) {
       const hit = evidenceIndex[evidenceId];
-      const label = evidenceLabels[evidenceId] || evidenceId;
       return hit
-        ? `<button type="button" class="chip" data-jump="${esc(evidenceId)}">${ico('link')}${esc(label)}</button>`
+        ? `<button type="button" class="chip" data-jump="${esc(evidenceId)}">${ico('link')}${esc(evidenceId)}</button>`
         : `<span class="chip unverified" title="Not found in this case">${esc(evidenceId)} · unverified</span>`;
     }
 
@@ -447,7 +422,7 @@
                   </tr></thead>
                   <tbody>
                     ${d.timeline.map(t => `
-                      <tr data-txn-ref="${esc(t.txnRef)}" data-txn-id="${esc(t.id)}"${t.txnRef === focus ? ' class="focus-txn"' : ''}>
+                      <tr data-txn-ref="${esc(t.txnRef)}"${t.txnRef === focus ? ' class="focus-txn"' : ''}>
                         <td class="num" style="white-space:nowrap">${esc(fmtShort(t.executedAt))}</td>
                         <td>
                           <span class="mono">${esc(t.txnRef)}</span>
@@ -633,18 +608,10 @@
           return;
         }
         btn.classList.add('is-loading'); btn.disabled = true;
-        try {
-          await api(`/api/cases/${d.caseRecord.id}/disposition`, {
-            method: 'POST',
-            body: JSON.stringify({ decision, rationale: ta.value.trim() })
-          });
-          toast(`Disposition recorded — ${DISPOSITION_LABELS[decision]}`);
-          await load();
-        } catch (err) {
-          btn.classList.remove('is-loading'); btn.disabled = false;
-          document.getElementById('dispMsg').innerHTML =
-            `<span style="color:var(--red-fg);font-weight:600">${esc(err.message)}</span>`;
-        }
+        await mockFetch(null, 700);
+        btn.classList.remove('is-loading'); btn.disabled = false;
+        toast(`Disposition recorded — ${DISPOSITION_LABELS[decision]}`);
+        document.getElementById('dispMsg').textContent = 'Mockup only — no request was sent.';
       };
     }
 
@@ -663,17 +630,14 @@
         timers.push(setTimeout(() => setProgress('Generating draft with the configured model…'), 500));
         timers.push(setTimeout(() => setProgress('Validating structure and evidence citations…'), 1350));
 
-        try {
-          currentDraft = await api(`/api/cases/${d.caseRecord.id}/ai-draft`, { method: 'POST' });
-          paintDraftView();
-          toast('Draft generated');
-        } catch (err) {
-          showPageError('Could not generate the draft: ' + err.message);
-        } finally {
-          timers.forEach(clearTimeout);
-          progress.hidden = true;
-          genAi.classList.remove('is-loading'); genAi.textContent = original; genAi.disabled = false;
-        }
+        currentDraft = await mockFetch(MOCK.aiDraftResponse, 2100);
+        paintDraftView();
+
+        timers.forEach(clearTimeout);
+        progress.hidden = true;
+        genAi.classList.remove('is-loading'); genAi.textContent = original; genAi.disabled = false;
+        acceptAi.disabled = currentDraft.status === 'ACCEPTED' || !draftJson;
+        toast('Draft generated');
       };
 
       document.getElementById('acceptAi').onclick = async e => {
@@ -681,22 +645,29 @@
         const btn = e.currentTarget;
         btn.classList.add('is-loading'); btn.disabled = true;
         const next = { ...draftJson, narrative: currentNarrativeText() };
-        try {
-          await api(`/api/ai-drafts/${currentDraft.id}`, {
-            method: 'PUT',
-            body: JSON.stringify({ analystFinalText: JSON.stringify(next) })
-          });
-          toast('Draft accepted and recorded');
-          // Reload so the accepted banner and the new audit event come from the server.
-          await load();
-        } catch (err) {
-          btn.classList.remove('is-loading'); btn.disabled = false;
-          showPageError('Could not accept the draft: ' + err.message);
-        }
+        draftJson = next;
+        await mockFetch(null, 600);
+        currentDraft = {
+          ...currentDraft, status: 'ACCEPTED',
+          editedBy: 's.whitfield', editedAt: new Date().toISOString(),
+          analystFinalText: JSON.stringify(next)
+        };
+        paintDraftView();
+        btn.classList.remove('is-loading');
+        document.getElementById('acceptAi').disabled = true;
+
+        // Audit trail gains the accept event, as it does in the real app.
+        d.auditEvents = [...d.auditEvents, {
+          occurredAt: new Date().toISOString(), actor: 's.whitfield',
+          action: 'AI_DRAFT_EDITED_AND_ACCEPTED', detailsJson: { draftId: currentDraft.id }
+        }];
+        document.getElementById('auditBody').innerHTML = renderAudit(d.auditEvents);
+        document.getElementById('auditCount').textContent = `${d.auditEvents.length} events`;
+        toast('Draft accepted and recorded');
       };
     }
 
-    async function load() {
+    (async function load() {
       document.getElementById('app').innerHTML = `
         <div class="sk" style="height:96px;border-radius:var(--r-lg);margin-bottom:1.25rem"></div>
         <div class="cols">
@@ -706,22 +677,9 @@
           </div>
           <div class="sk" style="height:180px;border-radius:var(--r-lg)"></div>
         </div>`;
-      const id = new URLSearchParams(location.search).get('id');
-      if (!id) {
-        document.getElementById('app').innerHTML = '';
-        showPageError('No case id in the URL. Open a case from the Case Queue.');
-        return;
-      }
-      try {
-        d = await api(`/api/cases/${id}`);
-      } catch (err) {
-        document.getElementById('app').innerHTML = '';
-        showPageError(err.message);
-        return;
-      }
+      d = await mockFetch(MOCK.caseDetail, 480);
       render();
-    }
-    load();
+    })();
   </script>
 </body>
 </html>
