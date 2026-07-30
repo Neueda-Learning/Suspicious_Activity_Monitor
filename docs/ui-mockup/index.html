@@ -52,8 +52,8 @@
               <th class="sortable" data-key="caseRef">Case <span class="sort-ind">▼</span></th>
               <th class="sortable" data-key="customerName">Customer <span class="sort-ind">▼</span></th>
               <th class="sortable" data-key="priorityBand">Band <span class="sort-ind">▼</span></th>
-              <th class="sortable right" data-key="priorityScore">Score <span class="sort-ind">▼</span></th>
-              <th class="sortable right" data-key="alertCount">Alerts <span class="sort-ind">▼</span></th>
+              <th class="sortable score-col" data-key="priorityScore">Score <span class="sort-ind">▼</span></th>
+              <th class="sortable alerts-col" data-key="alertCount">Alerts <span class="sort-ind">▼</span></th>
               <th class="sortable" data-key="slaDueAt">SLA deadline <span class="sort-ind">▼</span></th>
               <th class="sortable" data-key="assignedTo">Assignee <span class="sort-ind">▼</span></th>
               <th style="width:32px"></th>
@@ -190,13 +190,13 @@
             <div class="sub-line mono">${esc(c.customerRef || '')}</div>
           </td>
           <td><span class="band ${c.priorityBand}"><i></i>${esc(bandLabel(c.priorityBand))}</span></td>
-          <td class="right">
-            <div class="score-cell" style="justify-content:flex-end">
+          <td class="score-col">
+            <div class="score-cell">
               <div class="score-bar"><span data-w="${c.priorityScore}%"></span></div>
               <b>${c.priorityScore}</b>
             </div>
           </td>
-          <td class="right num">${c.alertCount}</td>
+          <td class="alerts-col num">${c.alertCount}</td>
           <td>
             <div ${slaCls}>${esc(sla.text)}</div>
             <div class="sub-line num">${esc(fmtShort(c.slaDueAt))}</div>
